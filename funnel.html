@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beraterwahl – Geführter Weg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/funnel.css">
+</head>
+<body>
+
+<svg class="icon-sprite" aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-home" viewBox="0 0 24 24">
+    <path d="M4 11L12 5L20 11V19H4V11Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <path d="M9 19V13H15V19" stroke="currentColor" stroke-width="2" fill="none"/>
+  </symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24">
+    <path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M6 15L10 11L14 13L19 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24">
+    <path d="M12 4L19 7V12C19 16 15.5 19.5 12 20.5C8.5 19.5 5 16 5 12V7L12 4Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-list" viewBox="0 0 24 24">
+    <path d="M7 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M7 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M7 17H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="4" cy="7" r="1.5" fill="currentColor"/>
+    <circle cx="4" cy="12" r="1.5" fill="currentColor"/>
+    <circle cx="4" cy="17" r="1.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-rocket" viewBox="0 0 24 24">
+    <path d="M14 4C9 5 6 9 5 14L10 19C15 18 19 15 20 10C18.5 6.5 16.5 4.5 14 4Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <circle cx="14.5" cy="9.5" r="2" fill="currentColor"/>
+    <path d="M5 14L4 20L10 19" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-leaf" viewBox="0 0 24 24">
+    <path d="M5 18C12 18 18 12 18 5C10 5 5 10 5 18Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <path d="M8 15L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-compass" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M10 10L15 9L14 14L9 15L10 10Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-handshake" viewBox="0 0 24 24">
+    <path d="M8 12L11 9L13 11L15 9L18 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 12L7 16H11" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M21 12L17 16H13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-telescope" viewBox="0 0 24 24">
+    <path d="M4 14L16 9L19 13L7 18L4 14Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <path d="M12 16L14 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="18" cy="10" r="2" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-target" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-question" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M9.5 9.5C9.5 8.1 10.6 7 12 7C13.4 7 14.5 8.1 14.5 9.5C14.5 10.7 13.7 11.4 12.7 12.1C12.2 12.5 12 12.8 12 13.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24">
+    <path d="M12 4C8.7 4 6 6.7 6 10C6 14 12 20 12 20C12 20 18 14 18 10C18 6.7 15.3 4 12 4Z" stroke="currentColor" stroke-width="2" fill="none"/>
+    <circle cx="12" cy="10" r="2.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-laptop" viewBox="0 0 24 24">
+    <rect x="5" y="6" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M4 12H20" stroke="currentColor" stroke-width="2"/>
+    <path d="M12 4C9.5 6.5 9.5 17.5 12 20C14.5 17.5 14.5 6.5 12 4Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Berater<em>wahl</em></a>
+    <span class="nav-step" id="nav-step">Schritt 1 von 4</span>
+    <button class="nav-back" onclick="history.back()">← Zur Startseite</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══ LEFT PANEL ══ -->
+  <div class="f-left">
+    <div class="fl-top">
+      <div class="fl-tag">Geführter Weg</div>
+      <h1>Finde eine Einordnung,<br>die zu <em>dir</em> passt.</h1>
+      <p>Vier kurze Fragen. Kein Druck. Am Ende eine Einordnung für deinen nächsten Schritt.</p>
+    </div>
+
+    <div class="fl-steps">
+      <div class="fl-step active" id="ls1">
+        <div class="fl-step-num">
+          <span class="fl-step-num-val">1</span>
+          <span class="fl-step-done-icon">✓</span>
+        </div>
+        <div class="fl-step-body">
+          <div class="fl-step-label">Anlass</div>
+          <div class="fl-step-sub">Welche Situation trifft zu?</div>
+        </div>
+      </div>
+      <div class="fl-step" id="ls2">
+        <div class="fl-step-num">
+          <span class="fl-step-num-val">2</span>
+          <span class="fl-step-done-icon">✓</span>
+        </div>
+        <div class="fl-step-body">
+          <div class="fl-step-label">Vertiefung</div>
+          <div class="fl-step-sub">Wie fühlt es sich an?</div>
+        </div>
+      </div>
+      <div class="fl-step" id="ls3">
+        <div class="fl-step-num">
+          <span class="fl-step-num-val">3</span>
+          <span class="fl-step-done-icon">✓</span>
+        </div>
+        <div class="fl-step-body">
+          <div class="fl-step-label">Beratungsart</div>
+          <div class="fl-step-sub">Welche passt zu dir?</div>
+        </div>
+      </div>
+      <div class="fl-step" id="ls4">
+        <div class="fl-step-num">
+          <span class="fl-step-num-val">4</span>
+          <span class="fl-step-done-icon">✓</span>
+        </div>
+        <div class="fl-step-body">
+          <div class="fl-step-label">Format</div>
+          <div class="fl-step-sub">Wie möchtest du sprechen?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fl-trust">
+      <span class="fl-trust-item">Keine Registrierung</span>
+      <span class="fl-trust-item">Keine Weitergabe</span>
+      <span class="fl-trust-item">Kostenlos</span>
+    </div>
+  </div>
+
+  <!-- ══ RIGHT PANEL ══ -->
+  <div class="f-right">
+    <div class="fn-prog"><div class="fn-bar" id="fpf" style="width:25%"></div></div>
+
+    <!-- Step 1 -->
+    <div class="fn-step active" id="fs1">
+      <div class="fn-ql">Schritt 1 von 4</div>
+      <div class="fn-q">In welcher Situation befindest du dich gerade?</div>
+      <p class="fn-hint">Wähle den Anlass, der am ehesten zu deiner aktuellen Situation passt.</p>
+      <div class="fn-opts g2">
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="Hauskauf" data-label="Immobilie">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-home"></use></svg></div>
+          <div class="fn-ot"><strong>Immobilie kaufen oder bauen</strong><span>Hauskauf, Neubau, Anschlussfinanzierung oder Modernisierung</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="GeldVermehren" data-label="Altersvorsorge">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-chart"></use></svg></div>
+          <div class="fn-ot"><strong>Vermögen aufbauen oder Geld anlegen</strong><span>Investieren, ETFs, langfristige Planung</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="Absichern" data-label="Absicherung">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-shield"></use></svg></div>
+          <div class="fn-ot"><strong>Familiengründung oder Hochzeit</strong><span>Gemeinsame Finanzen, Verantwortung und Absicherung</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="FixkostenSenken" data-label="Versicherungs-Check">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-list"></use></svg></div>
+          <div class="fn-ot"><strong>Bestehendes prüfen oder optimieren</strong><span>Struktur, Verträge oder Kosten neu einordnen</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="Neustart" data-label="Berufliche Veränderung">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-rocket"></use></svg></div>
+          <div class="fn-ot"><strong>Selbstständigkeit oder Firmengründung</strong><span>Absicherung, Rücklagen, unternehmerische Risiken</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="anlass" data-tag="Erbe" data-label="Besondere Lebenslagen">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-leaf"></use></svg></div>
+          <div class="fn-ot"><strong>Erbe oder größere Geldsumme</strong><span>Einordnung, Struktur, sinnvolle Entscheidungen</span></div>
+        </button>
+      </div>
+      <div class="fn-footer">
+        <span></span>
+        <button class="fn-next-btn" id="fn1-next" onclick="nextStep()" type="button" disabled>Weiter</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="fn-step" id="fs2">
+      <div class="fn-ql">Schritt 2 von 4</div>
+      <div class="fn-q">Was beschreibt deine Situation aktuell am besten?</div>
+      <p class="fn-hint">Keine Fachsprache, kein Produktfokus – nur dein aktueller Stand.</p>
+      <div class="fn-opts">
+        <button type="button" class="fn-opt" data-key="ziel" data-tag="UberblickFehlt" data-label="Den Überblick gewinnen">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-compass"></use></svg></div>
+          <div class="fn-ot"><strong>Überblick verschaffen</strong><span>Ich möchte mir erst einen Überblick verschaffen.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="ziel" data-tag="Sicherheit" data-label="Ein konkretes Problem lösen">
+          <div class="fn-oi">✅</div>
+          <div class="fn-ot"><strong>Kurz vor einer Entscheidung</strong><span>Ich stehe kurz vor einer Entscheidung.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="ziel" data-tag="FixkostenSenken" data-label="Bestehendes optimieren">
+          <div class="fn-oi">⚙️</div>
+          <div class="fn-ot"><strong>Schon etwas umgesetzt</strong><span>Ich habe schon etwas umgesetzt, bin aber unsicher.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="ziel" data-tag="TraueNicht" data-label="Langfristige Begleitung">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-handshake"></use></svg></div>
+          <div class="fn-ot"><strong>Bestehendes überprüfen</strong><span>Ich möchte bestehende Entscheidungen überprüfen.</span></div>
+        </button>
+      </div>
+      <div class="fn-footer">
+        <button class="fn-back-btn" onclick="prevStep()" type="button">← Zurück</button>
+        <button class="fn-next-btn" id="fn2-next" onclick="nextStep()" type="button" disabled>Weiter</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="fn-step" id="fs3">
+      <div class="fn-ql">Schritt 3 von 4</div>
+      <div class="fn-q">Welche Art der Beratung passt am ehesten zu dir?</div>
+      <p class="fn-hint">Wenn du unsicher bist, erklären wir dir die Unterschiede in der Auswertung.</p>
+      <div class="fn-opts">
+        <button type="button" class="fn-opt" data-key="modell" data-tag="Honorar" data-label="Vertreter">
+          <div class="fn-oi">⚖️</div>
+          <div class="fn-ot"><strong>Vertreter einer Versicherung</strong><span>Arbeitet im Auftrag einer Versicherungsgesellschaft und erhält bei Abschluss eine Vermittlungsprovision von der Versicherung.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="modell" data-tag="Makler" data-label="Unabhängiger Makler">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-telescope"></use></svg></div>
+          <div class="fn-ot"><strong>Unabhängiger Makler</strong><span>Arbeitet im Auftrag des Versicherungsnehmers, kann aus vielen Anbietern wählen und erhält bei Abschluss eine Provision.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="modell" data-tag="Spezialist" data-label="Honorarberater">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-target"></use></svg></div>
+          <div class="fn-ot"><strong>Honorarberater</strong><span>Wird direkt von dir nach Stundensatz bezahlt. Keine Vermittlungsprovision, keine Produktbindung.</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="modell" data-tag="Egal" data-label="Noch unsicher">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-question"></use></svg></div>
+          <div class="fn-ot"><strong>Ich bin noch unsicher</strong><span>Die Auswertung hilft mir bei der Einordnung.</span></div>
+        </button>
+      </div>
+      <div class="fn-footer">
+        <button class="fn-back-btn" onclick="prevStep()" type="button">← Zurück</button>
+        <button class="fn-next-btn" id="fn3-next" onclick="nextStep()" type="button" disabled>Weiter</button>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="fn-step" id="fs4">
+      <div class="fn-ql">Schritt 4 von 4</div>
+      <div class="fn-q">Wie möchtest du beraten werden?</div>
+      <p class="fn-hint">Letzter Schritt – dann bekommst du deine Einordnung.</p>
+      <div class="fn-opts g3">
+        <button type="button" class="fn-opt" data-key="logistik" data-tag="vor_ort" data-label="Persönlich vor Ort">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-pin"></use></svg></div>
+          <div class="fn-ot"><strong>Persönlich vor Ort</strong><span>Fester Ansprechpartner in meiner Nähe</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="logistik" data-tag="digital" data-label="Digital">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-laptop"></use></svg></div>
+          <div class="fn-ot"><strong>Digital und ortsunabhängig</strong><span>Video-Calls, Telefon und digitale Prozesse</span></div>
+        </button>
+        <button type="button" class="fn-opt" data-key="logistik" data-tag="flexibel" data-label="Hauptsache Experte">
+          <div class="fn-oi" aria-hidden="true"><svg class="ico"><use href="#icon-globe"></use></svg></div>
+          <div class="fn-ot"><strong>Flexibel</strong><span>Das Format ist zweitrangig – die Expertise zählt</span></div>
+        </button>
+      </div>
+      <div id="plz-wrap" style="display:none;margin-top:14px;">
+        <div class="fn-loc">
+          <input type="text" id="fn-plz" placeholder="Stadt oder Postleitzahl">
+          <select><option>Umkreis 20 km</option><option>Umkreis 50 km</option><option>Umkreis 100 km</option></select>
+        </div>
+      </div>
+      <div class="fn-footer">
+        <button class="fn-back-btn" onclick="prevStep()" type="button">← Zurück</button>
+        <button class="fn-next-btn" id="fn4-next" onclick="showResult()" disabled>Auswertung anzeigen</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="fn-result" id="fn-result">
+      <div class="res-eyebrow">Deine Einordnung</div>
+      <div class="res-title" id="res-title">Deine Einordnung</div>
+
+      <div class="res-summary" id="res-summary"></div>
+
+      <div class="res-model" id="res-model"></div>
+
+      <div class="res-section-label">Zur Orientierung vor dem nächsten Schritt</div>
+      <div class="res-arts" id="res-arts"></div>
+
+      <div class="res-cta-block">
+        <div>
+          <h3>Passende Berater anzeigen</h3>
+          <p>Auf Basis deiner Antworten zeigt dir diese Auswertung, welche Art von Beratung zu deiner Situation passt.</p>
+        </div>
+        <a href="berater.html"><button class="res-cta-btn">Passende Berater anzeigen</button></a>
+      </div>
+
+      <button class="res-restart" onclick="restartFunnel()">↺ Neu starten</button>
+    </div>
+
+  </div><!-- /f-right -->
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="f-logo">Berater<em>wahl</em></div>
+    <small>Keine Anmeldung erforderlich · Keine Datenweitergabe · Kostenlos</small>
+  </div>
+</footer>
+
+<script src="assets/js/funnel.js" defer></script>
+</body>
+</html>

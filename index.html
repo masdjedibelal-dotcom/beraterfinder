@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beraterwahl – Beratung finden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="logo">Berater<em>wahl</em></div>
+    <ul class="nav-links">
+      <li><a href="berater.html">Berater finden</a></li>
+      <li><a href="#wissen">Wissen</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="nav-mobile">
+  <a href="berater.html" onclick="closeMenu()">Berater finden</a>
+  <a href="#wissen" onclick="closeMenu()">Wissensbasis</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="r r2">
+          Beratung finden,<br>
+          die zu dir passt.
+        </h1>
+
+        <p class="hero-sub r r3">
+          Beschreibe dein Thema. Du bekommst passende Profile – neutral und ohne Umwege.
+        </p>
+
+        <div class="hero-search r r3">
+          <input class="hs-input" type="text" placeholder="Worum geht’s? (z. B. BU, Vorsorge)" id="hs-input">
+          <div class="hs-divider"></div>
+          <select class="hs-city" id="hs-city" aria-label="Stadt">
+            <option value="">Alle Orte</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Bochum">Bochum</option>
+            <option value="Bonn">Bonn</option>
+            <option value="Bremen">Bremen</option>
+            <option value="Dortmund">Dortmund</option>
+            <option value="Dresden">Dresden</option>
+            <option value="Duisburg">Duisburg</option>
+            <option value="Düsseldorf">Düsseldorf</option>
+            <option value="Essen">Essen</option>
+            <option value="Frankfurt am Main">Frankfurt am Main</option>
+            <option value="Hamburg">Hamburg</option>
+            <option value="Hannover">Hannover</option>
+            <option value="Karlsruhe">Karlsruhe</option>
+            <option value="Köln">Köln</option>
+            <option value="Leipzig">Leipzig</option>
+            <option value="Mannheim">Mannheim</option>
+            <option value="München">München</option>
+            <option value="Nürnberg">Nürnberg</option>
+            <option value="Stuttgart">Stuttgart</option>
+            <option value="Wuppertal">Wuppertal</option>
+          </select>
+          <button class="hs-btn">Suchen</button>
+        </div>
+
+        <div class="hero-trust r r3">
+          <span class="ht-pill">Ohne Anmeldung</span>
+          <span class="ht-pill">Kostenlos</span>
+          <span class="ht-pill">Keine Weitergabe</span>
+        </div>
+
+        <a class="hero-guided r r4" href="funnel.html">
+          <div class="hg-ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6.5H18C19.3807 6.5 20.5 7.61929 20.5 9V13C20.5 14.3807 19.3807 15.5 18 15.5H12.2L8.5 18.5V15.5H6C4.61929 15.5 3.5 14.3807 3.5 13V9C3.5 7.61929 4.61929 6.5 6 6.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <circle cx="9" cy="11" r="1" fill="currentColor"/>
+              <circle cx="12" cy="11" r="1" fill="currentColor"/>
+              <circle cx="15" cy="11" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="hg-text">
+            <div class="hg-eyebrow">Geführter Weg</div>
+            <div class="hg-title">Vier Fragen. Erste Einordnung.</div>
+          </div>
+          <span class="hg-arrow">→</span>
+        </a>
+
+      </div>
+
+      <div class="hero-visual r r2">
+        <img src="assets/img/hero-advisors.svg" alt="Beraterlisten und Kategorien: Versicherungen, Immobilien, Finanzen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══ -->
+<section class="s-trust section">
+  <div class="wrap">
+    <div class="trust-grid r">
+      <div class="tc">
+        <div class="tc-num tc-ico" aria-hidden="true">
+          <svg width="88" height="88" viewBox="0 0 44 44" role="img" aria-label="">
+            <rect x="2.5" y="6.5" width="16" height="28" rx="8" fill="#EAF0ED" stroke="#D8E8E1"/>
+            <rect x="25.5" y="6.5" width="16" height="28" rx="8" fill="#F6EFE6" stroke="#E6D9C8"/>
+            <circle cx="10.5" cy="16.5" r="3.5" fill="#2C5545"/>
+            <circle cx="33.5" cy="16.5" r="3.5" fill="#9E6B30"/>
+            <rect x="7.5" y="23.5" width="6" height="6" rx="2" fill="#2C5545" fill-opacity="0.18"/>
+            <rect x="30.5" y="23.5" width="6" height="6" rx="2" fill="#9E6B30" fill-opacity="0.18"/>
+          </svg>
+        </div>
+        <h3 class="tc-title">Beratungsmodelle klar einordnen</h3>
+        <p>Makler, Honorarberater, Vermittler – du siehst die Unterschiede, bevor du auswählst.</p>
+      </div>
+      <div class="tc">
+        <div class="tc-num tc-ico" aria-hidden="true">
+          <svg width="88" height="88" viewBox="0 0 44 44" role="img" aria-label="">
+            <rect x="6.5" y="6.5" width="31" height="31" rx="10" fill="#F2F7F5" stroke="#D8E8E1"/>
+            <circle cx="17" cy="18" r="4" fill="#2C5545"/>
+            <circle cx="27" cy="20" r="3" fill="#2C5545" fill-opacity="0.45"/>
+            <path d="M12 30C14.5 26.5 19 25 22 25C25 25 29.5 26.5 32 30" stroke="#2C5545" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="tc-title">Profile mit klaren Infos</h3>
+        <p>Spezialisierung, Beratungsmodell, Bewertungen – ohne bezahlte Platzierungen.</p>
+      </div>
+      <div class="tc">
+        <div class="tc-num tc-ico" aria-hidden="true">
+          <svg width="88" height="88" viewBox="0 0 44 44" role="img" aria-label="">
+            <rect x="6.5" y="6.5" width="31" height="31" rx="10" fill="#F2F7F5" stroke="#D8E8E1"/>
+            <path d="M13 14H31" stroke="#2C5545" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 22H27" stroke="#2C5545" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 30H22" stroke="#2C5545" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="31" cy="30" r="3" fill="#2C5545"/>
+          </svg>
+        </div>
+        <h3 class="tc-title">Entscheidung bleibt bei dir</h3>
+        <p>Geführt oder direkt – du bestimmst Weg und Tempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AKTIVIERUNG ══ -->
+<section class="s-act section" id="aktivierung">
+  <div class="wrap">
+
+    <a href="funnel.html" class="einstieg-card r">
+      <div class="ec-left">
+        <div class="ec-steps">
+          <div class="ec-step"><div class="ec-num">1</div><span>Thema</span></div>
+          <div class="ec-step"><div class="ec-num">2</div><span>Ziel</span></div>
+          <div class="ec-step"><div class="ec-num">3</div><span>Modell</span></div>
+          <div class="ec-step"><div class="ec-num">4</div><span>Format</span></div>
+        </div>
+      </div>
+      <div class="ec-right">
+        <h2>Finde heraus, welches Modell zu dir passt.</h2>
+        <p>Vier Fragen. Du bekommst eine Einordnung und passende Artikel.</p>
+        <div class="ec-cta">Geführten Weg starten <span class="ec-arrow">→</span></div>
+      </div>
+    </a>
+
+    <div class="einstieg-or r">
+      <span class="eo-line"></span>
+      <span class="eo-label">oder</span>
+      <span class="eo-line"></span>
+    </div>
+
+    <a href="berater.html" class="einstieg-direct r">
+      <div class="ed-left">
+      <div class="ed-icon" aria-hidden="true">
+        <svg class="ico"><use href="assets/img/icons.svg#icon-search"></use></svg>
+      </div>
+        <div>
+          <div class="ed-title">Direkt suchen</div>
+          <div class="ed-sub">Nach Thema, Ort und Modell</div>
+        </div>
+      </div>
+      <span class="ed-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══ WISSENSBASIS ══ -->
+<section class="s-know section" id="wissen">
+  <div class="wrap">
+    <div class="know-head r">
+      <div class="know-head-l">
+        <div class="tag">Wissen</div>
+        <h2>Wissen zuerst.<br>Dann entscheiden.</h2>
+      </div>
+      <div class="know-head-r">
+        <a href="knowledge.html" class="btn btn-outline">Alle Artikel ansehen</a>
+        <button class="btn btn-primary" onclick="location.href='berater.html'">Berater anzeigen</button>
+      </div>
+    </div>
+
+    <div class="know-grid" id="know-grid">
+      <div class="kc lead r">
+        <div class="kc-visual kv-moss" aria-hidden="true">
+          <svg class="ico"><use href="assets/img/icons.svg#icon-leaf"></use></svg>
+        </div>
+        <div class="kc-body">
+          <p class="kc-cat">Beratungsmodelle</p>
+          <h3>Honorarberatung vs. Provision – Die Spielregeln verstehen</h3>
+          <p>Die wichtigste Information ist oft unsichtbar: Wie wird die Person bezahlt, die dir gegenübersteht? Ein sachlicher Überblick.</p>
+          <span class="kc-read">Weiterlesen</span>
+          <p class="kc-time">3,5 Min Lesezeit</p>
+        </div>
+      </div>
+
+      <div class="kc r2">
+        <div class="kc-visual kv-amber" aria-hidden="true">
+          <svg class="ico"><use href="assets/img/icons.svg#icon-shield"></use></svg>
+        </div>
+        <div class="kc-body">
+          <p class="kc-cat amber">Krankenversicherung</p>
+          <h3>PKV vs. GKV – Eine Lebensentscheidung, kein Tarifvergleich</h3>
+          <p>Die Frage wird oft auf Monatsbeiträge reduziert. Das greift zu kurz.</p>
+          <span class="kc-read">Weiterlesen</span>
+          <p class="kc-time">3,5 Min Lesezeit</p>
+        </div>
+      </div>
+
+      <div class="kc r3">
+        <div class="kc-visual kv-slate" aria-hidden="true">
+          <svg class="ico"><use href="assets/img/icons.svg#icon-home"></use></svg>
+        </div>
+        <div class="kc-body">
+          <p class="kc-cat muted">Immobilien</p>
+          <h3>Das Eigenkapital-Mysterium – Wie viel ist wirklich nötig?</h3>
+          <p>Was wirklich als Minimum gilt – und was bei einer 100%-Finanzierung zu beachten ist.</p>
+          <span class="kc-read">Weiterlesen</span>
+          <p class="kc-time">3 Min Lesezeit</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CLOSE ══ -->
+<section class="s-close section">
+  <div class="wrap">
+    <div class="close-in r">
+      <h2>Nächster Schritt, wenn du willst.</em></h2>
+      <p>Ohne Anmeldung. Du entscheidest.</p>
+      <div class="close-btns">
+        <button class="btn btn-primary" style="padding:15px 32px;font-size:.95rem;" onclick="location.href='berater.html'">Berater anzeigen</button>
+        <button class="btn btn-outline" style="padding:14px 30px;font-size:.95rem;" onclick="location.href='funnel.html'">Geführten Weg starten</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="f-logo">Berater<em>wahl</em></div>
+      <div class="f-links">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+      </div>
+      <small>© 2025 Beraterwahl GmbH</small>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/index.js" defer></script>
+</body>
+</html>

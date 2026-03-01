@@ -1,0 +1,94 @@
+/* Berater-Detail-Seite */
+.bd-main {
+  padding-top: calc(64px + clamp(32px, 5vw, 52px));
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+.bd-back {
+  display: inline-block;
+  font-size: .875rem; color: var(--muted);
+  margin-bottom: 24px; text-decoration: none;
+}
+.bd-back:hover { color: var(--moss); }
+
+.bd-header {
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.bd-name {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 400; letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+.bd-meta {
+  font-size: .95rem; color: var(--muted);
+  margin-bottom: 8px;
+}
+.bd-rating {
+  font-size: .9rem; color: var(--text-2);
+  margin-bottom: 20px;
+}
+.bd-rating strong { color: var(--text); font-weight: 700; }
+.bd-ctas {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.bd-btn {
+  display: inline-flex; align-items: center;
+  padding: 12px 24px; border-radius: 12px;
+  font-family: var(--sans); font-size: .9rem; font-weight: 600;
+  text-decoration: none; transition: background .15s;
+}
+.bd-btn-pri {
+  background: var(--moss); color: white; border: none;
+}
+.bd-btn-pri:hover { background: var(--moss-m); color: white; }
+.bd-btn-sec {
+  background: var(--white); color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.bd-btn-sec:hover { border-color: var(--moss); color: var(--moss); }
+
+.bd-section {
+  margin-bottom: 32px;
+}
+.bd-section h2 {
+  font-size: 1rem; font-weight: 700;
+  color: var(--text); margin-bottom: 12px;
+}
+.bd-einordnung {
+  font-size: .95rem; line-height: 1.7;
+  color: var(--text-2);
+}
+.bd-facts dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px 20px;
+  font-size: .9rem;
+}
+.bd-facts dt { color: var(--muted); font-weight: 500; }
+.bd-facts dd { color: var(--text); margin: 0; }
+.bd-facts a { color: var(--moss); }
+.bd-facts a:hover { text-decoration: underline; }
+@media (max-width: 520px) {
+  .bd-facts dl { grid-template-columns: 1fr; }
+}
+
+.bd-transparenz {
+  background: var(--moss-xl);
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+}
+.bd-trans-text {
+  font-size: .9rem; line-height: 1.65;
+  color: var(--text-2);
+  margin: 0;
+}
+
+#bd-notfound {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--muted);
+}
+#bd-notfound a { color: var(--moss); }

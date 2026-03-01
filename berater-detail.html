@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berater-Profil – Beraterwahl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/berater.css">
+<link rel="stylesheet" href="assets/css/berater-detail.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Berater<em>wahl</em></a>
+    <ul class="nav-links">
+      <li><a href="berater.html">Berater finden</a></li>
+      <li><a href="knowledge.html">Wissensbasis</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="berater.html" onclick="closeMenu()">Berater finden</a>
+  <a href="knowledge.html" onclick="closeMenu()">Wissensbasis</a>
+</div>
+
+<main class="wrap bd-main" id="bd-main">
+  <a href="berater.html" class="bd-back">← Zurück zur Liste</a>
+  <div id="bd-content"></div>
+  <div id="bd-notfound" style="display:none">
+    <p>Berater nicht gefunden.</p>
+    <a href="berater.html">Zur Beraterliste</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="f-logo">Berater<em>wahl</em></div>
+    <div class="f-links">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </div>
+    <small>© 2025 Beraterwahl GmbH</small>
+  </div>
+</footer>
+
+<script src="assets/js/berater.js"></script>
+<script src="assets/js/berater-detail.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissen – Beraterwahl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/knowledge.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Berater<em>wahl</em></a>
+    <button class="nav-back" onclick="history.back()">← Zur Startseite</button>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Startseite</a>
+  <a href="#artikel">Artikel</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-l r">
+      <div class="ph-tag">Wissensbasis</div>
+      <h1>Wissen, das<br><em>einordnet.</em></h1>
+      <p>20 kurze Artikel zu Versicherungen, Finanzen und Immobilien – sortiert nach dem, was du gerade brauchst.</p>
+    </div>
+    <div class="ph-r r">
+      <div class="ph-stats">
+        <div class="ph-stat">
+          <div class="ph-num">20</div>
+          <div class="ph-lbl">Artikel</div>
+        </div>
+        <div class="ph-stat">
+        <div class="ph-num">3–4</div>
+        <div class="ph-lbl">Min. Lesen</div>
+        </div>
+        <div class="ph-stat">
+        <div class="ph-num">0</div>
+        <div class="ph-lbl">Produktwerbung</div>
+        </div>
+      </div>
+      <p class="ph-r-text">Alle Artikel sind neutral geschrieben – ohne Produktempfehlungen und ohne Verkaufslogik. Ziel ist Einordnung, nicht Abschluss.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STICKY SEARCH + FILTER ══ -->
+<div class="know-search-bar">
+  <div class="ks-inner">
+    <div class="ks-input-wrap">
+      <span class="ks-icon" aria-hidden="true">
+        <svg class="ico"><use href="assets/img/icons.svg#icon-search"></use></svg>
+      </span>
+      <input class="ks-input" type="text" placeholder="Artikel suchen" id="art-search" oninput="filterArticles()">
+    </div>
+    <div class="ks-tabs">
+      <button class="kt on" onclick="setTab('alle', this)">Alle</button>
+      <button class="kt" onclick="setTab('immobilien', this)">Immobilien</button>
+      <button class="kt" onclick="setTab('altersvorsorge', this)">Altersvorsorge & Geldanlage</button>
+      <button class="kt" onclick="setTab('absicherung', this)">Absicherung</button>
+      <button class="kt" onclick="setTab('grundlagen', this)">Beratungsmodelle</button>
+      <button class="kt" onclick="setTab('neustart', this)">Neustart & Selbstständigkeit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ARTIKEL-SEKTIONEN ══ -->
+<div class="know-content" id="artikel">
+  <div class="wrap">
+    <div class="art-grid g3" id="grid-alle">
+
+      <div class="ac lead r" data-topics="grundlagen">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-leaf"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Grundlagenwissen</div>
+          <h3>Honorarberatung vs. Provision – Die Spielregeln verstehen</h3>
+          <p>Die wichtigste Information ist oft unsichtbar: Wie wird die Person bezahlt, die dir gegenübersteht? In Deutschland gibt es zwei Modelle – mit Folgen für deine Entscheidungen.</p>
+          <div class="ac-tags"><span class="ac-tag">Provisionen</span><span class="ac-tag">Honorar</span><span class="ac-tag">Interessenkonflikt</span></div>
+          <div class="ac-foot"><span class="ac-time">3,5 Min Lesezeit</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="altersvorsorge">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-chart"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Altersvorsorge</div>
+          <h3>Altersvorsorge – Warum Zeit wichtiger ist als Timing</h3>
+          <p>Wer heute vorsorgt, muss investieren – nicht nur sparen. Das Prinzip Weltportfolio erklärt.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="grundlagen">
+        <div class="ac-vis vis-slate" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-brain"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat muted">Psychologie</div>
+          <h3>Die Psychologie des Geldes – Warum wir oft falsch entscheiden</h3>
+          <p>Verlustaversion, Herdentrieb, Anker-Effekt – und wie ein Berater hilft.</p>
+          <div class="ac-foot"><span class="ac-time">4 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="immobilien">
+        <div class="ac-vis vis-amber" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-home"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Immobilien</div>
+          <h3>Baufinanzierung – Warum der Zins nicht alles ist</h3>
+          <p>Zinsbindung, Sondertilgung, Tilgungswechsel – das Korsett ist wichtiger als der Zinssatz.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="absicherung">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-shield"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Absicherung</div>
+          <h3>Berufsunfähigkeit – Die Versicherung für Ihr wertvollstes Gut</h3>
+          <p>Jeder vierte Erwerbstätige wird berufsunfähig. Worauf es bei einem guten Vertrag ankommt.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="absicherung">
+        <div class="ac-vis vis-blue">❤️</div>
+        <div class="ac-body">
+          <div class="ac-cat blue">Absicherung</div>
+          <h3>Risikolebensversicherung – Der Liebesbeweis auf Papier</h3>
+          <p>Für Familien und Paare mit gemeinsamen Krediten die wichtigste Absicherung.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="altersvorsorge">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-money"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Vermögen</div>
+          <h3>Inflation & Ihr Erspartes – Der leise Dieb</h3>
+          <p>Warum Sparen allein nicht reicht und Sachwerte schützen.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac lead r" data-topics="absicherung" style="grid-column: 1 / 3">
+        <div class="ac-vis vis-amber" style="height:160px" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-shield"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Krankenversicherung</div>
+          <h3>PKV vs. GKV – Eine Lebensentscheidung, kein Tarifvergleich</h3>
+          <p>Die Frage wird oft auf Monatsbeiträge reduziert. Das greift zu kurz. Was Systemlogik, Leistung und Rückkehrrisiken bedeuten.</p>
+          <div class="ac-tags"><span class="ac-tag">PKV</span><span class="ac-tag">GKV</span><span class="ac-tag">Systemlogik</span></div>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="grundlagen">
+        <div class="ac-vis vis-slate" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-search"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat muted">Zweitmeinung</div>
+          <h3>Die Zweitmeinung – Vertrauen ist gut, Prüfung ist besser</h3>
+          <p>Wann und warum eine neutrale Überprüfung sinnvoll ist.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="absicherung">
+        <div class="ac-vis vis-amber">⏱️</div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Absicherung</div>
+          <h3>Krankentagegeld – Die Lücke, die niemand sieht</h3>
+          <p>Nach 6 Wochen endet die Lohnfortzahlung. Die Lücke ist größer als gedacht.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="altersvorsorge">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-leaf"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Investieren</div>
+          <h3>Nachhaltiges Investieren (ESG) – Rendite mit Verantwortung</h3>
+          <p>ESG, Greenwashing und warum Nachhaltigkeit Risiko senkt.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="altersvorsorge">
+        <div class="ac-vis vis-slate" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-trophy"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat muted">Investieren</div>
+          <h3>Gold & Kryptowährungen – Anker oder Abenteuer?</h3>
+          <p>Gold stabilisiert, Krypto bleibt spekulativ – richtige Dosierung.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="neustart">
+        <div class="ac-vis vis-blue" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-building"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat blue">Vorsorge</div>
+          <h3>Betriebliche Altersvorsorge (bAV) – Geschenktes Geld?</h3>
+          <p>Zuschuss prüfen, Kosten verstehen, Nettoeffekt rechnen.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="absicherung neustart">
+        <div class="ac-vis vis-amber">⚖️</div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Erbschaft</div>
+          <h3>Erbengemeinschaft & Immobilie – Wenn das Erbe Fragen aufwirft</h3>
+          <p>Geschwister mit unterschiedlichen Zielen – Konflikte strukturiert lösen.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="immobilien">
+        <div class="ac-vis vis-amber" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-home"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Immobilien</div>
+          <h3>Das Eigenkapital-Mysterium – Wie viel ist wirklich nötig?</h3>
+          <p>Was wirklich als Minimum gilt und was bei 100%-Finanzierung zu beachten ist.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="immobilien">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-swap"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Immobilien</div>
+          <h3>Anschlussfinanzierung – Die Ruhe nach dem Zins-Schock</h3>
+          <p>Forward-Darlehen, Hausbank-Mythos und wie du Jahre an Kosten sparst.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="immobilien">
+        <div class="ac-vis vis-slate" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-wrench"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat muted">Immobilien</div>
+          <h3>Der Sanierungs-Fahrplan – Altbau mit Zukunft</h3>
+          <p>Pflicht, Fördergeld, Reihenfolge: Sanierung strategisch planen.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="absicherung">
+        <div class="ac-vis vis-moss" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-shield"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat moss">Absicherung</div>
+          <h3>Privathaftpflicht – Warum alte Verträge gefährlich sind</h3>
+          <p>Moderne Standards, Leistungslücken, richtige Deckungssumme.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="altersvorsorge">
+        <div class="ac-vis vis-blue" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-baby"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat blue">Vermögen</div>
+          <h3>Kinderdepots – Der Zinseszins als Erbe</h3>
+          <p>Früh starten schlägt hohe Raten – mit klaren Spielregeln.</p>
+          <div class="ac-foot"><span class="ac-time">3 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+      <div class="ac r" data-topics="neustart">
+        <div class="ac-vis vis-amber" aria-hidden="true"><svg class="ico"><use href="assets/img/icons.svg#icon-rocket"></use></svg></div>
+        <div class="ac-body">
+          <div class="ac-cat amber">Selbstständigkeit</div>
+          <h3>Selbstständig machen – Das finanzielle Sicherheitsnetz</h3>
+          <p>Die drei Säulen der Gründer-Absicherung – was wirklich wichtig ist.</p>
+          <div class="ac-foot"><span class="ac-time">3,5 Min</span><span class="ac-read">Weiterlesen</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA ══ -->
+<section class="know-cta-section">
+  <div class="wrap">
+    <h2>Nächster Schritt</h2>
+    <p>Wenn du möchtest, kannst du direkt passende Berater ansehen.</p>
+    <div class="cta-btns">
+      <button class="btn-white" onclick="location.href='berater.html'">Berater anzeigen</button>
+      <a href="index.html"><button class="btn-wout">Zur Startseite</button></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="f-logo">Berater<em>wahl</em></div>
+    <div class="f-links">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </div>
+    <small>© 2025 Beraterwahl GmbH</small>
+  </div>
+</footer>
+
+<script src="assets/js/knowledge.js" defer></script>
+</body>
+</html>

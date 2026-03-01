@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honorarberatung vs. Provision – Wissensbasis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#FAFAF8;--white:#FFF;--surface:#F4F2EE;--border:#E4E1DC;--border-l:#EDEBE7;
+  --text:#141412;--text-2:#5C5B57;--muted:#9B9A96;--moss:#2C5545;--moss-l:#EAF0ED;--moss-xl:#F2F7F5;
+  --amber:#9E6B30;--amber-l:#F6EFE6;--serif:'Instrument Serif',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;
+  --px:clamp(20px,5vw,60px);--max:1160px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
+.ico{width:1.2em;height:1.2em;display:block}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,250,248,.92);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .25s}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--px);display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.logo{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--text);letter-spacing:-.01em;flex-shrink:0}
+.logo em{font-style:italic;color:var(--moss)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.875rem;color:var(--text-2);font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:20px var(--px);z-index:199;flex-direction:column}
+.nav-mobile.open{display:flex}
+.nav-mobile a{display:block;padding:14px 0;font-size:1rem;font-weight:500;color:var(--text);border-bottom:1px solid var(--border-l)}
+.nav-mobile a:last-of-type{border-bottom:none}
+@media(max-width:768px){.nav-links{display:none}.nav-burger{display:flex}}
+.progress-bar{position:fixed;top:64px;left:0;right:0;z-index:199;height:2px;background:var(--border)}
+.progress-fill{height:100%;background:var(--moss);width:0%;transition:width .1s linear}
+.art-header{padding-top:calc(64px + clamp(40px,6vw,72px));padding-bottom:clamp(32px,4vw,52px);padding-left:var(--px);padding-right:var(--px);background:var(--bg);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.art-header::before{content:'';position:absolute;right:-5%;top:-20%;width:50%;height:140%;background:radial-gradient(ellipse 70% 80% at 70% 50%,rgba(44,85,69,.05) 0%,transparent 60%);pointer-events:none}
+.art-header-in{max-width:760px}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);margin-bottom:24px;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted);transition:color .15s}
+.breadcrumb a:hover{color:var(--moss)}
+.breadcrumb-sep{color:var(--border)}
+.breadcrumb-cur{color:var(--text-2)}
+.art-cat-row{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.art-cat{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--moss-l);color:var(--moss)}
+.art-series{font-size:.78rem;color:var(--text-2);display:flex;align-items:center;gap:5px}
+.art-series::before{content:'·';color:var(--muted)}
+.art-header h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:400;line-height:1.1;letter-spacing:-.025em;margin-bottom:20px}
+.art-header h1 em{font-style:italic;color:var(--moss)}
+.art-header .art-intro{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--text-2);line-height:1.7;max-width:620px;margin-bottom:28px}
+.art-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.art-meta-item{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--border)}
+.art-layout{display:grid;grid-template-columns:1fr 280px;gap:clamp(36px,5vw,72px);max-width:var(--max);margin:0 auto;padding:clamp(36px,5vw,64px) var(--px);align-items:start}
+.art-body{min-width:0}
+.prose{font-size:1rem;line-height:1.82;color:var(--text-2)}
+.prose p{margin-bottom:1.5em}
+.prose p:last-child{margin-bottom:0}
+.prose h2{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:400;color:var(--text);letter-spacing:-.02em;line-height:1.2;margin-top:2.4em;margin-bottom:.8em}
+.prose h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-top:1.8em;margin-bottom:.5em;letter-spacing:-.01em}
+.prose strong{color:var(--text);font-weight:600}
+.prose ul,.prose ol{padding-left:1.4em;margin-bottom:1.5em}
+.prose li{margin-bottom:.5em}
+.prose li::marker{color:var(--moss)}
+.prose blockquote{border-left:3px solid var(--moss);padding:14px 0 14px 22px;margin:2em 0;color:var(--text-2)}
+.prose blockquote p{font-family:var(--serif);font-size:1.15rem;font-style:italic;line-height:1.6;margin-bottom:0;color:var(--text)}
+.info-box{background:var(--moss-xl);border:1px solid var(--moss-l);border-radius:14px;padding:22px 24px;margin:2em 0}
+.info-box-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.info-box-label::before{content:'';width:14px;height:1.5px;background:currentColor;display:block}
+.info-box p{font-size:.9rem;line-height:1.72;color:var(--text-2);margin-bottom:0}
+.info-box strong{color:var(--text)}
+.warn-box{background:var(--amber-l);border:1px solid rgba(158,107,48,.18);border-radius:14px;padding:20px 22px;margin:2em 0}
+.warn-box p{font-size:.9rem;line-height:1.7;color:var(--text-2);margin-bottom:0}
+.warn-box strong{color:var(--amber)}
+.compare-table{width:100%;border-collapse:collapse;margin:2em 0;font-size:.88rem;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.compare-table th{background:var(--surface);padding:13px 16px;font-weight:600;font-size:.78rem;letter-spacing:.04em;text-align:left;color:var(--text-2);border-bottom:1px solid var(--border)}
+.compare-table td{padding:13px 16px;border-bottom:1px solid var(--border-l);vertical-align:top;line-height:1.55;color:var(--text-2)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:var(--moss-xl)}
+.compare-table td:first-child{font-weight:600;color:var(--text);white-space:nowrap}
+.ct-yes{color:var(--moss);font-weight:600}
+.ct-no{color:var(--muted)}
+.key-takeaway{background:var(--moss);border-radius:16px;padding:26px 28px;margin:2.5em 0;display:flex;gap:16px;align-items:flex-start}
+.kt-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.kt-icon .ico{width:20px;height:20px;color:white}
+.kt-body{flex:1}
+.kt-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
+.kt-text{font-size:.95rem;color:rgba(255,255,255,.88);line-height:1.72}
+.kt-text strong{color:white}
+.art-divider{border:none;border-top:1px solid var(--border-l);margin:2.5em 0}
+.art-sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:88px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:20px 22px}
+.toc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.toc-label::before{content:'';width:14px;height:1.5px;background:currentColor;display:block}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-item a{display:block;padding:6px 10px;border-radius:8px;font-size:.82rem;color:var(--text-2);transition:all .15s;border-left:2px solid transparent}
+.toc-item a:hover{background:var(--surface);color:var(--moss);border-left-color:var(--moss)}
+.toc-item.active a{background:var(--moss-l);color:var(--moss);border-left-color:var(--moss);font-weight:600}
+.art-info-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+.aic-row{display:flex;align-items:flex-start;gap:10px}
+.aic-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.aic-icon .ico{width:16px;height:16px;color:var(--moss)}
+.aic-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.aic-val{font-size:.84rem;color:var(--text-2);line-height:1.5}
+.sidebar-cta{background:var(--moss);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.scta-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.scta-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:white;line-height:1.25}
+.scta-desc{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.65}
+.scta-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px 20px;border-radius:999px;background:white;color:var(--moss);border:none;font-size:.875rem;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .18s}
+.scta-btn:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
+.sidebar-funnel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.sf-tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sf-title{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.35}
+.sf-desc{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.sf-btn{display:flex;align-items:center;gap:7px;padding:11px 18px;border-radius:999px;background:var(--white);border:1.5px solid var(--border);color:var(--text);font-size:.84rem;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .18s}
+.sf-btn:hover{border-color:var(--moss);color:var(--moss)}
+.art-footer-section{border-top:1px solid var(--border);background:var(--white);padding:clamp(40px,6vw,64px) 0}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.art-tag{padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface);font-size:.78rem;color:var(--text-2);cursor:pointer;transition:all .15s}
+.art-tag:hover{border-color:var(--moss);color:var(--moss)}
+.art-share{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--border-l)}
+.art-share-label{font-size:.82rem;color:var(--muted);font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--border);background:var(--white);font-size:.8rem;font-weight:600;color:var(--text-2);cursor:pointer;font-family:var(--sans);transition:all .15s}
+.share-btn .ico{width:14px;height:14px;color:var(--text-2)}
+.share-btn:hover{border-color:var(--moss);color:var(--moss)}
+.related-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;margin-top:32px;display:flex;align-items:center;gap:7px}
+.related-label::before{content:'';width:14px;height:1.5px;background:currentColor;display:block}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.related-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:8px}
+.related-card:hover{background:var(--white);border-color:rgba(44,85,69,.25);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.rc-cat{font-size:.63rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--moss)}
+.rc-title{font-size:.875rem;font-weight:600;color:var(--text);line-height:1.35}
+.rc-time{font-size:.72rem;color:var(--muted);margin-top:auto}
+.rc-read{font-size:.78rem;font-weight:600;color:var(--moss)}
+.art-back-row{display:flex;align-items:center;justify-content:space-between;padding-top:32px;flex-wrap:wrap;gap:14px}
+.back-link{display:inline-flex;align-items:center;gap:7px;font-size:.875rem;color:var(--text-2);font-weight:500;transition:color .15s}
+.back-link:hover{color:var(--moss)}
+.next-art{display:inline-flex;align-items:center;gap:7px;font-size:.875rem;font-weight:600;color:var(--text);transition:color .15s}
+.next-art:hover{color:var(--moss)}
+footer{background:var(--white);border-top:1px solid var(--border);padding:clamp(24px,3.5vw,40px) 0}
+footer .wrap{padding:0 var(--px)}
+footer .footer-inner{max-width:none;margin:0;padding:0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.f-logo{font-family:var(--serif);font-size:1.1rem}
+.f-logo em{font-style:italic;color:var(--moss)}
+.f-links{display:flex;gap:22px;flex-wrap:wrap}
+.f-links a{font-size:.8rem;color:var(--muted);transition:color .15s}
+.f-links a:hover{color:var(--text)}
+footer small{font-size:.75rem;color:var(--muted)}
+@media(max-width:900px){.art-layout{grid-template-columns:1fr}.art-sidebar{position:static}.toc{display:none}}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}.art-header h1{font-size:1.9rem}}
+@media(max-width:480px){.compare-table{font-size:.78rem}.compare-table th,.compare-table td{padding:10px 12px}}
+.r{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.r.in{opacity:1;transform:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+</style>
+</head>
+<body>
+
+<div id="app">
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Berater<em>wahl</em></a>
+    <ul class="nav-links">
+      <li><a href="berater.html">Berater anzeigen</a></li>
+      <li><a href="knowledge.html">Wissensbasis</a></li>
+      <li><a href="funnel.html">Geführter Weg</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="berater.html" onclick="closeMenu()">Berater anzeigen</a>
+  <a href="knowledge.html" onclick="closeMenu()">Wissensbasis</a>
+  <a href="funnel.html" onclick="closeMenu()">Geführter Weg</a>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<header class="art-header">
+  <div class="art-header-in">
+    <nav class="breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="knowledge.html">Wissensbasis</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-cur">Grundlagen</span>
+    </nav>
+    <div class="art-cat-row">
+      <span class="art-cat">Grundlagen · Verstehen</span>
+      <span class="art-series">Artikel 1 von 20</span>
+    </div>
+    <h1 class="r">Honorarberatung vs. Provision –<br><em>Die Spielregeln verstehen</em></h1>
+    <p class="art-intro r">Die wichtigste Information ist oft unsichtbar: Wie wird die Person bezahlt, die Ihnen gegenübersteht? Diese Frage hilft Ihnen bei der Einordnung.</p>
+    <div class="art-meta r">
+      <span class="art-meta-item">⏱ Lesezeit: 3,5 Min</span>
+      <span class="art-meta-dot"></span>
+      <span class="art-meta-item">Zuletzt aktualisiert: März 2025</span>
+      <span class="art-meta-dot"></span>
+      <span class="art-meta-item">Ohne Werbung</span>
+    </div>
+  </div>
+</header>
+
+<div class="art-layout">
+  <article class="art-body">
+    <div class="prose"><!-- filled by JS --></div>
+  </article>
+  <aside class="art-sidebar">
+    <div class="toc">
+      <div class="toc-label">Inhalt</div>
+      <ul class="toc-list"><!-- filled by JS --></ul>
+    </div>
+    <div class="art-info-card">
+      <div class="aic-row"><span class="aic-icon">📁</span><div><div class="aic-label">Kategorie</div><div class="aic-val">Grundlagenwissen</div></div></div>
+      <div class="aic-row"><span class="aic-icon">⏱</span><div><div class="aic-label">Lesezeit</div><div class="aic-val">ca. 3,5 Min</div></div></div>
+      <div class="aic-row"><span class="aic-icon">🎯</span><div><div class="aic-label">Geeignet für</div><div class="aic-val">Alle, die Beratung zum ersten Mal nutzen</div></div></div>
+      <div class="aic-row"><span class="aic-icon">🚫</span><div><div class="aic-label">Ohne Werbung</div><div class="aic-val">Neutral, ohne Produktplatzierung</div></div></div>
+    </div>
+    <div class="sidebar-funnel">
+      <div class="sf-tag">Geführter Weg</div>
+      <div class="sf-title">Einordnung in vier Fragen</div>
+      <div class="sf-desc">Ohne Anmeldung. Keine Weitergabe Ihrer Daten.</div>
+      <a href="funnel.html"><button class="sf-btn">Geführten Weg starten</button></a>
+    </div>
+    <div class="sidebar-cta">
+      <div class="scta-label">Direkt suchen</div>
+      <div class="scta-title">Berater in Ihrer Nähe anzeigen</div>
+      <div class="scta-desc">Filtern Sie nach Modell, Region und Schwerpunkt.</div>
+      <a href="berater.html"><button class="scta-btn">Berater anzeigen</button></a>
+    </div>
+  </aside>
+</div>
+
+<section class="art-footer-section">
+  <div class="wrap">
+    <div class="art-tags" id="art-tags"></div>
+    <div class="art-share">
+      <span class="art-share-label">Teilen:</span>
+      <button class="share-btn" onclick="navigator.clipboard?.writeText(location.href)">📋 Link kopieren</button>
+      <button class="share-btn">✉ Per E-Mail</button>
+    </div>
+    <div class="related-label">Passende Artikel</div>
+    <div class="related-grid" id="related-grid"></div>
+    <div class="art-back-row">
+      <a href="knowledge.html" class="back-link">← Zur Wissensbasis</a>
+      <a href="#" class="next-art" id="next-art-link">Nächster Artikel</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="f-logo">Berater<em>wahl</em></div>
+      <div class="f-links">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+      </div>
+      <small>© 2025 Beraterwahl GmbH</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.ARTICLES = [
+  { id: "01", title: "Honorarberatung vs. Provision – Die Spielregeln verstehen", readTime: "ca. 4 Minuten", focus: "Transparenz & Entscheidungsfreiheit", category: "Beratungsmodelle", catStyle: "", seriesLabel: 'Serie „Die Spielregeln" · 1/4', tags: ["Honorarberatung", "Provision", "Makler", "Beratungsmodelle", "Transparenz", "Grundlagen"],
+    preview: "Wie wird die Person bezahlt, die Ihnen gegenübersitzt? Diese eine Frage verändert, wie Sie jede Finanz- und Versicherungsberatung einordnen – und welche Fragen Sie stellen sollten.",
+    toc: [{ id: "spielregeln", label: "Die unsichtbaren Spielregeln" }, { id: "modelle", label: "Die zwei Grundmodelle" }, { id: "makler", label: "Der Makler als dritte Kategorie" }, { id: "wann", label: "Wann passt welches Modell?" }, { id: "fragen", label: "Die drei Fragen fürs erste Gespräch" }],
+    html: `<p>Stellen Sie sich vor, Sie gehen zum Arzt. Am Ende des Gesprächs erfahren Sie, dass Ihr Arzt für jede Verschreibung eine Prämie vom Pharmahersteller erhält – und zwar nur dann, wenn Sie das Rezept auch wirklich einlösen. Würde das etwas an Ihrer Einschätzung des Gesprächs ändern?</p>
+<p>In der Finanz- und Versicherungsberatung ist dieses Prinzip verbreitet. Viele Menschen wissen es nicht, weil es nirgendwo auf einem Schild steht. Das Problem ist nicht die Person, die Ihnen gegenübersitzt – das Problem ist die fehlende Sichtbarkeit der Spielregeln, innerhalb derer sie arbeitet.</p>
+<h2 id="spielregeln">Die unsichtbaren Spielregeln</h2>
+<p>Bevor Sie irgendeinen Rat einordnen können, müssen Sie einen einzigen Sachverhalt verstehen: Wer bezahlt den Menschen, der Ihnen gerade etwas empfiehlt – und unter welchen Umständen? Diese Frage ist keine Frage des Misstrauens. Sie ist Grundkompetenz für jeden, der Geld anlegt oder sich absichert.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Es gibt <strong>kein grundsätzlich schlechtes Beratungsmodell</strong>. Provisionsberatung kann vollkommen sinnvoll sein, Honorarberatung kann teuer und wenig hilfreich sein. Der Unterschied liegt im Anreiz – den sollten Sie kennen, bevor Sie entscheiden.</p></div>
+<h2 id="modelle">Die zwei Grundmodelle</h2>
+<p>Alle Vergütungsformen in der Beratung lassen sich auf zwei Grundmodelle reduzieren. Alles andere sind Varianten davon.</p>
+<h3>Provisionsberatung</h3>
+<p>Bei der Provisionsberatung kommt das Geld vom Produktanbieter – also von der Versicherung, der Bank oder dem Fondshaus – und zwar dann, wenn ein Vertrag zustande kommt. Für Sie als Kunde gibt es keinen sichtbaren Kostenposten. Der Preis steckt im Produkt: eingerechnet in die Prämien, die Fondsgebühren oder die Abschlusskosten.</p>
+<p>Das heißt nicht zwingend, dass die Empfehlungen schlecht sind – viele Provisionsberater arbeiten sorgfältig und verantwortungsvoll. Aber der Anreiz zeigt strukturell in eine Richtung: Ein Abschluss ist besser als keiner. Ein höher provisioniertes Produkt kann attraktiver erscheinen als ein günstigeres, auch wenn das nicht immer bewusst geschieht. Das ist kein Vorwurf – es ist Systemlogik.</p>
+<blockquote><p>„Kostenlose Beratung gibt es nicht. Die Frage ist nur, wer zahlt – und ob das Ihre Interessen beeinflusst."</p></blockquote>
+<h3>Honorarberatung</h3>
+<p>Bei der Honorarberatung bezahlen Sie direkt – als Stundensatz, als Pauschale oder als laufende Gebühr. Der Berater darf keine Provisionen von Produktanbietern annehmen, und wenn sie doch fließen, muss er sie vollständig an Sie auskehren. Er arbeitet damit wie ein Steuerberater oder Anwalt: Seine Loyalität gehört Ihnen, nicht dem Produkt.</p>
+<p>Die ehrlichste Empfehlung eines Honorarberaters kann lauten: „Sie brauchen hier gar nichts Neues." Diese Empfehlung würde einem Provisionsberater den Verdienst kosten.</p>
+<div class="warn-box"><p><strong>Achtung bei der Bezeichnung:</strong> „Honorarberater" ist in Deutschland nicht geschützt. Fragen Sie gezielt, ob die Beratung <em>ausschließlich</em> auf Honorarbasis arbeitet und <em>keine</em> Provisionen annimmt. Einige Berater kombinieren beide Modelle.</p></div>
+<h2 id="makler">Der Makler als dritte Kategorie</h2>
+<p>Makler stehen rechtlich zwischen diesen beiden Modellen. Sie sind dem Kunden gegenüber verpflichtet, nicht einem einzelnen Anbieter. Ein unabhängiger Makler kann theoretisch aus dem gesamten Markt auswählen und ist verpflichtet, das für Sie passendste verfügbare Produkt zu finden.</p>
+<p>In der Praxis bedeutet das nicht automatisch Provisionsneutralität – Makler werden in der Regel über Provisionen vergütet. Der entscheidende Unterschied zur gebundenen Vermittlung: Die Loyalität gehört dem Kunden, nicht dem Produkt. Ob ein Makler tatsächlich breit vergleicht oder faktisch nur wenige Anbieter bevorzugt, erkennen Sie an der Bereitschaft, die Vergleichsgrundlage transparent zu zeigen und Fragen ohne Ausweichen zu beantworten.</p>
+<table class="compare-table"><thead><tr><th>Merkmal</th><th>Provisionsberatung</th><th>Honorarberatung</th></tr></thead><tbody>
+<tr><td>Wer zahlt den Berater?</td><td class="ct-no">Produktanbieter</td><td class="ct-yes">Sie direkt</td></tr>
+<tr><td>Sichtbare Kosten für Sie</td><td class="ct-no">Nein (im Produkt versteckt)</td><td class="ct-yes">Ja (transparent, verhandelbar)</td></tr>
+<tr><td>Anreiz des Beraters</td><td class="ct-no">Abschluss begünstigt</td><td class="ct-yes">Ihre Zufriedenheit begünstigt</td></tr>
+<tr><td>Produktauswahl</td><td>Je nach Zulassung</td><td class="ct-yes">Produktneutral</td></tr>
+<tr><td>Empfehlung „nichts abschließen"</td><td class="ct-no">Selten</td><td class="ct-yes">Möglich und üblich</td></tr>
+</tbody></table>
+<h2 id="wann">Wann passt welches Modell?</h2>
+<p>Die Frage ist nicht, welches Modell besser ist – die Frage ist, welches zu Ihrer Situation passt.</p>
+<h3>Provisionsberatung kann sinnvoll sein, wenn …</h3>
+<ul><li>Sie ein konkretes, einfaches Produkt abschließen möchten (z. B. Privathaftpflicht, Kfz-Versicherung)</li><li>das Thema klar abgegrenzt ist und kein komplexer Marktvergleich nötig ist</li><li>Ihnen ein persönlicher, langfristiger Ansprechpartner wichtiger ist als vollständige Produktneutralität</li></ul>
+<h3>Honorarberatung ist besonders wertvoll, wenn …</h3>
+<ul><li>Sie eine grundsätzliche Einordnung Ihrer Situation möchten – ohne Produktdruck</li><li>Sie bestehende Verträge prüfen lassen wollen (hier verdient Provisionsberatung an einer Analyse nichts)</li><li>die Entscheidung langfristige Auswirkungen hat: Altersvorsorge, Berufsunfähigkeit, Immobilienfinanzierung</li><li>Sie eine Zweitmeinung zu einer bereits vorliegenden Empfehlung möchten</li></ul>
+<h2 id="fragen">Die drei Fragen fürs erste Gespräch</h2>
+<p>Sie müssen kein Experte sein, um ein Beratungsgespräch kompetent zu führen. Drei Fragen reichen, um das Modell und den Anreiz zu verstehen:</p>
+<div class="key-takeaway"><div class="kt-icon">💡</div><div class="kt-body"><div class="kt-label">Ihre Checkliste fürs erste Gespräch</div><p class="kt-text"><strong>1. „Wie werden Sie für diese Beratung vergütet?"</strong> – Eine klare Antwort nennt das Modell konkret: Provision, Honorar oder beides.<br><br><strong>2. „Was passiert, wenn ich heute nichts unterschreibe?"</strong> – Wer souverän antwortet, hat kein Problem damit. Wer ausweicht, auch nicht – aber anders.<br><br><strong>3. „Können Sie mir zeigen, welche Anbieter Sie verglichen haben?"</strong> – Transparenz über den Marktvergleich ist das Zeichen eines ehrlichen Gesprächspartners.</p></div></div>
+<p>Eine seriöse Antwort auf diese Fragen ist klar, kommt ohne Ausweichen und erklärt den konkreten Mechanismus. Wenn die Antworten vage bleiben oder die Fragen als unangemessen empfunden werden – das ist bereits eine wichtige Information über den Gesprächspartner.</p>
+<p>Verstehen Sie die Spielregeln, bevor Sie spielen. Das ist keine Frage des Misstrauens – es ist die Grundlage für jede gute Entscheidung.</p>`
+  },
+  { id: "02", title: "Baufinanzierung – Warum der Zins nicht alles ist", readTime: "ca. 4 Minuten", focus: "Langfristige Sicherheit beim Hauskauf", category: "Immobilien", catStyle: "slate", seriesLabel: null, tags: ["Baufinanzierung", "Zinsbindung", "Sondertilgung", "Immobilien", "Tilgung", "Gesamtkosten"],
+    preview: "Der Zinssatz ist nur der Preis für geliehenes Geld. Was eine Baufinanzierung wirklich gut oder gefährlich macht, steckt im Kleingedruckten – und betrifft die nächsten 30 Jahre Ihres Lebens.",
+    toc: [{ id: "problem", label: "Das Zins-Missverständnis" }, { id: "zinsbindung", label: "Zinsbindung: Sicherheit vs. Risiko" }, { id: "sondertilgung", label: "Sondertilgung: die wichtigste Klausel" }, { id: "flexibilitaet", label: "Tilgungsflexibilität" }, { id: "gesamtkosten", label: "Die Gesamtkostenrechnung" }, { id: "checkliste", label: "Ihre Checkliste vor der Unterschrift" }],
+    html: `<p>In den Medien dreht sich alles um den aktuellen Bestzins. Vergleichsportale werben mit halben Prozentpunkten Unterschied, Headline-Zinsen werden groß präsentiert – und das suggeriert, dass derjenige am besten finanziert, der den niedrigsten Zinssatz gefunden hat. Das ist eine gefährliche Vereinfachung.</p>
+<p>Der Zinssatz ist lediglich der Preis für geliehenes Geld. Er sagt Ihnen noch nichts darüber, ob die Finanzierung zu Ihrem Leben passt – heute, in zehn Jahren, wenn Kinder kommen, wenn ein Einkommen wegfällt oder wenn die Zinsen völlig anders aussehen als heute.</p>
+<h2 id="problem">Das Zins-Missverständnis</h2>
+<p>Eine Baufinanzierung ist kein Mobilfunkvertrag, den man jährlich kündigen kann. Sie ist eine Verpflichtung für die nächsten 25 bis 35 Jahre – und die Bedingungen, die Sie heute verhandeln, bestimmen den Spielraum, den Sie morgen haben. Wer sich beim Abschluss nur auf den Zinssatz konzentriert, übersieht die drei Faktoren, die langfristig viel mehr Gewicht haben: Zinsbindung, Sondertilgungsoption und Tilgungsflexibilität.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Ein guter Zinssatz in einem starren Vertrag ist schlechter als ein leicht höherer Zins in einem flexiblen. <strong>Sicherheit, Flexibilität und Gesamtkosten</strong> entscheiden über die Qualität einer Finanzierung – nicht allein der Headline-Zins.</p></div>
+<h2 id="zinsbindung">Zinsbindung: Sicherheit vs. Risiko</h2>
+<p>Die Zinsbindung legt fest, wie lange Ihr Zinssatz garantiert gilt. Kurze Bindungen – fünf oder zehn Jahre – locken mit niedrigeren Anfangszinsen. Doch nach Ablauf der Bindung wird zu den dann aktuellen Konditionen neu verhandelt. Das ist ein Risiko, das viele unterschätzen.</p>
+<p>Wer 2012 mit einer zehnjährigen Zinsbindung zu unter zwei Prozent finanziert hat und 2022 zur Anschlussfinanzierung musste, erlebte Konditionen von über drei Prozent – auf eine Restschuld, die noch hoch war. Die monatliche Rate stieg spürbar, ohne dass sich am Haus irgendetwas geändert hatte.</p>
+<p>Wer langfristig plant und Sicherheit braucht – und das tun die meisten Familien mit einer mittleren Einkommenssituation –, sollte 15 oder 20 Jahre Zinsbindung ernsthaft in Betracht ziehen. Der Aufpreis gegenüber einer kurzen Bindung ist oft kleiner als das Risiko, das man damit vermeidet.</p>
+<table class="compare-table"><thead><tr><th>Zinsbindung</th><th>Vorteil</th><th>Risiko</th></tr></thead><tbody>
+<tr><td>5–10 Jahre</td><td>Niedrigerer Anfangszins</td><td class="ct-no">Anschlussrisiko bei steigenden Zinsen</td></tr>
+<tr><td>15–20 Jahre</td><td class="ct-yes">Planungssicherheit über lange Laufzeit</td><td>Leicht höherer Zins zum Einstieg</td></tr>
+<tr><td>Variabler Zins</td><td>Flexibel bei sinkenden Zinsen</td><td class="ct-no">Kein Schutz bei Zinsanstieg</td></tr>
+</tbody></table>
+<h2 id="sondertilgung">Sondertilgung: die wichtigste Klausel im Kleingedruckten</h2>
+<p>Die Sondertilgungsoption erlaubt es Ihnen, jährlich einen bestimmten Prozentsatz des ursprünglichen Darlehensbetrags kostenfrei zusätzlich zurückzuzahlen – also über die vereinbarte monatliche Rate hinaus. Klingt technisch, ist aber einer der wirkungsvollsten Hebel einer Baufinanzierung.</p>
+<p>Ein Beispiel: Bei einem Darlehen von 300.000 Euro und fünf Prozent Sondertilgungsoption können Sie jedes Jahr bis zu 15.000 Euro zusätzlich tilgen. Wer das konsequent nutzt – nach einer Erbschaft, einer Prämie oder einem guten Geschäftsjahr –, verkürzt die Laufzeit erheblich und spart dabei tausende Euro Zinsen.</p>
+<p>Viele Verträge bieten nur zwei bis drei Prozent, manche gar keine Sondertilgungsoption. <strong>Fünf Prozent des ursprünglichen Darlehensbetrags sollten Mindeststandard sein</strong> – nicht Verhandlungsmasse, die man stillschweigend akzeptiert.</p>
+<h2 id="flexibilitaet">Tilgungsflexibilität: wenn das Leben teurer wird</h2>
+<p>Moderne Finanzierungsverträge erlauben es, den Tilgungssatz während der Laufzeit innerhalb eines vereinbarten Rahmens zu verändern. Das klingt nach einem Detail – ist aber entscheidend für den Fall, dass Ihre monatliche Belastbarkeit sinkt.</p>
+<p>Elternzeit, Jobwechsel, Krankheit, eine unvorhergesehene große Ausgabe: Das Leben entwickelt sich selten geradlinig. Wer die Tilgungsrate nicht anpassen kann, gerät in einer solchen Situation schnell in Rückstand. Wer die Rate vorübergehend senken und später wieder erhöhen kann, hat einen echten Puffer eingebaut.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Nicht jede Bank bietet Tilgungsflexibilität standardmäßig an. Fragen Sie vor der Unterschrift explizit danach – und lassen Sie sich den Rahmen schriftlich bestätigen.</p></div>
+<h2 id="gesamtkosten">Die Gesamtkostenrechnung als Pflichtübung</h2>
+<p>Lassen Sie sich vor jedem Abschluss eine vollständige Gesamtkostenrechnung zeigen – nicht nur für die ersten zehn Jahre, sondern bis zur vollständigen Schuldenfreiheit. Erst dann sehen Sie den wahren Preis Ihres Hauses.</p>
+<p>Ein Kredit über 300.000 Euro mit einem Prozentpunkt mehr Zins kostet über 25 Jahre rund 40.000 bis 50.000 Euro mehr. Das ist Geld, das Sie nie sehen – weil es in kleinen Monatsraten still verschwindet. Wer nur den Tagesvergleich macht, vergleicht das Falsche.</p>
+<h2 id="checkliste">Ihre Checkliste vor der Unterschrift</h2>
+<div class="key-takeaway"><div class="kt-icon">🏡</div><div class="kt-body"><div class="kt-label">Diese vier Fragen sollten Sie beantworten können</div><p class="kt-text"><strong>1. Wie lange ist der Zins gebunden – und was passiert danach?</strong> Kennen Sie das Szenario für den Fall, dass die Zinsen in zehn Jahren höher sind als heute.<br><br><strong>2. Wie hoch ist die Sondertilgungsoption?</strong> Mindestens fünf Prozent des ursprünglichen Darlehensbetrags pro Jahr.<br><br><strong>3. Kann ich die Tilgungsrate während der Laufzeit anpassen?</strong> Wenn nein, ist das ein Risiko, das Sie bewusst eingehen.<br><br><strong>4. Wie hoch sind die Gesamtkosten bis zur Schuldenfreiheit?</strong> Nicht nur die monatliche Rate – sondern die Summe aller Zinszahlungen über die gesamte Laufzeit.</p></div></div>
+<p>Ein guter Berater hilft Ihnen, diese Fragen nicht nur zu beantworten, sondern verschiedene Szenarien konkret durchzurechnen – damit Sie nicht den günstigsten Zins wählen, sondern die richtige Finanzierung.</p>`
+  },
+  { id: "03", title: "Berufsunfähigkeit – Die Versicherung für Ihr wertvollstes Gut", readTime: "ca. 4 Minuten", focus: "Existenzsicherung & Fakten-Check", category: "Absicherung", catStyle: "", seriesLabel: null, tags: ["Berufsunfähigkeit", "BU", "Absicherung", "Einkommen", "Gesundheitsfragen", "Arbeitskraft"],
+    preview: "Jeder vierte Erwerbstätige wird im Laufe seines Berufslebens berufsunfähig – meist nicht durch Unfall, sondern durch Burnout oder Rückenprobleme. Worauf es bei einem guten Vertrag wirklich ankommt.",
+    toc: [{ id: "maschine", label: "Die Maschine im Keller" }, { id: "realitaet", label: "Was die Statistik sagt" }, { id: "vertrag", label: "Was einen guten Vertrag ausmacht" }, { id: "gesundheit", label: "Gesundheitsfragen: die größte Fehlerquelle" }, { id: "timing", label: "Wann abschließen?" }, { id: "checkliste", label: "Ihre Checkliste für den Vertragscheck" }],
+    html: `<h2 id="maschine">Die Maschine im Keller</h2>
+<p>Stellen Sie sich vor, Sie hätten eine Maschine im Keller, die jeden Monat 3.000 Euro druckt. Zuverlässig, Jahr für Jahr, über Jahrzehnte. Würden Sie diese Maschine versichern? Wahrscheinlich sofort, ohne lange nachzudenken.</p>
+<p>Diese Maschine existiert – es ist Ihre Arbeitskraft. Und die meisten Menschen versichern sie nicht.</p>
+<h2 id="realitaet">Was die Statistik sagt</h2>
+<p>Statistisch gesehen wird jeder vierte Erwerbstätige im Laufe seines Berufslebens mindestens einmal berufsunfähig. Der häufigste Grund sind heute keine Unfälle, sondern psychische Erkrankungen wie Burnout und Depressionen – gefolgt von Erkrankungen des Bewegungsapparats. Unfälle machen nur einen kleinen Teil der Fälle aus.</p>
+<p>Wer nach den ersten sechs Wochen Krankheit nicht von einer privaten Berufsunfähigkeitsversicherung aufgefangen wird, erhält – wenn überhaupt – eine gesetzliche Erwerbsminderungsrente. Diese liegt im Durchschnitt unter 1.000 Euro monatlich und setzt voraus, dass man weniger als drei Stunden täglich irgendeiner Tätigkeit nachgehen kann. Nicht dem eigenen Beruf – irgendeiner.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Die BU-Versicherung ist für die meisten Erwerbstätigen <strong>die wichtigste Absicherung nach der Krankenversicherung</strong>. Nicht weil ein Unfall wahrscheinlich ist – sondern weil psychische Erkrankungen und Rückenprobleme es sind.</p></div>
+<h2 id="vertrag">Was einen guten Vertrag ausmacht</h2>
+<p>Nicht jede BU-Versicherung ist gleich gut. Die entscheidenden Qualitätsmerkmale verstecken sich im Kleingedruckten – und genau dort trennt sich die Spreu vom Weizen.</p>
+<h3>Verzicht auf abstrakte Verweisung</h3>
+<p>Das ist der wichtigste Punkt überhaupt. Ein schlechter Vertrag erlaubt es dem Versicherer, Sie auf einen anderen Beruf zu verweisen, wenn Sie Ihren eigenen nicht mehr ausüben können – auch wenn dieser andere Beruf weit unter Ihrem Qualifikationsniveau liegt. Ein Chirurg könnte theoretisch auf den Beruf eines Pförtners verwiesen werden. Gute Verträge verzichten vollständig darauf: Wer den zuletzt ausgeübten Beruf zu mindestens 50 Prozent nicht mehr ausüben kann, erhält die Rente – ohne Wenn und Aber.</p>
+<h3>Leistungsdynamik</h3>
+<p>Die vereinbarte Rente sollte im Leistungsfall jährlich steigen, um zumindest einen Teil der Inflation auszugleichen. Wer heute 2.000 Euro monatlich absichert und erst in zwanzig Jahren berufsunfähig wird, merkt den Unterschied zwischen einer statischen und einer dynamisch wachsenden Rente sehr deutlich. Eine jährliche Steigerung von zwei bis drei Prozent sollte Standard sein.</p>
+<h3>Nachversicherungsgarantien</h3>
+<p>Diese Klausel erlaubt es Ihnen, den Schutz bei wichtigen Lebensereignissen – Heirat, Geburt eines Kindes, Gehaltserhöhung, Immobilienkauf – ohne erneute Gesundheitsprüfung zu erhöhen. Das ist besonders wertvoll, weil Gesundheitsfragen mit zunehmendem Alter schwieriger und risikoreicher zu beantworten sind.</p>
+<table class="compare-table"><thead><tr><th>Merkmal</th><th>Mindeststandard</th><th>Worauf Sie achten sollten</th></tr></thead><tbody>
+<tr><td>Abstrakte Verweisung</td><td class="ct-yes">Vollständiger Verzicht</td><td>Im Vertrag explizit ausgeschlossen?</td></tr>
+<tr><td>BU-Grad</td><td class="ct-yes">Ab 50 % Berufsunfähigkeit</td><td>Manche Tarife fordern 75 %</td></tr>
+<tr><td>Leistungsdynamik</td><td class="ct-yes">2–3 % jährlich im Leistungsfall</td><td>Inflationsausgleich prüfen</td></tr>
+<tr><td>Nachversicherung</td><td class="ct-yes">Ohne Gesundheitsprüfung</td><td>Anlässe und Fristen prüfen</td></tr>
+<tr><td>Rückwirkende Leistung</td><td class="ct-yes">Ab Beginn der BU</td><td>Nicht erst ab Antragstellung</td></tr>
+</tbody></table>
+<h2 id="gesundheit">Gesundheitsfragen: die größte Fehlerquelle</h2>
+<p>Der größte Fallstrick bei der BU-Absicherung sind nicht die Beiträge – es sind die Gesundheitsfragen im Antrag. Wer hier unvollständig oder ungenau antwortet, riskiert im Leistungsfall die Anfechtung des Vertrags. Die Versicherung zahlt nicht, weil der Antrag fehlerhaft war. Das ist der schlimmste mögliche Ausgang: jahrelang Beiträge gezahlt – und im entscheidenden Moment kein Schutz.</p>
+<p>Dieser Fehler passiert oft nicht aus böser Absicht, sondern weil man alte Arztbesuche vergessen hat oder eine Diagnose als „nicht relevant" eingestuft hat. Die Versicherung sieht das möglicherweise anders.</p>
+<div class="warn-box"><p><strong>So gehen Sie es richtig an:</strong> Fordern Sie Ihre vollständige Patientenakte bei Ihrer Krankenkasse und Ihren Ärzten an, bevor Sie einen Antrag ausfüllen. Ein erfahrener Berater stellt anonyme Risikovoranfragen bei mehreren Versicherern – so erfahren Sie, zu welchen Konditionen Sie absicherbar sind, bevor ein Antrag Ihrer Akte hinzugefügt wird.</p></div>
+<h2 id="timing">Wann abschließen?</h2>
+<p>Je jünger und gesünder Sie sind, desto günstiger ist der Beitrag – und desto einfacher ist die Gesundheitsprüfung. Jedes Jahr Warten kostet Geld und erhöht das Risiko, eine neue Vorerkrankung zu entwickeln, die den Abschluss erschwert oder verteuert.</p>
+<p>Wer mit 28 Jahren eine BU abschließt, zahlt oft weniger als die Hälfte des Beitrags eines 38-Jährigen – für denselben Schutz. Und wer mit 38 Jahren eine Rückendiagnose in der Akte hat, findet möglicherweise gar keinen Versicherer mehr, der den Rücken mitversichert.</p>
+<h2 id="checkliste">Ihre Checkliste für den Vertragscheck</h2>
+<div class="key-takeaway"><div class="kt-icon">🛡️</div><div class="kt-body"><div class="kt-label">Fünf Fragen, die jeder BU-Vertrag beantworten muss</div><p class="kt-text"><strong>1. Ist die abstrakte Verweisung vollständig ausgeschlossen?</strong> Wenn nicht, ist es kein guter Vertrag.<br><br><strong>2. Ab welchem BU-Grad leistet der Vertrag?</strong> 50 % ist Standard – alles darüber ist nachteilig.<br><br><strong>3. Steigt die Rente im Leistungsfall jährlich an?</strong> Ohne Dynamik verliert die Rente über die Jahre real an Wert.<br><br><strong>4. Kann ich den Schutz ohne neue Gesundheitsprüfung erhöhen?</strong> Nachversicherungsgarantien sind entscheidend für die Zukunft.<br><br><strong>5. Habe ich alle Gesundheitsfragen vollständig und korrekt beantwortet?</strong> Im Zweifel: Patientenakte anfordern und Berater einschalten.</p></div></div>
+<p>Unterschreiben Sie keinen BU-Antrag zwischen Tür und Angel. Diese Entscheidung begleitet Sie möglicherweise dreißig Jahre lang – sie verdient dreißig Minuten sorgfältige Vorbereitung.</p>`
+  },
+  { id: "04", title: "Altersvorsorge – Warum Zeit wichtiger ist als Timing", readTime: "ca. 4 Minuten", focus: "Strategisches Investieren", category: "Altersvorsorge", catStyle: "", seriesLabel: null, tags: ["Altersvorsorge", "ETF", "Weltportfolio", "Rente", "Zinseszins", "Investieren"],
+    preview: "Die gesetzliche Rente wird nicht reichen – das ist kein Geheimnis. Die Frage ist, wie man vorsorgt. Warum klassische Rentenversicherungen oft die falsche Antwort sind und was wirklich funktioniert.",
+    toc: [{ id: "problem", label: "Das Problem mit der klassischen Vorsorge" }, { id: "investieren", label: "Investieren statt nur sparen" }, { id: "weltportfolio", label: "Das Prinzip Weltportfolio" }, { id: "zinseszins", label: "Zeit schlägt Timing" }, { id: "bestand", label: "Bestehende Verträge prüfen" }, { id: "checkliste", label: "Ihre Checkliste zur Altersvorsorge" }],
+    html: `<p>Die gesetzliche Rente allein wird für die meisten Menschen nicht reichen – das ist kein Geheimnis mehr. Das Umlageverfahren gerät demografisch unter Druck: weniger Einzahler, mehr Empfänger, längere Rentenlaufzeiten. Was daraus folgt, ist keine Katastrophe, aber eine klare Botschaft: Wer im Alter gut leben möchte, muss selbst vorsorgen.</p>
+<p>Die Frage ist nicht ob – die Frage ist wie. Und hier liegt das eigentliche Problem.</p>
+<h2 id="problem">Das Problem mit der klassischen Vorsorge</h2>
+<p>Die häufigste Antwort der Versicherungsindustrie ist eine klassische Rentenversicherung mit garantiertem Zins. Sie klingt sicher, fühlt sich solide an – und ist in vielen Fällen trotzdem nicht die beste Wahl.</p>
+<p>Das Problem ist die mangelnde Rendite nach Kosten und nach Inflation. Wer dreißig Jahre lang in ein Produkt einzahlt, das nach Abzug aller Gebühren und der Inflation kaum Kaufkraft erhält, hat technisch gespart – wirtschaftlich aber verloren. Die Garantie, die so beruhigend wirkt, garantiert in Wirklichkeit oft nur den nominalen Betrag – nicht seine Kaufkraft.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Wer heute vorsorgt, muss <strong>investieren, nicht nur sparen</strong>. Der Unterschied: Sparen erhält den nominalen Betrag. Investieren schützt und mehrt die Kaufkraft – über lange Zeiträume mit hoher Verlässlichkeit.</p></div>
+<h2 id="investieren">Investieren statt nur sparen</h2>
+<p>Der effektivste Weg für die breite Bevölkerung sind breit gestreute Indexfonds, sogenannte ETFs. Sie bilden die gesamte Weltwirtschaft oder große Teile davon ab, sind kostengünstig, transparent und ermöglichen eine direkte Beteiligung an der langfristigen wirtschaftlichen Entwicklung.</p>
+<p>Ein ETF auf den MSCI World beispielsweise enthält Anteile an über 1.500 Unternehmen aus 23 Ländern. Kein Fondsmanager, keine Prognosen, keine versteckten Gebühren für aktives Management. Die jährlichen Kosten liegen oft unter 0,2 Prozent – verglichen mit 1,5 bis 3 Prozent bei aktiv gemanagten Fonds oder klassischen Rentenversicherungen.</p>
+<h2 id="weltportfolio">Das Prinzip Weltportfolio</h2>
+<p>Anstatt auf einzelne Unternehmen oder Branchen zu wetten, investieren Sie in tausende Unternehmen gleichzeitig. Fällt ein Unternehmen aus, fällt es kaum ins Gewicht. Wächst die Weltwirtschaft insgesamt, wächst Ihr Vermögen mit.</p>
+<p>Über einen rollierenden Zeitraum von 15 Jahren hat der globale Aktienmarkt historisch noch nie eine negative Rendite erzielt. Das bedeutet nicht, dass es kurzfristig keine Schwankungen gibt – die gibt es, und sie können erheblich sein. Aber wer einen langen Anlagehorizont hat und die Nerven behält, hat historisch betrachtet immer profitiert.</p>
+<table class="compare-table"><thead><tr><th>Anlageform</th><th>Ø Rendite nach Kosten</th><th>Inflationsschutz</th></tr></thead><tbody>
+<tr><td>Tagesgeld / Festgeld</td><td class="ct-no">0–2 %</td><td class="ct-no">Gering bis keiner</td></tr>
+<tr><td>Klassische Rentenversicherung</td><td class="ct-no">1–2 % nach Kosten</td><td class="ct-no">Kaum</td></tr>
+<tr><td>Aktiv gemanagter Fonds</td><td>3–5 % (nach hohen Kosten)</td><td>Ja, teilweise</td></tr>
+<tr><td>ETF-Weltportfolio</td><td class="ct-yes">5–7 % historisch</td><td class="ct-yes">Ja, strukturell</td></tr>
+</tbody></table>
+<h2 id="zinseszins">Zeit schlägt Timing</h2>
+<p>Der häufigste Fehler ist das Warten auf den richtigen Zeitpunkt. „Ich starte, wenn die Kurse günstiger sind." Wer das denkt, wartet oft jahrelang und verliert dabei den wertvollsten Rohstoff der Altersvorsorge: Zeit.</p>
+<p>Der Zinseszins – der Effekt, dass Erträge selbst wieder Erträge erwirtschaften – entfaltet seine Wirkung nur dann vollständig, wenn Sie früh und regelmäßig investieren. Ein konkretes Beispiel:</p>
+<div class="info-box"><div class="info-box-label">Der Zinseszins in Zahlen</div><p>Person A beginnt mit 30 Jahren und investiert 300 € monatlich bei 6 % Jahresrendite. Mit 67 hat sie <strong>ca. 525.000 €</strong> angespart.<br><br>Person B beginnt erst mit 40 Jahren und investiert 500 € monatlich – also mehr. Mit 67 hat sie <strong>ca. 380.000 €</strong> angespart.<br><br>Person A hat weniger eingezahlt – und trotzdem 145.000 € mehr. Der Unterschied ist ausschließlich die Zeit.</p></div>
+<h2 id="bestand">Bestehende Verträge prüfen</h2>
+<p>Wenn Sie bereits eine Rentenversicherung besitzen, lohnt sich ein nüchterner Blick auf die Gesamtkostenquote. Liegen die jährlichen Kosten über 1,5 Prozent, fressen die Gebühren einen erheblichen Teil der möglichen Rendite auf – Jahr für Jahr, über Jahrzehnte.</p>
+<p>Ein Wechsel in kostengünstigere Anlagemodelle kann Ihre spätere Rente spürbar verbessern – auch wenn die alte Versicherung bereits Jahre läuft. Lassen Sie das von einem unabhängigen Berater durchrechnen, bevor Sie eine Entscheidung treffen. Manchmal lohnt sich das Fortführen, manchmal nicht – aber die Antwort sollte auf Zahlen basieren, nicht auf dem Bauchgefühl.</p>
+<div class="warn-box"><p><strong>Achtung bei fondsgebundenen Rentenversicherungen:</strong> Auch wenn das Produkt „ETF" im Namen trägt, können die Gesamtkosten hoch sein. Schauen Sie auf die Effektivkostenquote im Produktinformationsblatt – nicht nur auf die Fondskosten.</p></div>
+<h2 id="checkliste">Ihre Checkliste zur Altersvorsorge</h2>
+<div class="key-takeaway"><div class="kt-icon">📈</div><div class="kt-body"><div class="kt-label">Vier Fragen, die Sie heute beantworten sollten</div><p class="kt-text"><strong>1. Wie groß ist meine Rentenlücke?</strong> Holen Sie Ihre Deutsche Rentenversicherungs-Auskunft und vergleichen Sie die prognostizierte Rente mit Ihrem heutigen Nettoeinkommen.<br><br><strong>2. Was kostet meine aktuelle Altersvorsorge wirklich?</strong> Suchen Sie die Effektivkostenquote in Ihren Vertragsunterlagen. Alles über 1,5 % verdient einen zweiten Blick.<br><br><strong>3. Wie viel Zeit habe ich noch bis zur Rente?</strong> Je mehr Zeit, desto mehr kann der Zinseszins für Sie arbeiten – und desto weniger müssen Sie monatlich einzahlen.<br><br><strong>4. Investiere ich oder spare ich nur?</strong> Tagesgeld und Festgeld sind kein Ersatz für eine Altersvorsorge. Sie sichern Liquidität – aber keine Kaufkraft.</p></div></div>
+<p>Altersvorsorge ist kein Thema für später. Sie ist ein Thema für heute – weil jedes Jahr, das vergeht, den Zinseszins verkürzt und die monatliche Rate erhöht, die Sie später brauchen, um dasselbe Ziel zu erreichen.</p>`
+  },
+  { id: "05", title: "Die Zweitmeinung – Vertrauen ist gut, Prüfung ist besser", readTime: "ca. 4 Minuten", focus: "Validierung & Seelenfrieden", category: "Beratungsmodelle", catStyle: "", seriesLabel: 'Serie „Die Spielregeln" · 2/4', tags: ["Zweitmeinung", "Vertragscheck", "Beratungsmodelle", "Überprüfung", "Lebensveränderung"],
+    preview: "Verträge in der Schublade, bei denen Sie nicht mehr wissen, warum Sie sie abgeschlossen haben? Eine Zweitmeinung ist kein Misstrauensvotum – sie ist professionelle Sorgfalt. Wann sie sich lohnt und was sie prüft.",
+    toc: [{ id: "schublade", label: "Die Schublade voller Fragezeichen" }, { id: "was", label: "Was eine Zweitmeinung prüft" }, { id: "bedarf", label: "1. Bedarf" }, { id: "preis", label: "2. Preis-Leistung" }, { id: "struktur", label: "3. Struktur" }, { id: "wann", label: "Wann lohnt es sich besonders?" }, { id: "checkliste", label: "Ihre Checkliste zur Vertragsprüfung" }],
+    html: `<p>Haben Sie Verträge in der Schublade, bei denen Sie nicht mehr genau wissen, warum Sie sie abgeschlossen haben? Versicherungen, die ein Bekannter empfohlen hat, Rentenverträge aus dem ersten Berufsjahr, eine Lebensversicherung, die irgendwann mal „wichtig" war? Das geht den meisten Menschen so.</p>
+<p>Die Verträge laufen weiter, die Beiträge werden per Lastschrift abgebucht – und irgendwann fragt man sich, ob das alles noch stimmt. Meistens ist die Antwort: teilweise.</p>
+<h2 id="schublade">Die Schublade voller Fragezeichen</h2>
+<p>Eine Zweitmeinung ist kein Misstrauensvotum gegen den ursprünglichen Berater. Sie ist das, was in der Medizin längst Standard ist: eine zweite professionelle Einschätzung, wenn es um wichtige Entscheidungen geht. In der Finanzberatung ist diese Kultur noch nicht selbstverständlich – aber sie würde vielen Menschen erheblich viel Geld sparen.</p>
+<p>Der entscheidende Unterschied zur ersten Beratung: Ein guter Zweitmeinungsberater arbeitet auf Honorarbasis. Er hat kein Interesse daran, Ihnen neue Produkte zu verkaufen. Sein einziges Interesse ist eine ehrliche Analyse – und das ist genau das, was Sie brauchen.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Eine Zweitmeinung prüft drei Dinge: ob Sie den <strong>richtigen Schutz</strong> haben, ob Sie dafür den <strong>richtigen Preis</strong> zahlen, und ob Ihre Absicherung noch zu Ihrer <strong>aktuellen Lebenssituation</strong> passt.</p></div>
+<h2 id="was">Was eine Zweitmeinung prüft</h2>
+<p>Ein unabhängiger Experte mit einem frischen Blick auf Ihre Unterlagen schaut systematisch auf drei Dimensionen.</p>
+<h2 id="bedarf">1. Bedarf: Brauchen Sie das noch?</h2>
+<p>Lebensumstände ändern sich – Verträge nicht automatisch. Eine Risikolebensversicherung macht Sinn, wenn Sie kleine Kinder haben und gemeinsam einen Kredit tragen. Wenn beides entfällt, ist die Frage berechtigt, ob der Vertrag noch passt.</p>
+<p>Ein Riester-Vertrag war für einen verheirateten Angestellten mit Kindern und mittlerem Einkommen jahrelang attraktiv. Wer inzwischen selbstständig ist, gut verdient oder keine Kinder mehr im Haushalt hat, sollte prüfen, ob der Vertrag in seiner aktuellen Form noch sinnvoll ist – oder ob die eingezahlten Beiträge besser woanders arbeiten würden.</p>
+<h2 id="preis">2. Preis-Leistung: Zahlen Sie zu viel?</h2>
+<p>Der Markt entwickelt sich ständig weiter. Tarife, die vor zehn Jahren modern und wettbewerbsfähig waren, können heute in Leistungsumfang und Preis deutlich überholt sein. Manchmal lässt sich der gleiche Schutz – oder ein besserer – für die Hälfte des bisherigen Beitrags abschließen.</p>
+<p>Das ist bei älteren Privathaftpflicht-, Kranken- und BU-Verträgen keine Ausnahme, sondern die Regel. Versicherungsprodukte haben sich in den letzten zehn Jahren erheblich verbessert – wer nie nachgeschaut hat, zahlt möglicherweise für einen Standard von vorgestern.</p>
+<table class="compare-table"><thead><tr><th>Versicherungsart</th><th>Typische Verbesserung moderner Tarife</th></tr></thead><tbody>
+<tr><td>Privathaftpflicht</td><td class="ct-yes">Grobe Fahrlässigkeit, Forderungsausfall, höhere Deckungssummen</td></tr>
+<tr><td>Berufsunfähigkeit</td><td class="ct-yes">Verzicht auf abstrakte Verweisung, bessere Nachversicherung</td></tr>
+<tr><td>Krankenversicherung</td><td class="ct-yes">Erweiterte Leistungen, günstigere Wahltarife</td></tr>
+<tr><td>Risikolebensversicherung</td><td class="ct-yes">Deutlich niedrigere Prämien durch verbesserte Kalkulation</td></tr>
+</tbody></table>
+<h2 id="struktur">3. Struktur: Passt die Gewichtung noch?</h2>
+<p>Passen Ihre Kapitalanlagen noch zu Ihrer aktuellen Risikoneigung und Lebenssituation? Was für einen 35-Jährigen mit langem Anlagehorizont sinnvoll war, kann für einen 55-Jährigen falsch gewichtet sein.</p>
+<p>Wer zehn Jahre vor der Rente immer noch vollständig in Aktienfonds investiert ist, hat möglicherweise zu viel Risiko im Portfolio. Umgekehrt: Wer mit 35 Jahren ausschließlich in Tagesgeld und Lebensversicherungen anlegt, verschenkt Rendite, die der Zinseszins über die nächsten dreißig Jahre vervielfachen würde.</p>
+<h2 id="wann">Wann lohnt es sich besonders?</h2>
+<p>Immer dann, wenn sich Ihr Leben grundlegend verändert, ist eine Prüfung der bestehenden Verträge sinnvoll. Die wichtigsten Auslöser:</p>
+<ul><li><strong>Heirat oder Scheidung:</strong> Wer ist begünstigt, wer ist mitversichert, wer haftet für was?</li><li><strong>Geburt eines Kindes:</strong> Neue Absicherungsbedarfe, neue steuerliche Möglichkeiten.</li><li><strong>Jobwechsel oder Gehaltssprung:</strong> Passt der Schutz noch zum neuen Einkommen?</li><li><strong>Immobilienkauf:</strong> Welche Versicherungen werden dadurch notwendig, welche überflüssig?</li><li><strong>Erbschaft oder größere Schenkung:</strong> Verändertes Vermögen braucht veränderte Struktur.</li><li><strong>Kind verlässt das Haus:</strong> Manche Verträge laufen weiter, obwohl der Anlass entfallen ist.</li></ul>
+<div class="warn-box"><p><strong>Wichtig:</strong> Ein guter Zweitmeinungsberater wird Sie nicht zum Wechsel drängen. Im besten Fall lautet das Ergebnis: Alles passt gut. Auch das ist ein wertvolles Ergebnis – es gibt Ihnen Sicherheit, die kein Marketing ersetzen kann.</p></div>
+<h2 id="checkliste">Ihre Checkliste zur Vertragsprüfung</h2>
+<div class="key-takeaway"><div class="kt-icon">🔍</div><div class="kt-body"><div class="kt-label">Vier Fragen für Ihre nächste Vertragsprüfung</div><p class="kt-text"><strong>1. Wann haben Sie Ihre Verträge zuletzt aktiv geprüft?</strong> Wenn die Antwort „vor mehr als drei Jahren" lautet, ist es Zeit.<br><br><strong>2. Hat sich Ihre Lebenssituation seitdem verändert?</strong> Heirat, Kind, Jobwechsel, Immobilie, Erbschaft – jedes dieser Ereignisse ist ein Auslöser.<br><br><strong>3. Wissen Sie, was Ihre Verträge im Leistungsfall konkret zahlen?</strong> Nicht nur wie hoch der Beitrag ist – sondern was Sie im Ernstfall bekommen.<br><br><strong>4. Haben Sie einen unabhängigen Berater, der keine Provision verdient, wenn Sie nichts ändern?</strong> Das ist die Grundvoraussetzung für eine echte Zweitmeinung.</p></div></div>
+<p>Eine Zweitmeinung kostet Zeit und manchmal ein Honorar. Beides ist gut investiert – denn was sie aufdeckt, ist in vielen Fällen mehr wert als das, was sie kostet.</p>`
+  },
+  { id: "06", title: "Das Eigenkapital-Mysterium – Wie viel ist wirklich nötig?", readTime: "ca. 4 Minuten", focus: "Realitätscheck & Planungssicherheit", category: "Immobilien", catStyle: "slate", seriesLabel: null, tags: ["Eigenkapital", "Immobilien", "Hauskauf", "Baufinanzierung", "Kaufnebenkosten", "100-Prozent-Finanzierung"],
+    preview: "20 Prozent Eigenkapital – diese Faustregel kursiert überall. Die Wahrheit ist differenzierter. Was wirklich als Minimum gilt, was Banken heute finanzieren und worauf es bei der Planung wirklich ankommt.",
+    toc: [{ id: "faustregel", label: "Die 20-Prozent-Faustregel" }, { id: "nebenkosten", label: "Die harte Grenze: Kaufnebenkosten" }, { id: "vollfinanzierung", label: "100-Prozent-Finanzierung: Chance oder Risiko?" }, { id: "eigenkapital", label: "Was mehr Eigenkapital wirklich bringt" }, { id: "haushaltsrechnung", label: "Die ehrliche Haushaltsrechnung" }, { id: "checkliste", label: "Ihre Checkliste vor dem Kauf" }],
+    html: `<p>Wer sich ernsthaft mit dem Kauf einer Immobilie beschäftigt, stößt früh auf die Eigenkapitalfrage. Lange galt die Faustregel: 20 Prozent des Kaufpreises sollten auf dem Konto liegen, dazu kommen die Kaufnebenkosten. Diese Faustregel ist weder immer richtig noch immer nötig – aber vollständig ignorieren sollte man sie auch nicht.</p>
+<p>Die Wahrheit ist differenzierter als jede einfache Zahl. Und sie beginnt mit einem Unterschied, den viele nicht kennen: dem Unterschied zwischen dem, was Banken finanzieren – und dem, was sie nicht finanzieren.</p>
+<h2 id="faustregel">Die 20-Prozent-Faustregel – woher kommt sie?</h2>
+<p>Die Faustregel stammt aus einer Zeit, in der Banken standardmäßig bis zu 80 Prozent des Kaufpreises finanzierten. Die restlichen 20 Prozent plus Nebenkosten mussten Käufer selbst mitbringen. Heute ist das flexibler – aber die Logik dahinter ist nicht verschwunden: Je mehr Eigenkapital, desto weniger Risiko für die Bank, desto besser die Konditionen für Sie.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Es gibt <strong>keine universelle Eigenkapitalquote</strong>, die für jeden stimmt. Was es gibt, ist eine harte Grenze, die fast niemand umgehen kann – und eine weiche Grenze, die von Ihrer persönlichen Situation abhängt.</p></div>
+<h2 id="nebenkosten">Die harte Grenze: Kaufnebenkosten</h2>
+<p>Was tatsächlich fast immer zwingend aus eigener Tasche bezahlt werden muss, sind die Kaufnebenkosten. Sie bestehen aus drei Teilen:</p>
+<ul><li><strong>Grunderwerbsteuer:</strong> Je nach Bundesland zwischen 3,5 % (Bayern, Sachsen) und 6,5 % (Schleswig-Holstein, Thüringen, Nordrhein-Westfalen) des Kaufpreises.</li><li><strong>Notar- und Grundbuchkosten:</strong> In der Regel 1,5 bis 2 % des Kaufpreises.</li><li><strong>Maklerprovision:</strong> Falls ein Makler beteiligt ist, maximal 3,57 % – seit 2020 geteilt zwischen Käufer und Verkäufer.</li></ul>
+<p>In der Summe macht das je nach Bundesland und Situation <strong>7 bis 12 Prozent des Kaufpreises</strong> aus – und diese Kosten finanziert kaum eine Bank mit. Das bedeutet konkret:</p>
+<table class="compare-table"><thead><tr><th>Kaufpreis</th><th>Nebenkosten (ca. 10 %)</th><th>Minimum Eigenkapital</th></tr></thead><tbody>
+<tr><td>300.000 €</td><td>30.000 €</td><td class="ct-no">30.000 € (nur Nebenkosten)</td></tr>
+<tr><td>400.000 €</td><td>40.000 €</td><td class="ct-no">40.000 € (nur Nebenkosten)</td></tr>
+<tr><td>500.000 €</td><td>50.000 €</td><td class="ct-no">50.000 € (nur Nebenkosten)</td></tr>
+</tbody></table>
+<h2 id="vollfinanzierung">100-Prozent-Finanzierung: Chance oder Risiko?</h2>
+<p>Banken finanzieren heute durchaus den vollen Kaufpreis – also ohne Eigenkapital für das Objekt selbst –, wenn das Einkommen stabil und ausreichend hoch ist und die Bonität stimmt. Das klingt attraktiv, hat aber zwei konkrete Nachteile.</p>
+<p>Erstens: Der Zinsaufschlag. Eine 100-Prozent-Finanzierung kostet in der Regel 0,3 bis 0,6 Prozentpunkte mehr Zinsen als eine Finanzierung mit 20 Prozent Eigenkapital. Das klingt wenig – aber über 25 Jahre auf 400.000 Euro bedeutet das schnell 30.000 bis 50.000 Euro Mehrkosten.</p>
+<p>Zweitens: Das Puffer-Problem. Wer ohne Eigenkapital finanziert, hängt vollständig am laufenden Einkommen. Fällt ein Einkommen weg – durch Krankheit, Jobverlust oder Trennung –, gibt es keinen Puffer. Das Haus ist die einzige Sicherheit, und die lässt sich nicht schnell liquidieren.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Eine 100-Prozent-Finanzierung ist kein Fehler – aber sie setzt voraus, dass das Einkommen sehr stabil ist, ein Notgroschen von mindestens drei bis sechs Monatsgehältern separat vorhanden bleibt und die monatliche Rate auch bei einem temporären Einkommensausfall noch tragbar ist.</p></div>
+<h2 id="eigenkapital">Was mehr Eigenkapital wirklich bringt</h2>
+<p>Jeder Euro Eigenkapital, den Sie einbringen, arbeitet auf zwei Wegen für Sie: Er reduziert die Darlehenssumme – und er verbessert den Zinssatz, weil die Bank ein geringeres Risiko trägt.</p>
+<p>Ein konkretes Beispiel: Bei einem Kaufpreis von 400.000 Euro und 20 Prozent Eigenkapital (80.000 Euro) finanzieren Sie 320.000 Euro. Bei einem Zinssatz von 3,5 Prozent zahlen Sie über 25 Jahre rund 148.000 Euro Zinsen. Ohne Eigenkapital, bei 3,8 Prozent auf 400.000 Euro, zahlen Sie rund 220.000 Euro Zinsen. Der Unterschied: 72.000 Euro – allein durch das Eigenkapital.</p>
+<h2 id="haushaltsrechnung">Die ehrliche Haushaltsrechnung</h2>
+<p>Die entscheidende Frage ist nicht, wie viel Eigenkapital Sie haben. Die entscheidende Frage ist, wie viel monatliche Rate Ihr Haushalt dauerhaft tragen kann – ohne auf Puffer zu verzichten und ohne dass ein einzelnes Ereignis die gesamte Konstruktion gefährdet.</p>
+<p>Eine ehrliche Haushaltsrechnung sieht so aus: Nettoeinkommen minus monatliche Rate, minus laufende Nebenkosten der Immobilie (Strom, Heizung, Grundsteuer, Versicherung), minus Rücklage für Instandhaltung (mindestens 1 Euro pro Quadratmeter und Monat), minus normale Lebenshaltungskosten. Was übrig bleibt, ist Ihr tatsächlicher Puffer.</p>
+<h2 id="checkliste">Ihre Checkliste vor dem Kauf</h2>
+<div class="key-takeaway"><div class="kt-icon">🏡</div><div class="kt-body"><div class="kt-label">Vier Fragen, bevor Sie ein Gebot abgeben</div><p class="kt-text"><strong>1. Haben Sie die Kaufnebenkosten vollständig liquide?</strong> Grunderwerbsteuer, Notar, ggf. Makler – das sind 7 bis 12 % des Kaufpreises, die keine Bank finanziert.<br><br><strong>2. Bleibt nach der Rate ein Puffer von mindestens 3 Monatsgehältern?</strong> Nicht auf dem Papier – sondern real, nach allen laufenden Kosten.<br><br><strong>3. Haben Sie eine Instandhaltungsrücklage eingeplant?</strong> Mindestens 1 € pro Quadratmeter und Monat – mehr bei älteren Objekten.<br><br><strong>4. Haben Sie mindestens zwei Finanzierungsangebote verglichen?</strong> Das erste Angebot der Hausbank ist selten das beste.</p></div></div>
+<p>Eigenkapital schützt nicht nur die Bank – es schützt vor allem Sie. Je mehr Sie einbringen, desto kleiner ist die monatliche Belastung, desto stabiler die gesamte Konstruktion und desto mehr Spielraum bleibt für das Leben, das nach dem Einzug noch kommt.</p>`
+  },
+  { id: "07", title: "Anschlussfinanzierung – Die Ruhe nach dem Zins-Schock", readTime: "ca. 4 Minuten", focus: "Vorausschauendes Handeln", category: "Immobilien", catStyle: "slate", seriesLabel: null, tags: ["Anschlussfinanzierung", "Forward-Darlehen", "Zinsbindung", "Immobilien", "Hausbank", "Umschuldung"],
+    preview: "Die meisten Immobilienkäufer denken intensiv über die erste Finanzierung nach – und kaum über die zweite. Dabei ist die Anschlussfinanzierung oft der Moment, in dem man am meisten sparen oder verlieren kann.",
+    toc: [{ id: "moment", label: "Der unterschätzte Moment" }, { id: "hausbank", label: "Der Mythos der treuen Hausbank" }, { id: "forward", label: "Das Forward-Darlehen" }, { id: "wechsel", label: "Wechsel: einfacher als gedacht" }, { id: "planung", label: "Wann mit der Planung beginnen?" }, { id: "checkliste", label: "Ihre Checkliste zur Anschlussfinanzierung" }],
+    html: `<p>Die erste Baufinanzierung bekommt die ganze Aufmerksamkeit. Monatelang wird verglichen, gerechnet und verhandelt. Die zweite – die Anschlussfinanzierung nach dem Ablauf der ersten Zinsbindung – kommt dann irgendwann per Brief. Viele Eigentümer unterschreiben das Angebot der Hausbank, ohne groß nachzudenken.</p>
+<p>Das ist teuer. Oft sehr teuer.</p>
+<h2 id="moment">Der unterschätzte Moment</h2>
+<p>Nach zehn oder fünfzehn Jahren Tilgung ist die Situation eine andere als beim Erstkauf: Die Restschuld ist gesunken, die Immobilie hat möglicherweise an Wert gewonnen, und die Bonität ist durch die zuverlässige Rückzahlung gestärkt. Kurz: Sie sitzen in einer komfortablen Verhandlungsposition – und viele nutzen sie nicht.</p>
+<p>Die Anschlussfinanzierung ist kein bürokratischer Pflichttermin. Sie ist eine echte Verhandlung. Und wer gut vorbereitet in sie geht, kann über die Restlaufzeit fünf-, manchmal sogar sechsstellige Beträge sparen.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Das erste Angebot der Hausbank ist selten das beste. <strong>Wer aktiv vergleicht, wechselt oder zumindest nachverhandelt, zahlt weniger</strong> – oft tausende Euro weniger über die Restlaufzeit.</p></div>
+<h2 id="hausbank">Der Mythos der treuen Hausbank</h2>
+<p>Einige Monate vor Ablauf der Zinsbindung schickt die Hausbank ein Verlängerungsangebot. Es kommt mit einem freundlichen Anschreiben, einer vertrauten Unterschrift und dem impliziten Appell: Wir kennen uns, wir haben das gut gemacht, machen wir einfach weiter.</p>
+<p>Das Problem: Die Bank weiß, dass viele Kunden nicht wechseln. Die Bequemlichkeit ist eingepreist. Das Angebot enthält einen Zins, der oft über dem liegt, was Sie bei aktivem Vergleich bekommen würden – manchmal 0,2, manchmal 0,5 Prozentpunkte mehr. Das klingt wenig.</p>
+<p>Ein konkretes Beispiel: Bei einer Restschuld von 200.000 Euro und einer Restlaufzeit von 15 Jahren kostet ein Zinssatz von 3,8 statt 3,3 Prozent rund <strong>16.000 Euro mehr</strong> – nur weil man das erste Angebot unterschrieben hat, ohne zu vergleichen.</p>
+<h2 id="forward">Das Forward-Darlehen</h2>
+<p>Ein Forward-Darlehen erlaubt es Ihnen, den Zinssatz für die Anschlussfinanzierung bereits heute zu sichern – bis zu 60 Monate vor dem Ende der Zinsbindung. Sie zahlen dafür einen kleinen Aufschlag: in der Regel 0,01 bis 0,03 Prozentpunkte pro Monat Vorlaufzeit.</p>
+<p>In Phasen steigender Zinsen ist das ein wertvolles Instrument. Wer 2021 ein Forward-Darlehen für 2023 abgeschlossen hat, hat sich Zinsen von unter zwei Prozent gesichert – zu einem Zeitpunkt, als der Markt bereits über drei Prozent kannte. Die Planungssicherheit hat sich mehrfach ausgezahlt.</p>
+<p>In Phasen sinkender Zinsen ist ein Forward-Darlehen dagegen nachteilig – man zahlt für eine Sicherheit, die man nicht gebraucht hätte. Das ist wie bei jeder Versicherung: Man weiß es vorher nicht. Die Frage ist, wie viel Risiko Sie tragen wollen.</p>
+<table class="compare-table"><thead><tr><th>Strategie</th><th>Vorteil</th><th>Risiko</th></tr></thead><tbody>
+<tr><td>Hausbank-Angebot annehmen</td><td>Kein Aufwand</td><td class="ct-no">Oft überhöhter Zins, kein Vergleich</td></tr>
+<tr><td>Aktiv vergleichen & wechseln</td><td class="ct-yes">Bestes Marktangebot, oft tausende € gespart</td><td>Geringer Aufwand beim Wechsel</td></tr>
+<tr><td>Forward-Darlehen</td><td class="ct-yes">Zinssicherheit bis zu 60 Monate im Voraus</td><td>Aufschlag, wenn Zinsen sinken</td></tr>
+<tr><td>Prolongation + Nachverhandlung</td><td>Bleibt bei der Bank, aber besserer Zins</td><td>Erfordert aktives Nachfragen</td></tr>
+</tbody></table>
+<h2 id="wechsel">Wechsel: einfacher als gedacht</h2>
+<p>Viele Eigentümer vermeiden den Wechsel zu einer anderen Bank, weil sie aufwendige Bürokratie befürchten. Diese Sorge ist größtenteils unbegründet. In der Praxis läuft ein Bankwechsel bei der Anschlussfinanzierung so ab:</p>
+<ul><li>Sie holen Angebote bei anderen Banken oder über einen Finanzierungsvermittler ein.</li><li>Die neue Bank prüft Ihre Unterlagen – Einkommensnachweise, Grundbuchauszug, Restschuldbestätigung der alten Bank.</li><li>Die neue Bank übernimmt die Umschreibung der Grundschuld im Grundbuch – Kosten dafür: in der Regel 200 bis 500 Euro.</li><li>Die Auszahlung erfolgt direkt an die alte Bank zur Ablösung des Restdarlehens.</li></ul>
+<p>Der gesamte Prozess dauert in der Regel vier bis acht Wochen. Der finanzielle Vorteil übersteigt in den meisten Fällen den Aufwand bei weitem.</p>
+<h2 id="planung">Wann mit der Planung beginnen?</h2>
+<p>Die Antwort ist früher, als die meisten denken: <strong>spätestens drei Jahre vor dem Ablauf der Zinsbindung</strong>. Das gibt Ihnen genug Zeit, den Markt zu beobachten, verschiedene Szenarien durchzurechnen und gegebenenfalls ein Forward-Darlehen abzuschließen, wenn die Zinsen gerade günstig sind.</p>
+<p>Schauen Sie in Ihren Darlehensvertrag: Wann endet die Zinsbindung genau? Wie hoch ist die Restschuld zu diesem Zeitpunkt voraussichtlich? Welche monatliche Rate könnten Sie dann tragen – und welche nicht? Diese Fragen zu beantworten, ist der erste Schritt.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Wenn Ihre Zinsbindung in weniger als zwölf Monaten endet und Sie noch kein Angebot eingeholt haben, handeln Sie jetzt. Der Markt braucht Zeit, und ein guter Vermittler braucht Zeit. Wer zu spät anfängt, muss nehmen, was übrig bleibt.</p></div>
+<h2 id="checkliste">Ihre Checkliste zur Anschlussfinanzierung</h2>
+<div class="key-takeaway"><div class="kt-icon">🔄</div><div class="kt-body"><div class="kt-label">Fünf Schritte für eine gute Anschlussfinanzierung</div><p class="kt-text"><strong>1. Wann endet Ihre Zinsbindung?</strong> Prüfen Sie das heute – nicht in einem Jahr. Spätestens drei Jahre vorher beginnen.<br><br><strong>2. Wie hoch wird die Restschuld sein?</strong> Lassen Sie sich eine aktuelle Restschuldbestätigung von Ihrer Bank ausstellen.<br><br><strong>3. Holen Sie mindestens drei Angebote ein.</strong> Hausbank, eine weitere Bank und ein unabhängiger Vermittler – das gibt Ihnen eine echte Vergleichsbasis.<br><br><strong>4. Prüfen Sie, ob ein Forward-Darlehen sinnvoll ist.</strong> Wenn die Zinsen gerade günstig sind und noch 18–36 Monate bis zur Anschlussfinanzierung bleiben, kann es sich lohnen.<br><br><strong>5. Verhandeln Sie – auch mit der Hausbank.</strong> Zeigen Sie das beste Konkurrenzangebot vor. Viele Banken bessern nach, wenn sie sehen, dass Sie es ernst meinen.</p></div></div>
+<p>Die Anschlussfinanzierung ist kein bürokratischer Pflichttermin, den man abhakt. Sie ist eine der letzten großen Stellschrauben in Ihrer Immobilienfinanzierung – und eine der wenigen, bei denen gut vorbereitet sein direkt in Euro messbar ist.</p>`
+  },
+  { id: "08", title: "Der Sanierungs-Fahrplan – Altbau mit Zukunft", readTime: "ca. 4 Minuten", focus: "Werterhalt & Gesetzeseinhaltung", category: "Immobilien", catStyle: "slate", seriesLabel: null, tags: ["Sanierung", "Altbau", "GEG", "KfW", "BAFA", "Fördergelder", "Energieeffizienz", "Immobilien"],
+    preview: "Ein Altbau kaufen bedeutet: Charme kaufen und Aufgaben kaufen. Was das Gebäudeenergiegesetz vorschreibt, welche Reihenfolge bei der Sanierung entscheidet und warum Fördergelder fast immer vor der Beauftragung beantragt werden müssen.",
+    toc: [{ id: "aufgaben", label: "Charme kaufen, Aufgaben kaufen" }, { id: "geg", label: "Was das GEG vorschreibt" }, { id: "reihenfolge", label: "Erst Hülle, dann Technik" }, { id: "foerderung", label: "Fördergelder: erst beantragen, dann beauftragen" }, { id: "wirtschaft", label: "Sanierung als Investition" }, { id: "checkliste", label: "Ihre Checkliste zum Sanierungs-Fahrplan" }],
+    html: `<p>Ein älteres Haus zu kaufen bringt Charme, Geschichte und oft einen günstigeren Kaufpreis als ein Neubau. Es bringt aber auch Aufgaben – manche freiwillig, manche gesetzlich verpflichtend, alle mit Konsequenzen für Kosten und Wert des Objekts.</p>
+<p>Wer einen Altbau kauft oder besitzt und die Sanierung auf sich zukommen lässt, ohne einen Plan zu haben, zahlt in der Regel zu viel – oder macht die Dinge in der falschen Reihenfolge, was auf dasselbe hinausläuft.</p>
+<h2 id="aufgaben">Charme kaufen, Aufgaben kaufen</h2>
+<p>Die häufigste Falle beim Altbaukauf ist die Unterschätzung des Sanierungsbedarfs. Ein frisch renoviertes Badezimmer und neue Farbe an den Wänden sehen gut aus – aber sie sagen nichts darüber aus, was hinter den Wänden, unter dem Dach oder im Keller passiert. Wer kein Gutachten einholt, kauft im Blindflug.</p>
+<p>Vor dem Kauf eines älteren Objekts sollte ein unabhängiger Bausachverständiger das Gebäude prüfen. Die Kosten dafür – in der Regel 500 bis 1.500 Euro – sind eine der sinnvollsten Ausgaben im gesamten Kaufprozess. Was er aufdeckt, kann über die Wirtschaftlichkeit des gesamten Kaufs entscheiden.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Eine gute Altbausanierung folgt drei Prinzipien: <strong>erst prüfen, was Pflicht ist</strong> – dann die <strong>richtige Reihenfolge</strong> der Maßnahmen planen – und <strong>Fördergelder immer vor der Beauftragung</strong> beantragen.</p></div>
+<h2 id="geg">Was das GEG vorschreibt</h2>
+<p>Das Gebäudeenergiegesetz (GEG) schreibt für bestimmte Situationen energetische Mindestmaßnahmen vor. Wer ein Haus kauft, muss innerhalb von zwei Jahren nach dem Eigentümerwechsel bestimmte Pflichten erfüllen:</p>
+<ul><li><strong>Oberste Geschossdecke dämmen:</strong> Ist die Decke zum unbeheizten Dachraum nicht ausreichend gedämmt, muss nachgerüstet werden. Die Ausnahme: Das Dach selbst ist bereits ausreichend gedämmt.</li><li><strong>Heizkessel tauschen:</strong> Öl- und Gasheizkessel, die älter als 30 Jahre sind und nicht als Niedertemperatur- oder Brennwertkessel ausgeführt sind, müssen ausgetauscht werden. Es gibt Ausnahmen für selbst bewohnte Einfamilienhäuser.</li></ul>
+<p>Was genau für Ihr Objekt gilt, hängt vom Baujahr, der Nutzung und der konkreten baulichen Situation ab. Ein Energieberater – zugelassen nach GEG – kann das verbindlich prüfen und ist in vielen Förderprogrammen ohnehin Voraussetzung.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Die Pflichten aus dem GEG gelten unabhängig davon, ob Sie sanieren wollen oder nicht. Wer sie ignoriert, riskiert Bußgelder. Lassen Sie sich bei Kauf eines älteren Objekts immer einen Energieausweis vorlegen und prüfen, welche Pflichten auf Sie zukommen.</p></div>
+<h2 id="reihenfolge">Erst Hülle, dann Technik</h2>
+<p>Der häufigste und teuerste Fehler bei der Altbausanierung ist die falsche Reihenfolge. Viele Eigentümer beginnen mit der Heizungsanlage – weil sie defekt ist, weil der Heizungsbauer zuerst anruft, oder weil es sich nach dem dringendsten Problem anfühlt.</p>
+<p>Das ist wirtschaftlich fast immer der schlechteste Einstieg. Die Logik dahinter ist einfach:</p>
+<p>Eine neue Heizung wird für den aktuellen Wärmebedarf des Gebäudes dimensioniert. Wenn das Gebäude schlecht gedämmt ist, ist dieser Bedarf hoch – und die Heizung wird entsprechend groß und teuer ausgelegt. Wenn Sie danach die Gebäudehülle dämmen, sinkt der Wärmebedarf deutlich. Die Heizung, die Sie gerade neu eingebaut haben, ist jetzt überdimensioniert und läuft ineffizient.</p>
+<p>Die richtige Reihenfolge ist daher:</p>
+<table class="compare-table"><thead><tr><th>Schritt</th><th>Maßnahme</th><th>Warum zuerst?</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Gebäudehülle</strong> – Dach, Fassade, Keller, Fenster</td><td class="ct-yes">Reduziert den Wärmebedarf – alle folgenden Maßnahmen profitieren davon</td></tr>
+<tr><td>2</td><td><strong>Lüftung</strong> – kontrollierte Wohnraumlüftung</td><td>Verhindert Schimmel nach der Dämmung, sichert Luftqualität</td></tr>
+<tr><td>3</td><td><strong>Heizung</strong> – Wärmepumpe, Pellets, Fernwärme</td><td class="ct-yes">Wird kleiner und günstiger dimensioniert, weil der Bedarf gesunken ist</td></tr>
+<tr><td>4</td><td><strong>Erneuerbare Energien</strong> – Photovoltaik, Solarthermie</td><td>Sinnvoll erst, wenn der Verbrauch optimiert ist</td></tr>
+</tbody></table>
+<h2 id="foerderung">Fördergelder: erst beantragen, dann beauftragen</h2>
+<p>KfW und BAFA fördern energetische Sanierungsmaßnahmen mit Zuschüssen und vergünstigten Darlehen, die je nach Maßnahme und Gesamtkonzept erheblich sein können. Die wichtigsten Programme:</p>
+<ul><li><strong>BEG Einzelmaßnahmen (BAFA):</strong> Zuschüsse von 15 bis 20 % der förderfähigen Kosten für Heizung, Dämmung, Fenster und mehr. Mit Bonus für schlechten energetischen Ausgangszustand bis zu 35 %.</li><li><strong>BEG Wohngebäude (KfW):</strong> Kredit bis 150.000 Euro pro Wohneinheit mit Tilgungszuschuss für umfassende Sanierungen zum Effizienzhaus-Standard.</li><li><strong>Steuerliche Förderung:</strong> Wer selbst im Haus wohnt, kann Sanierungskosten über drei Jahre mit 20 % (maximal 40.000 Euro) von der Einkommensteuer absetzen – alternativ zu den Zuschüssen.</li></ul>
+<p>Der entscheidende Punkt, den viele zu spät erfahren: <strong>Der Antrag muss in fast allen Fällen gestellt werden, bevor der erste Handwerker beauftragt wird.</strong> Wer zuerst saniert und dann nach Förderung fragt, bekommt in der Regel keine. Keine Ausnahme, keine Kulanz.</p>
+<h2 id="wirtschaft">Sanierung als Investition</h2>
+<p>Eine energetische Sanierung ist kein reiner Kostenposten – sie ist Werterhalt, Betriebskostensenkung und Wertsteigerung zugleich. Ein energetisch saniertes Objekt erzielt am Markt messbar höhere Verkaufspreise, senkt laufende Heizkosten und macht die Immobilie unabhängiger von Energiepreisentwicklungen.</p>
+<p>Wer Sanierungskosten und Finanzierung von Anfang an gemeinsam plant – also den Sanierungskredit direkt in die Kauffinanzierung integriert –, profitiert von günstigeren Gesamtkonditionen und muss später keine separate Anschlussfinanzierung für die Sanierung suchen.</p>
+<h2 id="checkliste">Ihre Checkliste zum Sanierungs-Fahrplan</h2>
+<div class="key-takeaway"><div class="kt-icon">🔧</div><div class="kt-body"><div class="kt-label">Fünf Schritte für eine kluge Altbausanierung</div><p class="kt-text"><strong>1. Gutachter vor dem Kauf.</strong> Ein Bausachverständiger deckt versteckte Mängel auf – 500 bis 1.500 Euro gut investiert.<br><br><strong>2. GEG-Pflichten klären.</strong> Was müssen Sie innerhalb von zwei Jahren nach dem Kauf erledigen? Ein Energieberater gibt die verbindliche Antwort.<br><br><strong>3. Richtige Reihenfolge planen.</strong> Erst Gebäudehülle, dann Lüftung, dann Heizung. Nicht umgekehrt.<br><br><strong>4. Förderantrag vor der Beauftragung.</strong> KfW oder BAFA zuerst – dann erst den Handwerker anrufen. Immer. Ohne Ausnahme.<br><br><strong>5. Sanierung und Finanzierung als Einheit denken.</strong> Wer beides gemeinsam plant, zahlt weniger und hat mehr Spielraum.</p></div></div>
+<p>Ein Altbau mit einem guten Sanierungsplan ist kein Risiko – er ist eine Chance. Der Unterschied zwischen einem teuren Problemhaus und einer wertvollen Immobilie liegt oft nur in der Reihenfolge der Entscheidungen.</p>`
+  },
+  { id: "09", title: "Erbengemeinschaft & Immobilie – Wenn das Erbe Fragen aufwirft", readTime: "ca. 4 Minuten", focus: "Klare Köpfe in emotionalen Situationen", category: "Immobilien", catStyle: "slate", seriesLabel: null, tags: ["Erbengemeinschaft", "Erbschaft", "Immobilien", "Teilungsversteigerung", "Erbrecht", "Immobilienverkauf"],
+    preview: "Eine Immobilie erben klingt nach Glück. Wenn mehrere Menschen gemeinsam erben, wird daraus schnell ein Konflikt. Was rechtlich gilt, welche Optionen es gibt – und warum die erste Entscheidung die wichtigste ist.",
+    toc: [{ id: "gluecksfall", label: "Der vermeintliche Glücksfall" }, { id: "rechtslage", label: "Das rechtliche Grundproblem" }, { id: "versteigerung", label: "Die Teilungsversteigerung: letztes Mittel" }, { id: "basis", label: "Sachliche Basis schaffen" }, { id: "optionen", label: "Die drei Optionen" }, { id: "checkliste", label: "Ihre Checkliste für die Erbengemeinschaft" }],
+    html: `<h2 id="gluecksfall">Der vermeintliche Glücksfall</h2>
+<p>Eine Immobilie zu erben klingt zunächst nach einem Glücksfall. Ein Haus, eine Wohnung, ein Grundstück – etwas Konkretes, etwas Wertvolles. Doch wenn mehrere Personen gemeinsam erben – Geschwister, Halbgeschwister, entfernte Verwandte –, wird aus dem vermeintlichen Glücksfall schnell eine der belastendsten Situationen, die Familien kennen.</p>
+<p>Unterschiedliche finanzielle Situationen, unterschiedliche emotionale Bindungen ans Haus, unterschiedliche Vorstellungen davon, was jetzt richtig ist: Das ist das Standardprogramm einer Erbengemeinschaft. Und das Haus steht derweil leer, verursacht Kosten und wartet auf eine Entscheidung, die alle mittragen müssen.</p>
+<h2 id="rechtslage">Das rechtliche Grundproblem</h2>
+<p>Alle Erben sind gemeinsam Eigentümer – zu gleichen oder ungleichen Teilen, je nach Testament oder gesetzlicher Erbfolge. Das klingt fair, erzeugt aber ein strukturelles Problem: Wichtige Entscheidungen können nur gemeinsam getroffen werden. Wer verkaufen möchte und wer nicht, hat erst einmal gleich viel Gewicht – unabhängig davon, wer emotional mehr am Haus hängt oder wer das Geld dringender braucht.</p>
+<p>Das führt zu Lähmung. Und Lähmung kostet Geld: Grundsteuer, Gebäudeversicherung, Heizungskosten, Instandhaltung – alles läuft weiter, ob eine Entscheidung gefallen ist oder nicht. Bei einem Haus mit laufenden Kosten von 500 Euro monatlich sind das nach einem Jahr bereits 6.000 Euro, die die Gemeinschaft aufgebracht hat, ohne dass irgendetwas voranging.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Eine Erbengemeinschaft ist kein Dauerzustand – sie ist eine <strong>Übergangsphase, die aufgelöst werden muss</strong>. Je früher das gelingt, desto weniger Kosten, desto weniger Konflikte, desto mehr bleibt vom Erbe übrig.</p></div>
+<h2 id="versteigerung">Die Teilungsversteigerung: das letzte Mittel</h2>
+<p>In extremen Fällen kann ein einzelner Erbe beim zuständigen Amtsgericht eine Teilungsversteigerung beantragen. Das Gericht lässt die Immobilie dann öffentlich versteigern und teilt den Erlös unter den Erben auf.</p>
+<p>Das klingt nach einer Lösung – ist aber in der Regel die schlechteste für alle Beteiligten. Bei einer Zwangsversteigerung werden Immobilien häufig weit unter Marktwert verkauft, weil der Käuferkreis kleiner ist und das Verfahren Unsicherheiten mit sich bringt. Verluste von 20 bis 40 Prozent gegenüber dem Marktwert sind keine Seltenheit.</p>
+<p>Die Drohung mit einer Teilungsversteigerung treibt manchmal eine Einigung voran. Das Verfahren selbst sollte das letzte Mittel sein – nicht die erste Reaktion auf eine verfahrene Situation.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Wer eine Teilungsversteigerung beantragt, verliert die Kontrolle über den Verkaufsprozess, den Preis und den Zeitpunkt. Das schadet in der Regel allen Erben – auch demjenigen, der den Antrag stellt.</p></div>
+<h2 id="basis">Sachliche Basis schaffen</h2>
+<p>Bevor man über Optionen diskutiert, braucht man eine gemeinsame, neutrale Grundlage. Der erste Schritt ist fast immer derselbe: ein unabhängiges Wertgutachten durch einen zertifizierten Immobiliengutachter.</p>
+<p>Ein Gutachten kostet je nach Objekt und Aufwand zwischen 1.500 und 3.500 Euro – und ist eine der sinnvollsten Ausgaben in einer Erbengemeinschaft. Es schafft einen gemeinsamen Ausgangspunkt und verhindert, dass jeder mit einer anderen Zahl im Kopf argumentiert. Emotionale Werte haben ihren Platz – aber nicht in der Verhandlung über Zahlen.</p>
+<p>Manchmal hilft auch eine professionelle Mediation: Eine neutrale dritte Person, die das Gespräch moderiert und strukturiert, kann Blockaden lösen, die im Familiengespräch entstehen. Mediation ist günstiger als ein Gerichtsverfahren und schont die Beziehungen.</p>
+<h2 id="optionen">Die drei Optionen</h2>
+<p>Am Ende gibt es für jede Erbengemeinschaft mit einer Immobilie drei grundlegende Wege. Jeder hat seinen Preis – und jeder passt zu anderen Situationen.</p>
+<h3>Option 1: Ein Erbe übernimmt und zahlt die anderen aus</h3>
+<p>Das ist oft die sauberste Lösung, wenn jemand das Haus wirklich möchte und behalten kann. Der übernehmende Erbe zahlt den anderen ihrem Anteil entsprechend eine Abfindung. Banken finanzieren solche Auszahlungen, wenn Einkommen und Bonität stimmen – das Haus selbst dient als Sicherheit. Wichtig: Der Wert muss fair bestimmt sein, damit alle Erben dem Preis zustimmen können.</p>
+<h3>Option 2: Gemeinsamer Verkauf</h3>
+<p>Der gemeinsame Verkauf teilt den Erlös nach Erbquoten auf. Er ist wirtschaftlich oft die klarste Lösung und emotional manchmal die schwerste – besonders wenn das Elternhaus verkauft wird. Der Vorteil: Der Prozess hat ein Ende, der Erlös ist eindeutig, und die Gemeinschaft wird aufgelöst.</p>
+<h3>Option 3: Gemeinsame Vermietung</h3>
+<p>Gemeinsam vermieten klingt attraktiv, weil Mieteinnahmen fließen und niemand verkaufen muss. Die Realität ist komplizierter: Entscheidungen über Mieterhöhungen, Instandhaltung, Mieterauswahl und Leerstand müssen dauerhaft gemeinsam getroffen werden. Nicht jede Erbengemeinschaft ist dafür geeignet – besonders dann nicht, wenn die persönliche Beziehung bereits belastet ist.</p>
+<table class="compare-table"><thead><tr><th>Option</th><th>Vorteil</th><th>Voraussetzung</th></tr></thead><tbody>
+<tr><td>Ein Erbe übernimmt</td><td class="ct-yes">Saubere Trennung, Haus bleibt in Familie</td><td>Finanzierung der Auszahlung möglich</td></tr>
+<tr><td>Gemeinsamer Verkauf</td><td class="ct-yes">Klarer Abschluss, fairer Marktpreis</td><td>Einigkeit über Zeitpunkt und Preis</td></tr>
+<tr><td>Gemeinsame Vermietung</td><td>Laufende Einnahmen ohne Verkauf</td><td class="ct-no">Dauerhaft funktionierende Zusammenarbeit nötig</td></tr>
+<tr><td>Teilungsversteigerung</td><td>Erzwingt Auflösung</td><td class="ct-no">Deutlicher Wertverlust, Kontrollverlust</td></tr>
+</tbody></table>
+<h2 id="checkliste">Ihre Checkliste für die Erbengemeinschaft</h2>
+<div class="key-takeaway"><div class="kt-icon">⚖️</div><div class="kt-body"><div class="kt-label">Fünf Schritte für eine geordnete Auflösung</div><p class="kt-text"><strong>1. Laufende Kosten sofort klären.</strong> Wer zahlt Grundsteuer, Versicherung und Heizung während der Findungsphase? Das schriftlich festhalten.<br><br><strong>2. Unabhängiges Wertgutachten einholen.</strong> Vor jeder Diskussion über Optionen – damit alle mit denselben Zahlen arbeiten.<br><br><strong>3. Alle Optionen sachlich prüfen.</strong> Übernahme, Verkauf, Vermietung – mit konkreten Zahlen, nicht mit Bauchgefühl.<br><br><strong>4. Fristen setzen.</strong> Eine Erbengemeinschaft ohne Deadline ist eine Erbengemeinschaft auf Dauer. Vereinbaren Sie, bis wann eine Entscheidung gefallen sein soll.<br><br><strong>5. Bei Blockade: Mediation vor Gericht.</strong> Ein professioneller Mediator ist günstiger, schneller und schonender als ein Rechtsstreit.</p></div></div>
+<p>Handeln Sie wie ein Unternehmen: klare Fristen, professionelle Grundlagen, schriftliche Beschlüsse. Eine Immobilie soll eine Bereicherung sein – kein dauerhafter Anlass für Familienstreit, der am Ende alle ärmer macht.</p>`
+  },
+  { id: "10", title: "Risikolebensversicherung – Der Liebesbeweis auf Papier", readTime: "ca. 4 Minuten", focus: "Familienschutz & konkrete Planung", category: "Absicherung", catStyle: "", seriesLabel: null, tags: ["Risikolebensversicherung", "Absicherung", "Familie", "Kredit", "Hinterbliebene", "Todesfall"],
+    preview: "Für Familien und Paare mit gemeinsamen Krediten ist die Risikolebensversicherung eine der wichtigsten Absicherungen überhaupt – und eine der am häufigsten aufgeschobenen. Was sie leistet, wie hoch sie sein sollte und was viele nicht wissen.",
+    toc: [{ id: "aufschub", label: "Das unangenehme Thema" }, { id: "zweck", label: "Was sie leistet – und was nicht" }, { id: "summe", label: "Wie hoch sollte die Summe sein?" }, { id: "struktur", label: "Wie der Vertrag strukturiert sein sollte" }, { id: "raucher", label: "Der Raucher-Faktor" }, { id: "checkliste", label: "Ihre Checkliste zur Risikolebensversicherung" }],
+    html: `<h2 id="aufschub">Das unangenehme Thema</h2>
+<p>Es gibt Versicherungen, über die man gerne spricht – und solche, über die man lieber schweigt. Die Risikolebensversicherung gehört zur zweiten Kategorie. Sie schützt gegen einen Tod, den niemand erwartet und niemand plant. Genau deshalb wird sie oft aufgeschoben. Und genau deshalb ist der Aufschub so teuer.</p>
+<p>Für junge Familien oder Paare, die gemeinsam eine Immobilie finanzieren, ist sie eine der wichtigsten Absicherungen überhaupt – günstig, unkompliziert und in ihrem Zweck glasklar.</p>
+<h2 id="zweck">Was sie leistet – und was nicht</h2>
+<p>Die Risikolebensversicherung zahlt im Todesfall der versicherten Person eine vereinbarte Summe an die begünstigte Person – in der Regel den Partner oder die Kinder. Damit soll sichergestellt werden, dass der überlebende Partner nicht aus dem gemeinsamen Haus ausziehen muss, nicht sofort ins Berufsleben zurückzwingen muss und nicht gleichzeitig trauert und finanziell kämpft.</p>
+<p>Was sie nicht leistet: Sie zahlt nicht bei Krankheit, nicht bei Berufsunfähigkeit, nicht bei Pflegebedürftigkeit. Sie ist keine Kapitalanlage – am Ende der Laufzeit gibt es kein Geld zurück, wenn der Versicherungsfall nicht eingetreten ist. Das ist kein Nachteil, sondern das Prinzip: Der Beitrag ist niedrig, weil keine Kapitalbildung stattfindet. Wer am Ende der Laufzeit „nichts bekommen hat", hat dreißig Jahre lang gut gelebt.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Die Risikolebensversicherung ist <strong>die günstigste Art, eine Familie im schlimmsten Fall abzusichern</strong>. Ein gesunder 30-Jähriger zahlt für 300.000 Euro Absicherung oft unter 15 Euro monatlich. Wer das nicht abschließt, spart am falschen Ende.</p></div>
+<h2 id="summe">Wie hoch sollte die Versicherungssumme sein?</h2>
+<p>Die gängige Faustformel: die ausstehende Restschuld des gemeinsamen Kredits plus das Drei- bis Fünffache des jährlichen Bruttoeinkommens der versicherten Person. Das klingt nach viel – deckt aber ab, was im schlimmsten Fall tatsächlich gebraucht wird.</p>
+<p>Ein Beispiel: Partner A verdient 60.000 Euro brutto im Jahr, das gemeinsame Darlehen hat noch 250.000 Euro Restschuld. Eine sinnvolle Absicherungssumme wäre: 250.000 Euro (Kredit) + 180.000 bis 300.000 Euro (3- bis 5-faches Bruttoeinkommen) = <strong>430.000 bis 550.000 Euro</strong>. Das klingt nach einer großen Summe – aber bei einem jungen, gesunden Menschen kostet das oft weniger als 30 Euro monatlich.</p>
+<p>Wer keine gemeinsame Immobilie hat, aber Kinder oder einen Partner mit abhängigem Einkommen, sollte mindestens das Drei- bis Fünffache des Jahreseinkommens absichern. Die Risikolebensversicherung ist in diesem Zusammenhang keine Luxusentscheidung.</p>
+<table class="compare-table"><thead><tr><th>Situation</th><th>Empfohlene Mindest-Versicherungssumme</th></tr></thead><tbody>
+<tr><td>Gemeinsamer Kredit, keine Kinder</td><td class="ct-yes">Restschuld + 2–3× Jahresbrutto</td></tr>
+<tr><td>Gemeinsamer Kredit + Kinder</td><td class="ct-yes">Restschuld + 4–5× Jahresbrutto</td></tr>
+<tr><td>Kinder, kein gemeinsamer Kredit</td><td class="ct-yes">3–5× Jahresbrutto des Hauptverdieners</td></tr>
+<tr><td>Alleinstehend, keine Abhängigen</td><td>Oft nicht notwendig – individuell prüfen</td></tr>
+</tbody></table>
+<h2 id="struktur">Wie der Vertrag strukturiert sein sollte</h2>
+<p>Paare schließen häufig getrennte Verträge ab: jeder versichert das eigene Leben zugunsten des anderen. Das ist der Standardweg und in den meisten Fällen sinnvoll – besonders dann, wenn beide ein relevantes Einkommen haben.</p>
+<p>In manchen Konstellationen kann eine sogenannte verbundene Versicherung auf zwei Leben günstiger sein. Sie zahlt einmalig beim ersten Todesfall aus – was in den meisten Fällen die relevante Situation ist. Der Nachteil: Nach der Auszahlung besteht kein weiterer Schutz. Ein Berater kann für Ihre konkrete Situation durchrechnen, welche Struktur günstiger ist.</p>
+<p>Auf die <strong>Laufzeit</strong> achten: Die Versicherung sollte so lange laufen, bis der Kredit weitgehend abbezahlt ist und die Kinder finanziell auf eigenen Beinen stehen – nicht bis zu einem runden Geburtstag, der zufällig früher kommt. Wer mit 35 Jahren abschließt und das Haus in 25 Jahren abbezahlt hat, braucht eine Laufzeit bis 60 – nicht bis 55.</p>
+<div class="warn-box"><p><strong>Achtung bei der Begünstigtenregelung:</strong> Prüfen Sie, wer im Vertrag als begünstigte Person eingetragen ist. Wenn der Vertrag noch auf einen früheren Partner lautet oder keine Begünstigung eingetragen ist, fließt die Summe möglicherweise in den Nachlass – und damit in ein Erbverfahren, das Zeit kostet und Steuern verursacht.</p></div>
+<h2 id="raucher">Der Raucher-Faktor</h2>
+<p>Raucher zahlen für dieselbe Versicherungssumme und Laufzeit erheblich mehr als Nichtraucher – oft 50 bis 100 Prozent mehr. Das liegt an der statistisch höheren Sterblichkeit und dem erhöhten Krankheitsrisiko.</p>
+<p>Wer aufgehört hat zu rauchen, sollte nach <strong>mindestens zwölf Monaten Rauchfreiheit</strong> den bestehenden Vertrag überprüfen lassen. In vielen Fällen lässt sich durch einen Neuabschluss als Nichtraucher ein deutlich günstigerer Tarif erschließen. Die Einsparung über die Restlaufzeit kann je nach Alter und Versicherungssumme mehrere tausend Euro betragen.</p>
+<p>Wichtig dabei: Den alten Vertrag erst kündigen, wenn der neue abgeschlossen und gültig ist. Nie ohne Anschlussschutz dastehen.</p>
+<h2 id="checkliste">Ihre Checkliste zur Risikolebensversicherung</h2>
+<div class="key-takeaway"><div class="kt-icon">❤️</div><div class="kt-body"><div class="kt-label">Fünf Fragen, die jeder beantworten sollte</div><p class="kt-text"><strong>1. Wer ist von meinem Einkommen abhängig?</strong> Partner, Kinder, gemeinsamer Kredit – wenn jemand finanziell auf Sie angewiesen ist, brauchen Sie Schutz.<br><br><strong>2. Wie hoch ist die Restschuld des gemeinsamen Kredits?</strong> Das ist die Mindestabsicherung – alles darunter ist zu wenig.<br><br><strong>3. Wie lange läuft der Vertrag – und deckt er den richtigen Zeitraum ab?</strong> Bis das Haus abbezahlt ist und die Kinder selbstständig sind, nicht kürzer.<br><br><strong>4. Wer ist als Begünstigter eingetragen?</strong> Prüfen Sie das heute – nicht nach dem Todesfall.<br><br><strong>5. Sind Sie Raucher oder Ex-Raucher?</strong> Wenn Sie seit mehr als 12 Monaten nicht rauchen: Neuabschluss als Nichtraucher prüfen.</p></div></div>
+<p>Die Risikolebensversicherung ist eine der wenigen Versicherungen, bei der man aufrichtig hofft, dass sie nie leisten muss. Und genau deshalb sollte man sie nicht beiläufig abschließen – sondern mit der Sorgfalt, die eine ernste Fürsorgeentscheidung verdient.</p>`
+  },
+  { id: "11", title: "PKV vs. GKV – Eine Lebensentscheidung, kein Tarifvergleich", readTime: "ca. 4 Minuten", focus: "Langfristige Perspektive & Systemverständnis", category: "Krankenversicherung", catStyle: "", seriesLabel: null, tags: ["PKV", "GKV", "Krankenversicherung", "Beiträge", "Familienversicherung", "Rückkehr"],
+    preview: "PKV oder GKV? Diese Frage wird häufig auf den monatlichen Beitrag reduziert. Das ist ein Fehler. Die Entscheidung wirkt Jahrzehnte lang – und die Tür zurück ist fast geschlossen. Was Sie vor dem Wechsel wissen müssen.",
+    toc: [{ id: "vereinfachung", label: "Die gefährliche Vereinfachung" }, { id: "gkv", label: "Die Logik der GKV" }, { id: "pkv", label: "Die Logik der PKV" }, { id: "rueckkehr", label: "Das Rückkehrproblem" }, { id: "szenarien", label: "Wann PKV, wann GKV?" }, { id: "checkliste", label: "Ihre Checkliste vor dem Wechsel" }],
+    html: `<h2 id="vereinfachung">Die gefährliche Vereinfachung</h2>
+<p>Die Frage „Privat oder gesetzlich?" gehört zu den folgenreichsten Entscheidungen im deutschen Sozialversicherungssystem – und wird in den meisten Gesprächen auf einen einzigen Faktor reduziert: Ist die PKV gerade günstiger? Dann wechseln.</p>
+<p>Das ist eine gefährliche Vereinfachung. Die Entscheidung zwischen privater und gesetzlicher Krankenversicherung ist eine Weichenstellung, die Jahrzehnte lang wirkt und die sich, einmal getroffen, nur unter sehr spezifischen Bedingungen rückgängig machen lässt.</p>
+<h2 id="gkv">Die Logik der GKV</h2>
+<p>Die gesetzliche Krankenversicherung ist ein solidarisches System. Wer mehr verdient, zahlt mehr – unabhängig davon, ob er gesünder oder kränker ist als der Durchschnitt. Der Beitrag ist einkommensabhängig und nach oben durch die Beitragsbemessungsgrenze gedeckelt. 2025 liegt diese bei 62.100 Euro Jahreseinkommen – wer mehr verdient, zahlt trotzdem nur auf diesen Betrag.</p>
+<p>Die GKV bietet dafür zwei strukturelle Vorteile, die im Vergleich leicht übersehen werden:</p>
+<ul><li><strong>Beitragsfreie Familienversicherung:</strong> Kinder und Ehepartner ohne eigenes Einkommen sind automatisch mitversichert – ohne zusätzlichen Beitrag. Bei drei Kindern und einem nicht berufstätigen Partner sind vier Personen für einen Beitrag versichert.</li><li><strong>Keine Gesundheitsprüfung:</strong> Wer krank wird, verliert keinen Versicherungsschutz und zahlt keinen höheren Beitrag. Das Risiko wird auf alle verteilt.</li></ul>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>GKV und PKV sind <strong>zwei grundlegend verschiedene Systeme</strong> – kein besseres und kein schlechteres. Die richtige Wahl hängt von Alter, Gesundheit, Familienplanung, Einkommensentwicklung und Risikobereitschaft ab. Wer nur den aktuellen Beitrag vergleicht, vergleicht das Falsche.</p></div>
+<h2 id="pkv">Die Logik der PKV</h2>
+<p>Die private Krankenversicherung ist ein individuelles Risikomodell. Der Beitrag richtet sich nach drei Faktoren: dem Alter bei Eintritt, dem Gesundheitszustand zum Zeitpunkt des Abschlusses und dem gewählten Tarif. Wer jung, gesund und gut verdienend in die PKV eintritt, zahlt anfangs oft deutlich weniger als in der GKV – und erhält dafür einen individuell zugeschnittenen Leistungskatalog: Einbettzimmer, Chefarztbehandlung, kürzere Wartezeiten.</p>
+<p>Die zwei strukturellen Nachteile, die im Verkaufsgespräch selten so deutlich benannt werden:</p>
+<ul><li><strong>Jedes Familienmitglied braucht einen eigenen Vertrag.</strong> Wer drei Kinder hat und einen nicht berufstätigen Partner, zahlt fünf separate Beiträge. Das verändert die Gesamtrechnung erheblich.</li><li><strong>Die Beiträge steigen im Alter strukturell an.</strong> Was mit dreißig günstig erscheint, kann mit sechzig zur spürbaren Belastung werden – besonders wenn das Einkommen durch Rente sinkt oder wenn man zwischenzeitlich berufsunfähig wird.</li></ul>
+<table class="compare-table"><thead><tr><th>Merkmal</th><th>GKV</th><th>PKV</th></tr></thead><tbody>
+<tr><td>Beitragsberechnung</td><td class="ct-yes">Einkommensabhängig, gedeckelt</td><td>Alter + Gesundheit + Tarif</td></tr>
+<tr><td>Familienversicherung</td><td class="ct-yes">Beitragsfrei für Kinder & Partner</td><td class="ct-no">Eigener Beitrag pro Person</td></tr>
+<tr><td>Beitragsentwicklung Alter</td><td>Steigt mit Einkommen</td><td class="ct-no">Steigt strukturell mit Alter</td></tr>
+<tr><td>Leistungsumfang</td><td>Standardisiert, solidarisch</td><td class="ct-yes">Individuell, oft umfangreicher</td></tr>
+<tr><td>Rückkehr möglich?</td><td>–</td><td class="ct-no">Kaum unter 55 Jahren</td></tr>
+</tbody></table>
+<h2 id="rueckkehr">Das Rückkehrproblem: die asymmetrische Tür</h2>
+<p>Der gravierendste strukturelle Nachteil der PKV ist nicht der Beitrag – es ist die fehlende Rückkehrmöglichkeit. Wer einmal in der PKV ist, kann unter 55 Jahren in Deutschland praktisch nicht in die GKV zurückwechseln. Die Ausnahmen sind eng definiert:</p>
+<ul><li>Wechsel in eine Anstellung mit einem Gehalt unterhalb der Jahresarbeitsentgeltgrenze (2025: 73.800 Euro) – und das dauerhaft, nicht vorübergehend.</li><li>Aufgabe der Selbstständigkeit und Rückkehr in die Anstellung mit entsprechendem Gehalt.</li><li>Bezug von Arbeitslosengeld I unter bestimmten Bedingungen.</li></ul>
+<p>Diese Asymmetrie ist entscheidend: Die Tür in die PKV öffnet sich vergleichsweise leicht. Die Tür zurück öffnet sie kaum. Wer im Alter berufsunfähig wird, die PKV-Beiträge nicht mehr zahlen kann und nicht in die GKV zurückdarf, steht vor einem ernsthaften Problem. Dieses Szenario ist nicht selten – und wird im Verkaufsgespräch selten offen angesprochen.</p>
+<div class="warn-box"><p><strong>Wichtig:</strong> Der PKV-Basistarif ist zwar gesetzlich verankert und darf niemanden ausschließen – aber er bietet nur GKV-ähnliche Leistungen zu GKV-ähnlichen Kosten. Wer in den Basistarif wechseln muss, hat die Vorteile der PKV verloren und trägt trotzdem die Nachteile des Systems.</p></div>
+<h2 id="szenarien">Wann PKV, wann GKV?</h2>
+<p>Es gibt keine universelle Antwort – aber es gibt Konstellationen, in denen eine Richtung deutlich sinnvoller ist.</p>
+<p><strong>PKV eher sinnvoll, wenn …</strong> Sie dauerhaft gut verdienen, keine oder erwachsene Kinder haben, ledig oder mit einem ebenfalls gut verdienenden Partner zusammenleben, jung und gesund sind, und langfristig ein hohes Einkommen auch im Rentenalter erwarten können.</p>
+<p><strong>GKV eher sinnvoll, wenn …</strong> Sie Kinder haben oder planen, einen Partner ohne eigenes Einkommen haben, ein volatiles Einkommen haben (z. B. Selbstständigkeit mit Schwankungen), oder wenn Sie langfristig nicht sicher sind, ob Sie ein hohes Einkommen bis ins Rentenalter halten können.</p>
+<h2 id="checkliste">Ihre Checkliste vor dem Wechsel</h2>
+<div class="key-takeaway"><div class="kt-icon">🏥</div><div class="kt-body"><div class="kt-label">Fünf Fragen, bevor Sie in die PKV wechseln</div><p class="kt-text"><strong>1. Wie entwickelt sich Ihr Beitrag bis ins Rentenalter?</strong> Lassen Sie eine Beitragsprognose bis 67 erstellen – nicht nur für die nächsten fünf Jahre.<br><br><strong>2. Haben Sie Kinder oder planen Sie welche?</strong> Jedes Kind braucht in der PKV einen eigenen Beitrag. Rechnen Sie das konkret durch.<br><br><strong>3. Was passiert, wenn Sie berufsunfähig werden?</strong> Können Sie den PKV-Beitrag auch bei reduziertem Einkommen weiter zahlen?<br><br><strong>4. Was passiert, wenn Sie im Alter weniger verdienen?</strong> Rente plus PKV-Beitrag – geht das auf?<br><br><strong>5. Haben Sie die Rückkehrbedingungen in die GKV verstanden?</strong> Nicht als abstrakte Möglichkeit – sondern als konkretes Szenario für Ihre Lebenssituation.</p></div></div>
+<p>Ein Wechsel in die PKV sollte keine Sparmaßnahme sein. Er sollte eine bewusste Entscheidung für ein Leistungsniveau sein, das Sie dauerhaft finanzieren können und wollen – in jedem Lebensabschnitt, nicht nur im günstigsten.</p>`
+  },
+  { id: "12", title: "Privathaftpflicht – Warum alte Verträge gefährlich sind", readTime: "ca. 4 Minuten", focus: "Schutzlücken erkennen & schließen", category: "Absicherung", catStyle: "", seriesLabel: null, tags: ["Privathaftpflicht", "Absicherung", "Haftpflicht", "Deckungssumme", "Grobe Fahrlässigkeit", "Vertragscheck"],
+    preview: "Die Privathaftpflicht ist eine der wichtigsten Versicherungen überhaupt – und eine der am häufigsten vernachlässigten. Alte Verträge haben Lücken, die im Schadenfall teuer werden. Was moderne Tarife leisten und warum ein Update fast immer lohnt.",
+    toc: [{ id: "schublade", label: "Der Vertrag in der Schublade" }, { id: "luecken", label: "Was alte Verträge nicht abdecken" }, { id: "modern", label: "Was moderne Tarife leisten" }, { id: "deckung", label: "Die richtige Deckungssumme" }, { id: "update", label: "Wann ein Update lohnt" }, { id: "checkliste", label: "Ihre Checkliste zum Vertragscheck" }],
+    html: `<h2 id="schublade">Der Vertrag in der Schublade</h2>
+<p>Die Privathaftpflicht ist eine der wichtigsten Versicherungen, die ein Mensch haben kann – und gleichzeitig eine der am häufigsten vernachlässigten. Viele Menschen haben noch Verträge, die vor zehn, fünfzehn oder zwanzig Jahren abgeschlossen wurden und seitdem unberührt in der Schublade liegen.</p>
+<p>Die Beiträge werden per Lastschrift abgebucht, niemand denkt darüber nach – und niemand fragt, ob der Schutz noch stimmt. In vielen Fällen stimmt er nicht.</p>
+<h2 id="luecken">Was alte Verträge nicht abdecken</h2>
+<p>Das Problem mit älteren Haftpflichtverträgen ist nicht nur der Preis – es sind die Lücken. Klauseln, die heute in jedem guten Tarif Standard sind, fehlten in Verträgen aus den 2000er oder frühen 2010er Jahren schlicht. Wer das nicht weiß, merkt es erst im Schadenfall – und dann ist es zu spät.</p>
+<p>Die häufigsten Lücken in alten Verträgen:</p>
+<ul><li><strong>Grobe Fahrlässigkeit ausgeschlossen:</strong> Viele ältere Verträge leisten nicht, wenn der Schaden grob fahrlässig verursacht wurde. Was nach extremem Fehlverhalten klingt, beschreibt viele Alltagssituationen: eine vergessene brennende Kerze, ein unbeaufsichtigtes Kind am Pool, ein Fahrrad ohne Schloss, das umgefallen ist und ein Auto beschädigt hat.</li><li><strong>Keine Forderungsausfalldeckung:</strong> Was passiert, wenn Sie selbst Opfer eines Schadens sind – und der Verursacher nicht zahlen kann? Ohne diese Klausel bleiben Sie auf dem Schaden sitzen.</li><li><strong>Gefälligkeitsschäden ausgeschlossen:</strong> Schäden, die beim Helfen entstehen – beim Umzug des Nachbarn, bei der Gartenarbeit für die Eltern – sind in vielen alten Verträgen explizit nicht versichert.</li><li><strong>Zu niedrige Deckungssumme:</strong> Verträge mit 1 oder 2 Millionen Euro Deckungssumme sind veraltet. Im Ernstfall reicht das nicht.</li></ul>
+<div class="warn-box"><p><strong>Wichtig:</strong> Eine Haftpflichtversicherung, die im Schadenfall nicht zahlt, ist keine Versicherung – es ist ein Kostenpunkt ohne Nutzen. Prüfen Sie heute, welche Klauseln Ihr Vertrag enthält.</p></div>
+<h2 id="modern">Was moderne Tarife leisten</h2>
+<p>Gute aktuelle Privathaftpflichtverträge decken weit mehr ab als ihre Vorgänger – oft für denselben oder sogar einen niedrigeren Beitrag. Die wichtigsten Verbesserungen:</p>
+<h3>Forderungsausfalldeckung</h3>
+<p>Sie erleiden einen Schaden – als Opfer, nicht als Verursacher. Der Täter ist bekannt, aber insolvent oder unauffindbar. Ohne Forderungsausfalldeckung tragen Sie den Schaden selbst. Mit dieser Klausel zahlt Ihre eigene Haftpflicht – als wären Sie selbst der Verursacher. Das ist eine der wichtigsten Klauseln überhaupt, weil sie Sie in einer Situation schützt, in der Sie eigentlich keine Schuld tragen.</p>
+<h3>Verzicht auf Einrede der groben Fahrlässigkeit</h3>
+<p>Moderne Tarife leisten auch dann, wenn der Schaden grob fahrlässig verursacht wurde. Das schließt die größte Lücke älterer Verträge. Ohne diese Klausel kann die Versicherung im Schadenfall die Leistung verweigern – mit dem Argument, Sie hätten sorgfältiger sein müssen.</p>
+<h3>Gefälligkeitsschäden</h3>
+<p>Wer einem Freund beim Umzug hilft und dabei dessen Flachbildschirm fallen lässt, verursacht einen Schaden ohne Versicherungspflicht. Moderne Tarife versichern solche Schäden ausdrücklich – ältere oft nicht.</p>
+<h3>Mietsachschäden</h3>
+<p>Wer zur Miete wohnt, ist besonders auf diese Klausel angewiesen. Schäden an der gemieteten Wohnung – ein Wasserschaden durch eine vergessene offene Leitung, ein verbrannter Teppich – sind in guten Tarifen mitversichert. Prüfen Sie die Höhe: Mindestens 300.000 Euro sollten es sein.</p>
+<table class="compare-table"><thead><tr><th>Klausel</th><th>Alter Vertrag (vor 2010)</th><th>Moderner Tarif</th></tr></thead><tbody>
+<tr><td>Grobe Fahrlässigkeit</td><td class="ct-no">Oft ausgeschlossen</td><td class="ct-yes">Standardmäßig eingeschlossen</td></tr>
+<tr><td>Forderungsausfall</td><td class="ct-no">Selten enthalten</td><td class="ct-yes">Standard in guten Tarifen</td></tr>
+<tr><td>Gefälligkeitsschäden</td><td class="ct-no">Häufig ausgeschlossen</td><td class="ct-yes">In der Regel enthalten</td></tr>
+<tr><td>Mietsachschäden</td><td>Oft begrenzt</td><td class="ct-yes">Bis 300.000–500.000 €</td></tr>
+<tr><td>Deckungssumme</td><td class="ct-no">1–3 Mio. €</td><td class="ct-yes">15–50 Mio. €</td></tr>
+</tbody></table>
+<h2 id="deckung">Die richtige Deckungssumme</h2>
+<p>Eine Deckungssumme unter 15 Millionen Euro ist heute zu niedrig – und das ist keine Übertreibung. Personenschäden mit dauerhaften Folgen können in diese Dimensionen gehen. Ein Unfall, der eine andere Person dauerhaft pflegebedürftig macht, bedeutet Jahrzehnte an Pflegekosten, Verdienstausfall und Schmerzensgeld.</p>
+<p>Ein Beispiel: Jemand stürzt durch Ihre Unachtsamkeit und bleibt querschnittsgelähmt. Pflegekosten von 3.000 Euro monatlich über 40 Jahre, dazu Verdienstausfall und Schmerzensgeld – das sind schnell 2 bis 3 Millionen Euro. Bei einer Deckungssumme von 3 Millionen zahlt die Versicherung bis zur Grenze. Was darüber liegt, zahlen Sie persönlich – mit allem, was Sie haben und noch verdienen werden.</p>
+<p>Gute Tarife bieten heute 50 Millionen Euro Deckungssumme für einen Beitrag von unter 100 Euro im Jahr. Das ist kein Luxus, sondern Grundschutz.</p>
+<h2 id="update">Wann ein Update lohnt</h2>
+<p>Die gute Nachricht: Die Privathaftpflicht ist eine der wenigen Versicherungen, bei der ein Update keine Gesundheitsprüfung erfordert, keine langen Wartezeiten hat und in der Regel problemlos möglich ist. Ein Wechsel zu einem besseren Tarif dauert oft weniger als eine Stunde – und kann jahrelang besseren Schutz zu günstigerem Preis bieten.</p>
+<p>Ein Update lohnt sich besonders, wenn Ihr aktueller Vertrag älter als sieben Jahre ist, die Deckungssumme unter 15 Millionen Euro liegt, grobe Fahrlässigkeit oder Forderungsausfall nicht enthalten sind, oder Sie inzwischen zur Miete wohnen und Mietsachschäden relevant sind.</p>
+<h2 id="checkliste">Ihre Checkliste zum Vertragscheck</h2>
+<div class="key-takeaway"><div class="kt-icon">🛡️</div><div class="kt-body"><div class="kt-label">Fünf Fragen zu Ihrem aktuellen Vertrag</div><p class="kt-text"><strong>1. Wie alt ist Ihr Vertrag?</strong> Älter als sieben Jahre? Dann ist ein Vergleich mit modernen Tarifen überfällig.<br><br><strong>2. Wie hoch ist Ihre Deckungssumme?</strong> Mindestens 15 Millionen Euro – alles darunter ist zu wenig.<br><br><strong>3. Ist grobe Fahrlässigkeit eingeschlossen?</strong> Wenn nicht, haben Sie eine der häufigsten Lücken im Alltag.<br><br><strong>4. Enthält der Vertrag eine Forderungsausfalldeckung?</strong> Schützt Sie, wenn der Schädiger nicht zahlen kann oder will.<br><br><strong>5. Sind Mietsachschäden versichert – und in welcher Höhe?</strong> Relevant für alle, die zur Miete wohnen oder wohnen werden.</p></div></div>
+<p>Die Privathaftpflicht kostet zwischen 50 und 100 Euro im Jahr – und kann im Ernstfall Ihr gesamtes Vermögen schützen. Es gibt kaum eine Versicherung, bei der das Verhältnis zwischen Beitrag und potenziellem Schaden so eindeutig ist. Prüfen Sie Ihren Vertrag heute.</p>`
+  },
+  { id: "13", title: "Krankentagegeld – Die Lücke, die niemand sieht", readTime: "ca. 4 Minuten", focus: "Einkommenssicherung im Krankheitsfall", category: "Absicherung", catStyle: "", seriesLabel: null, tags: ["Krankentagegeld", "Absicherung", "Krankengeld", "Selbstständige", "Einkommenslücke", "Beitragsbemessungsgrenze"],
+    preview: "Nach sechs Wochen Lohnfortzahlung springt das gesetzliche Krankengeld ein – aber nicht für alle und nicht in voller Höhe. Wer mehr verdient als die Beitragsbemessungsgrenze, hat eine Lücke. Selbstständige haben gar keinen Puffer.",
+    toc: [{ id: "luecke", label: "Die unsichtbare Lücke" }, { id: "wie", label: "Wie das gesetzliche System funktioniert" }, { id: "angestellte", label: "Angestellte über der Beitragsbemessungsgrenze" }, { id: "selbststaendig", label: "Selbstständige: kein Puffer vorhanden" }, { id: "produkt", label: "Was privates Krankentagegeld leistet" }, { id: "checkliste", label: "Ihre Checkliste zum Krankentagegeld" }],
+    html: `<h2 id="luecke">Die unsichtbare Lücke</h2>
+<p>Die meisten Menschen wissen, dass sie sechs Wochen lang das volle Gehalt weiterbekommen, wenn sie krank sind. Das ist die Lohnfortzahlung durch den Arbeitgeber – vertraut, verlässlich, bekannt. Was danach passiert, wissen deutlich weniger.</p>
+<p>Ab der siebten Woche übernimmt die Krankenkasse – aber nicht vollständig, nicht für alle, und nicht ohne Grenzen. Die Lücke, die dabei entsteht, ist unsichtbar, solange man gesund ist. Sie wird sehr sichtbar, wenn man es nicht mehr ist.</p>
+<h2 id="wie">Wie das gesetzliche System funktioniert</h2>
+<p>Das gesetzliche Krankengeld beträgt 70 Prozent des Bruttoeinkommens, maximal jedoch 90 Prozent des Nettoeinkommens. Klingt fair – hat aber eine entscheidende Einschränkung: Es wird nur auf Basis der Beitragsbemessungsgrenze berechnet. 2025 liegt diese bei 62.100 Euro Jahreseinkommen, also 5.175 Euro monatlich brutto.</p>
+<p>Das bedeutet: Wer mehr verdient als diese Grenze, bekommt trotzdem nur Krankengeld auf Basis von 5.175 Euro – egal wie hoch das tatsächliche Gehalt ist. Die Differenz zwischen dem tatsächlichen Nettoeinkommen und dem ausgezahlten Krankengeld ist die Lücke. Und diese Lücke trägt der Kranke selbst.</p>
+<div class="info-box"><div class="info-box-label">Die Lücke in Zahlen</div><p>Jahresgehalt: 90.000 € brutto → Netto ca. 4.800 € monatlich<br>Gesetzliches Krankengeld auf Basis von 62.100 €: ca. <strong>3.045 € netto</strong><br>Monatliche Lücke: <strong>ca. 1.755 €</strong> – jeden Monat, solange die Krankheit andauert.</p></div>
+<h2 id="angestellte">Angestellte über der Beitragsbemessungsgrenze</h2>
+<p>Wer als Angestellter mehr als 62.100 Euro im Jahr verdient, hat strukturell eine Einkommenslücke ab der siebten Krankheitswoche. Das betrifft keine kleine Minderheit – in vielen Berufsfeldern liegt das Gehalt nach wenigen Jahren Berufserfahrung über dieser Grenze.</p>
+<p>Die Lücke ist nicht dramatisch, wenn man drei Monate krank ist und Ersparnisse hat. Sie wird kritisch, wenn die Krankheit sechs Monate dauert – Burnout, Rückenoperationen, schwere Erkrankungen, die Zeit brauchen. Dann summiert sich die monatliche Differenz zu einem Betrag, der spürbar an den Reserven zehrt oder Kreditraten gefährdet.</p>
+<p>Privates Krankentagegeld schließt genau diese Lücke. Es zahlt ab dem vereinbarten Karenztag – in der Regel ab dem 43. Tag, also genau wenn die Lohnfortzahlung endet – einen täglichen Betrag aus, der das Nettoeinkommen auf dem gewohnten Niveau stabilisiert.</p>
+<h2 id="selbststaendig">Selbstständige: kein Puffer vorhanden</h2>
+<p>Für Selbstständige ist die Situation deutlich ernster. Sie haben keinen Arbeitgeber, der die ersten sechs Wochen trägt. Sie haben – je nach Krankenversicherungswahl – entweder keinen gesetzlichen Krankengeldanspruch (PKV) oder einen sehr eingeschränkten (GKV ohne Krankengeldtarif). Wer als Selbstständiger erkrankt, hat vom ersten Tag an ein Einkommensproblem.</p>
+<p>Je nach Tätigkeit und persönlicher Liquiditätssituation sind unterschiedliche Karenzzeiträume sinnvoll:</p>
+<table class="compare-table"><thead><tr><th>Karenztag</th><th>Passt zu wem?</th><th>Beitrag</th></tr></thead><tbody>
+<tr><td>Ab Tag 1–3</td><td>Keine Rücklagen, sofortige Abhängigkeit vom Einkommen</td><td class="ct-no">Hoch</td></tr>
+<tr><td>Ab Tag 15</td><td>Geringe Rücklagen, kurze Überbrückung möglich</td><td>Mittel</td></tr>
+<tr><td>Ab Tag 22</td><td>Drei Wochen Rücklagen vorhanden</td><td>Mittel</td></tr>
+<tr><td>Ab Tag 43</td><td class="ct-yes">Rücklagen für sechs Wochen vorhanden – günstigster Beitrag</td><td class="ct-yes">Niedrig</td></tr>
+</tbody></table>
+<p>Wer als Selbstständiger ausreichend Rücklagen hat, um sechs Wochen ohne Einkommen zu überbrücken, fährt mit einem Krankentagegeld ab dem 43. Tag am günstigsten: Maximaler Schutz gegen das wirklich bedrohliche Szenario – einer langen Erkrankung – zu minimalem Beitrag.</p>
+<div class="warn-box"><p><strong>Wichtig für GKV-versicherte Selbstständige:</strong> Ohne einen expliziten Krankengeldtarif bei der Krankenkasse besteht ab der 7. Woche kein Anspruch auf gesetzliches Krankengeld. Prüfen Sie Ihren Tarif – und schließen Sie die Lücke aktiv, nicht reaktiv.</p></div>
+<h2 id="produkt">Was privates Krankentagegeld leistet</h2>
+<p>Privates Krankentagegeld ist ein einfaches Produkt mit klarer Funktion: Es zahlt ab dem vereinbarten Karenztag einen täglichen Betrag aus – für jeden Kalendertag, an dem Sie arbeitsunfähig sind, bis zur vereinbarten Höchstleistungsdauer.</p>
+<p>Die Höhe des Tagegeldes richtet sich nach dem Nettoeinkommen, das Sie absichern möchten. Als Faustregel gilt: Das tägliche Krankentagegeld sollte mindestens so hoch sein wie Ihr durchschnittliches tägliches Nettoeinkommen – also Monatsnetto geteilt durch 30. Wer 4.000 Euro netto verdient, braucht ein Krankentagegeld von mindestens 133 Euro täglich, um keine Lücke zu haben.</p>
+<p>Wichtig: Die Gesamtabsicherung aus gesetzlichem Krankengeld und privatem Krankentagegeld sollte das tatsächliche Nettoeinkommen nicht übersteigen – Versicherungen leisten nicht über das tatsächliche Einkommen hinaus, und eine Überversicherung ist beitragsverschwendung.</p>
+<h2 id="checkliste">Ihre Checkliste zum Krankentagegeld</h2>
+<div class="key-takeaway"><div class="kt-icon">🩺</div><div class="kt-body"><div class="kt-label">Vier Fragen, die Sie heute beantworten sollten</div><p class="kt-text"><strong>1. Wie hoch ist Ihr Nettoeinkommen – und wie viel würde das gesetzliche Krankengeld davon abdecken?</strong> Berechnen Sie die Lücke konkret. Bei einem Gehalt über 62.100 € brutto ist sie real.<br><br><strong>2. Sind Sie selbstständig – und haben Sie einen Krankengeldtarif oder privates Krankentagegeld?</strong> Wenn nein: Das ist keine Lücke, das ist ein offenes Dach.<br><br><strong>3. Wie viele Monate könnten Sie ohne volles Einkommen überbrücken?</strong> Diese Zahl bestimmt den sinnvollen Karenztag Ihres Krankentagegeldes.<br><br><strong>4. Ist Ihre Absicherung dynamisiert?</strong> Wenn Ihr Einkommen steigt, sollte das Krankentagegeld mitwachsen – sonst entsteht mit der Zeit eine neue Lücke.</p></div></div>
+<p>Krankentagegeld schützt gegen ein Risiko, das weit häufiger eintritt als Berufsunfähigkeit: eine längere Erkrankung, die vorübergehend alles stoppt, aber keine bleibenden Folgen hinterlässt. Weil sie vorübergehend ist, wird sie unterschätzt. Weil sie häufig ist, sollte sie abgesichert sein.</p>`
+  },
+  { id: "14", title: "Inflation & Ihr Erspartes – Der leise Dieb", readTime: "ca. 4 Minuten", focus: "Kaufkrafterhalt & Anlagestrategie", category: "Vermögen", catStyle: "", seriesLabel: null, tags: ["Inflation", "Kaufkraft", "Geldwerte", "Sachwerte", "ETF", "Tagesgeld", "Vermögenserhalt"],
+    preview: "Der Kontostand ändert sich nicht – aber die Kaufkraft schrumpft. Inflation ist der leise Dieb, der keine Einbruchsspuren hinterlässt. Was Geldwerte von Sachwerten unterscheidet und warum 'sicher' nicht dasselbe ist wie 'werterhaltend'.",
+    toc: [{ id: "stille", label: "Der stille Wertverlust" }, { id: "rechnung", label: "Was Inflation konkret kostet" }, { id: "geldwerte", label: "Geldwerte: die trügerische Sicherheit" }, { id: "sachwerte", label: "Sachwerte: Kaufkraft im Zeitverlauf" }, { id: "mischung", label: "Die richtige Mischung" }, { id: "checkliste", label: "Ihre Checkliste zur Inflationsvorsorge" }],
+    html: `<h2 id="stille">Der stille Wertverlust</h2>
+<p>Inflation passiert leise. Das Geld ist noch da – der Kontostand hat sich nicht verändert. Kein Alarm, keine rote Zahl, kein Hinweis im Online-Banking. Und trotzdem verliert das Geld jeden Monat ein kleines Stück seiner Kaufkraft. Der Schaden ist real – er ist nur unsichtbar, solange man nicht nachrechnet.</p>
+<p>Wer versteht, was Inflation konkret kostet, denkt anders über das Wort „sicher" nach.</p>
+<h2 id="rechnung">Was Inflation konkret kostet</h2>
+<p>Ein Beispiel, das die Dimension verdeutlicht: 50.000 Euro auf dem Tagesgeldkonto. Zinssatz heute: 3 Prozent. Inflationsrate: ebenfalls 3 Prozent. Ergebnis nach zehn Jahren: Der Kontostand ist auf rund 67.000 Euro gewachsen. Die Kaufkraft ist exakt gleich geblieben. Kein Gewinn, kein Verlust – reale Stagnation trotz wachsendem Kontostand.</p>
+<p>Liegt der Zinssatz unter der Inflationsrate – wie es über weite Strecken der letzten fünfzehn Jahre der Fall war –, schrumpft die Kaufkraft aktiv. 50.000 Euro bei null Prozent Zins und zwei Prozent Inflation sind nach zehn Jahren real nur noch rund 41.000 Euro wert. Das Geld liegt sicher auf dem Konto – und verliert trotzdem ein Fünftel seiner Kaufkraft.</p>
+<div class="info-box"><div class="info-box-label">Die Inflation in Zahlen</div><p>50.000 € bei 0 % Zins und 2 % Inflation:<br>→ Nach 10 Jahren: nominell 50.000 € – real nur noch ca. <strong>41.000 €</strong> Kaufkraft<br>→ Nach 20 Jahren: nominell 50.000 € – real nur noch ca. <strong>33.600 €</strong> Kaufkraft<br><br>Der Kontostand ändert sich nicht. Die Kaufkraft schrumpft um ein Drittel.</p></div>
+<h2 id="geldwerte">Geldwerte: die trügerische Sicherheit</h2>
+<p>Geldwerte sind Anlagen, bei denen der nominale Betrag fixiert ist oder vertraglich garantiert wird. Dazu gehören Tagesgeld, Festgeld, Sparbücher, klassische Kapitallebensversicherungen mit Garantiezins und Staatsanleihen mit niedrigem Zinssatz.</p>
+<p>Das Versprechen lautet: Das Geld ist da, wenn Sie es brauchen. Das Versprechen hält – aber nur für den nominalen Betrag. Was es kaufen kann, ist eine andere Frage. Wer 2005 10.000 Euro unter das Kopfkissen gelegt hat und sie 2025 wieder hervorzieht, hat immer noch 10.000 Euro. Was diese 10.000 Euro heute kaufen, ist erheblich weniger als vor zwanzig Jahren – nach Berücksichtigung der kumulierten Inflation dieser Zeit.</p>
+<p>Das bedeutet nicht, dass Geldwerte wertlos sind. Tagesgeld ist der richtige Platz für den Notgroschen – Geld, das kurzfristig verfügbar sein muss und nicht dem Marktrisiko ausgesetzt werden sollte. Aber Tagesgeld ist kein Ersatz für eine Anlagestrategie. Es ist Liquiditätsreserve, nicht Vermögensaufbau.</p>
+<h2 id="sachwerte">Sachwerte: Kaufkraft im Zeitverlauf</h2>
+<p>Sachwerte sind Anlagen, die einen realen Gegenwert repräsentieren – Unternehmensanteile in Form von Aktien, Immobilien, Rohstoffe wie Gold, Infrastruktur. Ihr Wert schwankt – manchmal erheblich – aber sie behalten historisch über lange Zeiträume ihre Kaufkraft oder mehren sie.</p>
+<p>Wer Aktien eines Unternehmens hält, besitzt einen Anteil an dessen Produkten, Gewinnen und Wachstum. Wenn die Preise steigen – also wenn Inflation herrscht –, steigen in der Regel auch die Umsätze und Gewinne der Unternehmen. Die Aktie passt sich der Inflation an, das Tagesgeldkonto nicht.</p>
+<p>Der globale Aktienmarkt hat über rollierende 15-Jahres-Zeiträume historisch immer eine positive reale Rendite erzielt – das bedeutet: nach Abzug der Inflation. Das schließt Krisen wie die Dotcom-Blase, die Finanzkrise 2008 und den Covid-Crash 2020 ein. Wer investiert geblieben ist, hat real gewonnen. Wer in der Krise verkauft hat, hat real verloren.</p>
+<table class="compare-table"><thead><tr><th>Anlageform</th><th>Nominalschutz</th><th>Inflationsschutz</th><th>Liquidität</th></tr></thead><tbody>
+<tr><td>Tagesgeld</td><td class="ct-yes">Hoch</td><td class="ct-no">Gering</td><td class="ct-yes">Sofort</td></tr>
+<tr><td>Festgeld</td><td class="ct-yes">Hoch</td><td class="ct-no">Gering</td><td class="ct-no">Gebunden</td></tr>
+<tr><td>Immobilien</td><td class="ct-yes">Hoch</td><td class="ct-yes">Gut</td><td class="ct-no">Sehr gering</td></tr>
+<tr><td>Gold</td><td>Mittel</td><td class="ct-yes">Gut langfristig</td><td>Mittel</td></tr>
+<tr><td>ETF-Weltportfolio</td><td>Schwankend</td><td class="ct-yes">Sehr gut langfristig</td><td class="ct-yes">Börsentäglich</td></tr>
+</tbody></table>
+<h2 id="mischung">Die richtige Mischung</h2>
+<p>Der richtige Weg ist nicht, alles auf eine Karte zu setzen. Weder das komplette Vermögen in Tagesgeld parken – noch alle Ersparnisse in Aktien investieren ohne Sicherheitspuffer. Es geht um eine kluge Aufteilung, die zu Ihrer persönlichen Situation passt.</p>
+<p>Als grober Orientierungsrahmen hat sich folgende Logik bewährt: Drei bis sechs Monatsgehälter als Notgroschen in Tagesgeld oder Festgeld – liquide, sicher, abrufbar. Alles darüber hinaus, das Sie in den nächsten fünf bis zehn Jahren nicht zwingend brauchen, in Sachwerte investieren, die real wachsen können.</p>
+<p>Die genaue Gewichtung hängt von mehreren Faktoren ab: Wie lange ist Ihr Anlagehorizont? Wie stabil ist Ihr Einkommen? Haben Sie laufende Verpflichtungen wie einen Kredit? Wie reagieren Sie emotional auf Kursschwankungen? Diese Fragen zu beantworten ist die Aufgabe einer echten Finanzplanung – nicht eines Vergleichsportals.</p>
+<div class="warn-box"><p><strong>Ein häufiger Denkfehler:</strong> „Ich warte, bis die Kurse gefallen sind, dann investiere ich." Wer wartet, zahlt derweil den Preis der Inflation auf seine Ersparnisse. Und den richtigen Einstiegszeitpunkt trifft niemand zuverlässig – auch keine Experten.</p></div>
+<h2 id="checkliste">Ihre Checkliste zur Inflationsvorsorge</h2>
+<div class="key-takeaway"><div class="kt-icon">📊</div><div class="kt-body"><div class="kt-label">Vier Fragen zur realen Lage Ihres Vermögens</div><p class="kt-text"><strong>1. Wie viel Ihres Vermögens liegt in Geldwerten – und wie viel in Sachwerten?</strong> Wenn die Antwort „alles in Tagesgeld oder Festgeld" lautet, verlieren Sie real Kaufkraft.<br><br><strong>2. Haben Sie einen Notgroschen von drei bis sechs Monatsgehältern?</strong> Erst wenn der Puffer steht, macht weiteres Investieren Sinn.<br><br><strong>3. Wie lange können Sie auf das investierte Geld verzichten?</strong> Wer mindestens zehn Jahre Zeit hat, kann Schwankungen aussitzen. Wer das Geld in drei Jahren braucht, sollte es nicht in Aktien stecken.<br><br><strong>4. Wann haben Sie Ihre Anlagestruktur zuletzt bewusst überprüft?</strong> Märkte verändern sich. Lebenssituationen verändern sich. Eine Portfoliostruktur, die vor fünf Jahren gepasst hat, muss es heute nicht mehr tun.</p></div></div>
+<p>Sicherheit und Kaufkrafterhalt sind nicht dasselbe. Wer das versteht, trifft andere Entscheidungen – und behält am Ende mehr von dem, was er sich erarbeitet hat.</p>`
+  },
+  { id: "15", title: "Nachhaltiges Investieren (ESG) – Rendite mit Verantwortung", readTime: "ca. 4 Minuten", focus: "Orientierung im ESG-Dschungel", category: "Vermögen", catStyle: "", seriesLabel: null, tags: ["ESG", "Nachhaltigkeit", "ETF", "Greenwashing", "Investieren", "Vermögen", "Verantwortung"],
+    preview: "Nachhaltig investieren liegt im Trend – und Greenwashing auch. ESG ist kein Marketingbegriff, sondern ein Bewertungsrahmen. Was die drei Buchstaben konkret bedeuten, warum Rendite und Verantwortung kein Widerspruch sind und wie man echte Produkte von falschen unterscheidet.",
+    toc: [{ id: "trend", label: "Mainstream mit Tücken" }, { id: "esg", label: "Was ESG konkret bedeutet" }, { id: "rendite", label: "Nachhaltigkeit und Rendite" }, { id: "greenwashing", label: "Greenwashing erkennen" }, { id: "auswahl", label: "Wie Sie gute Produkte finden" }, { id: "checkliste", label: "Ihre Checkliste für ESG-Investments" }],
+    html: `<h2 id="trend">Mainstream mit Tücken</h2>
+<p>Nachhaltiges Investieren ist in den letzten Jahren von einer Nische zu einem Mainstream-Thema geworden. Das ist eine gute Entwicklung – mit einer Schattenseite: Je populärer das Thema wird, desto mehr Produkte erscheinen auf dem Markt, die Nachhaltigkeit versprechen, aber wenig davon halten. ESG – Environmental, Social, Governance – ist dabei kein Marketingbegriff, sondern ein Bewertungsrahmen. Wer investieren möchte, sollte ihn verstehen.</p>
+<h2 id="esg">Was ESG konkret bedeutet</h2>
+<p>ESG steht für drei Dimensionen der Unternehmensbeurteilung, die über klassische Finanzkennzahlen hinausgehen:</p>
+<h3>E – Environmental (Umwelt)</h3>
+<p>Wie geht ein Unternehmen mit Umweltfragen um? Dazu gehören Treibhausgasemissionen, Klimastrategie, Ressourcenverbrauch, Wassernutzung, Abfallmanagement und der Umgang mit physischen Klimarisiken. Ein Stahlkonzern ohne Dekarbonisierungsstrategie sitzt auf einem regulatorischen Risiko, das in Bilanzkennzahlen noch nicht sichtbar ist – aber irgendwann wird.</p>
+<h3>S – Social (Soziales)</h3>
+<p>Wie behandelt ein Unternehmen seine Mitarbeiter, Zulieferer und die Gesellschaft? Dazu gehören Arbeitssicherheit, faire Löhne, Diversität, Menschenrechte in der Lieferkette und der Umgang mit lokalen Gemeinschaften. Unternehmen mit schwacher sozialer Verantwortung haben ein erhöhtes Reputationsrisiko – und Reputationsrisiken können Aktienkurse innerhalb von Tagen halbieren.</p>
+<h3>G – Governance (Unternehmensführung)</h3>
+<p>Wie ist ein Unternehmen intern organisiert und kontrolliert? Dazu gehören Transparenz gegenüber Aktionären, Unabhängigkeit des Aufsichtsrats, Vergütungsstrukturen des Managements und der Umgang mit Interessenkonflikten. Unternehmen mit schwacher Governance neigen zu Skandalen – Wirecard ist das prominenteste deutsche Beispiel.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>ESG-Kriterien sind kein Ausdruck einer politischen Haltung. Sie sind <strong>Risikoindikatoren</strong> – Frühwarnsignale für Risiken, die in klassischen Bilanzkennzahlen noch nicht sichtbar sind, aber langfristig Unternehmenswert vernichten können.</p></div>
+<h2 id="rendite">Nachhaltigkeit und Rendite: kein Widerspruch</h2>
+<p>Eine verbreitete Annahme lautet: Wer nachhaltig investiert, verzichtet auf Rendite – weil er bestimmte Branchen ausschließt, zum Beispiel Öl und Gas, Rüstung oder Tabak. Diese Annahme ist empirisch nicht belegt.</p>
+<p>Studien zeigen, dass Unternehmen mit hohen ESG-Bewertungen langfristig oft stabiler performen – nicht weil sie „gut" sind, sondern weil sie Risiken besser managen. Ein Energiekonzern, der Klimarisiken ignoriert, sitzt auf regulatorischen Zeitbomben: CO₂-Steuern, Bußgelder, Rückbaukosten, staatliche Eingriffe. Ein Unternehmen mit schwacher Governance neigt zu Bilanztricks und Skandalen.</p>
+<p>Das bedeutet nicht, dass ESG-Fonds immer besser performen als konventionelle. Kurzfristig können sie schlechter abschneiden – etwa wenn Energieunternehmen durch hohe Ölpreise profitieren, die in ESG-Portfolios untergewichtet sind. Langfristig spricht die Logik für ESG: Wer Risiken früher erkennt, leidet weniger unter ihren Konsequenzen.</p>
+<table class="compare-table"><thead><tr><th>Argument</th><th>Konventionell</th><th>ESG</th></tr></thead><tbody>
+<tr><td>Risikomanagement</td><td>Klassische Finanzkennzahlen</td><td class="ct-yes">+ Umwelt-, Sozial- und Governance-Risiken</td></tr>
+<tr><td>Regulatorisches Risiko</td><td class="ct-no">Oft nicht eingepreist</td><td class="ct-yes">Systematisch bewertet</td></tr>
+<tr><td>Kurzfristige Performance</td><td>Kann besser sein</td><td>Kann schlechter sein</td></tr>
+<tr><td>Langfristige Stabilität</td><td>Abhängig von Einzelunternehmen</td><td class="ct-yes">Tendenziell höher durch Risikoselektion</td></tr>
+<tr><td>Transparenz</td><td>Standardisiert</td><td>Variiert stark je nach Anbieter</td></tr>
+</tbody></table>
+<h2 id="greenwashing">Greenwashing erkennen</h2>
+<p>Das größte praktische Problem im ESG-Bereich ist Greenwashing – Produkte, die Nachhaltigkeit versprechen, aber bei genauerer Prüfung kaum etwas dafür leisten. Die häufigsten Formen:</p>
+<ul><li><strong>ESG-Label ohne Substanz:</strong> Fonds, die sich als nachhaltig bezeichnen, aber bei genauer Betrachtung dieselben Unternehmen enthalten wie konventionelle Fonds – nur mit einem grünen Logo.</li><li><strong>Greenwashing durch Ausschlusskriterien ohne Biss:</strong> Manche Fonds schließen nur die extremsten Fälle aus – Streumunition, Antipersonenminen – und nennen das „nachhaltig". Das ist der absolute Mindeststandard, kein echtes ESG-Commitment.</li><li><strong>Inkonsistente Bewertungsagenturen:</strong> MSCI, Sustainalytics, ISS und andere vergeben ESG-Scores – aber ohne einheitliche Standards. Dasselbe Unternehmen kann bei einer Agentur ein A und bei einer anderen ein C bekommen. Das bedeutet: Ein ESG-Score allein ist kein verlässlicher Maßstab.</li><li><strong>Best-in-Class ohne Branchenausschluss:</strong> Manche ESG-Ansätze wählen die „nachhaltigsten" Unternehmen innerhalb jeder Branche – also auch das „nachhaltigste" Ölunternehmen. Das ist ein legitimer Ansatz, aber kein Werturteil über die Branche selbst.</li></ul>
+<div class="warn-box"><p><strong>Wichtig:</strong> Die EU-Regulierung teilt Fonds in drei Kategorien: Artikel 6 (keine Nachhaltigkeitsanforderungen), Artikel 8 (ökologische oder soziale Merkmale gefördert) und Artikel 9 (nachhaltiges Investment als Ziel). Artikel 9 ist der strengste Standard – aber auch dort gibt es Qualitätsunterschiede. Ein Label ist ein Startpunkt, kein Endurteil.</p></div>
+<h2 id="auswahl">Wie Sie gute Produkte finden</h2>
+<p>Wer wirklich nachhaltig investieren möchte, braucht mehr als einen Blick auf das Produktcover. Drei konkrete Schritte helfen:</p>
+<p><strong>Schritt 1: Ausschlusskriterien prüfen.</strong> Welche Branchen oder Tätigkeiten sind explizit ausgeschlossen? Sind das nur die gesetzlichen Mindestanforderungen – oder geht der Fonds weiter? Kohle, Öl, Rüstung, Tabak, Glücksspiel: Was gilt, was nicht?</p>
+<p><strong>Schritt 2: Halbjahresbericht lesen.</strong> Nicht den Prospekt – den tatsächlichen Halbjahresbericht mit den zehn größten Positionen. Wenn dort Namen auftauchen, die man nicht erwartet hätte, ist das ein Warnsignal.</p>
+<p><strong>Schritt 3: ESG-Framework hinterfragen.</strong> Welche Bewertungsagentur nutzt der Fonds? Welcher Ansatz liegt zugrunde – Ausschluss, Best-in-Class, Impact? Und: Wird das Abstimmungsverhalten des Fonds auf Hauptversammlungen veröffentlicht? Fonds, die nie gegen Unternehmen stimmen, betreiben keine echte Aktionärsverantwortung.</p>
+<h2 id="checkliste">Ihre Checkliste für ESG-Investments</h2>
+<div class="key-takeaway"><div class="kt-icon">🌱</div><div class="kt-body"><div class="kt-label">Fünf Fragen vor jedem ESG-Investment</div><p class="kt-text"><strong>1. Welche Branchen sind explizit ausgeschlossen?</strong> Mehr als nur Streumunition und Antipersonenminen – sonst ist es Mindeststandard, kein ESG.<br><br><strong>2. Welchen EU-Artikel hat der Fonds – 6, 8 oder 9?</strong> Artikel 9 ist der strengste Standard. Artikel 6 bedeutet: keine Nachhaltigkeitsanforderungen.<br><br><strong>3. Was sind die zehn größten Positionen im Halbjahresbericht?</strong> Überraschen Sie die Namen? Dann stimmt etwas mit dem ESG-Versprechen nicht.<br><br><strong>4. Welche Bewertungsagentur liegt dem ESG-Score zugrunde?</strong> MSCI, Sustainalytics, ISS – Scores sind nicht vergleichbar. Fragen Sie nach dem Ansatz.<br><br><strong>5. Veröffentlicht der Fonds sein Abstimmungsverhalten?</strong> Echte ESG-Fonds üben Aktionärsrechte aktiv aus – und machen das transparent.</p></div></div>
+<p>Nachhaltig investieren ist möglich und sinnvoll – wenn man es richtig macht. Das erfordert etwas mehr Aufwand als das erste grüne Produkt zu kaufen, das einem angeboten wird. Aber der Aufwand lohnt sich: für die Rendite, für die Glaubwürdigkeit – und für das, was mit dem Geld in der Welt passiert.</p>`
+  },
+  { id: "16", title: "Kinderdepots – Der Zinseszins als Erbe", readTime: "ca. 4 Minuten", focus: "Frühzeitiger Vermögensaufbau für Kinder", category: "Vermögen", catStyle: "", seriesLabel: null, tags: ["Kinderdepot", "Zinseszins", "ETF", "Vermögensaufbau", "Sparerpauschbetrag", "Finanzbildung"],
+    preview: "Das wertvollste Geschenk für ein Kind ist nicht ein großer Betrag – es ist Zeit. Der Zinseszins entfaltet seine Wirkung umso stärker, je früher er beginnt. Was Kinderdepots leisten, auf wessen Namen sie laufen sollten und welches zweite Geschenk fast niemand mitgibt.",
+    toc: [{ id: "zeit", label: "Das wertvollste Geschenk: Zeit" }, { id: "mathematik", label: "Die Mathematik des frühen Starts" }, { id: "name", label: "Auf wessen Namen anlegen?" }, { id: "steuern", label: "Steuerliche Vorteile nutzen" }, { id: "bildung", label: "Finanzbildung als zweites Geschenk" }, { id: "checkliste", label: "Ihre Checkliste zum Kinderdepot" }],
+    html: `<h2 id="zeit">Das wertvollste Geschenk: Zeit</h2>
+<p>Wenn Eltern oder Großeltern für ein Kind sparen, denken viele an einen großen Betrag zu einem besonderen Anlass – Einschulung, Führerschein, Studium. Das ist gut gemeint, aber mathematisch nicht die wirkungsvollste Entscheidung.</p>
+<p>Das wertvollste, was man einem Kind mitgeben kann, ist kein bestimmter Betrag. Es ist Zeit. Und Zeit ist etwas, das man nur hat, wenn man früh anfängt.</p>
+<h2 id="mathematik">Die Mathematik des frühen Starts</h2>
+<p>Der Zinseszinseffekt – dass Erträge selbst wieder Erträge erwirtschaften – ist das mächtigste Werkzeug des langfristigen Vermögensaufbaus. Und er ist dabei vollkommen unspektakulär: kein Glück, kein Timing, keine Marktprognose erforderlich. Nur regelmäßige Einzahlungen und Geduld.</p>
+<p>Zwei konkrete Szenarien, gerechnet mit 6 % durchschnittlicher Jahresrendite:</p>
+<div class="info-box"><div class="info-box-label">Der Zinseszins in der Praxis</div><p><strong>Szenario A – Früher Start:</strong> Ab Geburt monatlich 50 € investiert. Eingezahlt bis zum 18. Geburtstag: 10.800 €. Depotwert mit 18: ca. <strong>18.000 – 20.000 €</strong> je nach Marktentwicklung.<br><br><strong>Szenario B – Später Start:</strong> Ab dem 10. Lebensjahr monatlich 100 € investiert. Eingezahlt bis 18: 9.600 €. Depotwert mit 18: ca. <strong>13.500 – 14.500 €</strong>.<br><br>Szenario A zahlt weniger ein – und landet trotzdem deutlich höher. Der einzige Unterschied: 10 Jahre mehr Zeit.</p></div>
+<p>Was passiert, wenn das Depot mit 18 nicht aufgelöst, sondern weitergeführt wird? Wer mit 18 Jahren 20.000 Euro im Depot hat und nichts mehr einzahlt, hat bei angenommenen 6 % Jahresrendite mit 67 Jahren über <strong>340.000 Euro</strong> – ohne einen weiteren Cent einzuzahlen. Das ist die Kraft des Zinseszinses über lange Zeiträume.</p>
+<h2 id="name">Auf wessen Namen anlegen?</h2>
+<p>Die wichtigste strukturelle Frage beim Kinderdepot ist: Wer ist rechtlich Eigentümer der Anlage? Die Antwort hat steuerliche und praktische Konsequenzen.</p>
+<h3>Depot auf den Namen des Kindes</h3>
+<p>Das Kind ist rechtlicher Eigentümer. Es nutzt seinen eigenen Sparerpauschbetrag von 1.000 Euro pro Jahr auf Kapitalerträge – zusätzlich zum Grundfreibetrag von derzeit 11.604 Euro. Für Familien, bei denen der eigene Freibetrag bereits ausgeschöpft ist, ist das ein echter und messbarer Steuervorteil.</p>
+<p>Der Nachteil: Mit 18 Jahren kann das Kind vollständig und ohne Einschränkung über das Geld verfügen. Das ist gesetzlich so vorgesehen – und manche Eltern empfinden das als Risiko, wenn das Kind in diesem Alter vielleicht andere Prioritäten hat als das Depot zu erhalten.</p>
+<h3>Depot auf den Namen der Eltern</h3>
+<p>Die Eltern bleiben Eigentümer. Sie behalten die volle Kontrolle darüber, wann und wofür das Geld verwendet wird – auch nach dem 18. Geburtstag des Kindes. Der Nachteil: Die Erträge werden mit dem eigenen Freibetrag der Eltern verrechnet, der in vielen Haushalten bereits durch andere Anlagen ausgeschöpft ist. Zusätzliche Erträge werden dann zum persönlichen Steuersatz besteuert.</p>
+<table class="compare-table"><thead><tr><th>Merkmal</th><th>Depot auf Kind</th><th>Depot auf Eltern</th></tr></thead><tbody>
+<tr><td>Steuerlicher Freibetrag</td><td class="ct-yes">Eigener Pauschbetrag des Kindes (1.000 €/Jahr)</td><td>Freibetrag der Eltern (oft ausgeschöpft)</td></tr>
+<tr><td>Kontrolle über das Geld</td><td class="ct-no">Vollständig beim Kind ab 18</td><td class="ct-yes">Dauerhaft bei den Eltern</td></tr>
+<tr><td>Schenkungsteuer</td><td>Bei hohen Beträgen prüfen (Freibetrag: 400.000 € pro Elternteil alle 10 Jahre)</td><td>Entfällt</td></tr>
+<tr><td>Passt zu wem?</td><td class="ct-yes">Familien mit ausgeschöpftem Eltern-Freibetrag</td><td class="ct-yes">Familien, die Kontrolle behalten möchten</td></tr>
+</tbody></table>
+<h2 id="steuern">Steuerliche Vorteile richtig nutzen</h2>
+<p>Wer das Depot auf den Namen des Kindes führt, kann für das Kind eine Nichtveranlagungsbescheinigung (NV-Bescheinigung) beim Finanzamt beantragen. Mit dieser Bescheinigung werden beim Broker keine Kapitalertragsteuern einbehalten – das Kind bleibt steuerlich unbelastet, solange die Erträge unter dem kombinierten Freibetrag bleiben.</p>
+<p>Die NV-Bescheinigung muss alle drei Jahre erneuert werden und ist beim zuständigen Finanzamt des Kindes zu beantragen. Der Aufwand ist gering – der steuerliche Vorteil über die Jahre erheblich.</p>
+<h2 id="bildung">Finanzbildung als zweites Geschenk</h2>
+<p>Ein Kinderdepot ist mehr als ein Sparinstrument – es ist eine Gelegenheit. Wer das Depot gemeinsam mit dem Kind verwaltet und erklärt, was passiert, gibt dem Kind etwas mit, das in keiner Schule gelehrt wird: finanzielles Grundverständnis.</p>
+<p>Was bedeutet ein ETF? Warum schwanken Kurse? Was ist der Unterschied zwischen einer guten und einer schlechten Anlageentscheidung? Wie funktioniert Zinseszins – nicht als Formel, sondern als erlebtes Prinzip? Kinder, die das früh begreifen, treffen als Erwachsene deutlich bessere Finanzentscheidungen – und das ist ein Vorteil, den kein Kontostand direkt ausdrücken kann.</p>
+<div class="warn-box"><p><strong>Tipp für Großeltern:</strong> Schenkungen an Enkelkinder sind bis zu 200.000 Euro pro Großelternteil alle zehn Jahre schenkungsteuerfrei. Wer regelmäßig kleine Beträge schenkt und diese direkt ins Kinderdepot fließen lässt, baut langfristig Vermögen auf – steuerlich optimiert und mit minimalem Aufwand.</p></div>
+<h2 id="checkliste">Ihre Checkliste zum Kinderdepot</h2>
+<div class="key-takeaway"><div class="kt-icon">🎓</div><div class="kt-body"><div class="kt-label">Fünf Fragen für den Start</div><p class="kt-text"><strong>1. Wie alt ist das Kind – und wie viel Zeit hat der Zinseszins noch?</strong> Je früher, desto besser. Mit jedem Jahr, das vergeht, steigt der monatliche Betrag, den man braucht, um dasselbe Ziel zu erreichen.<br><br><strong>2. Auf wessen Namen soll das Depot laufen?</strong> Steuerlicher Vorteil (Kind) vs. Kontrolle (Eltern). Beide Wege haben ihre Berechtigung – abhängig von der familiären Situation.<br><br><strong>3. Haben Sie eine NV-Bescheinigung beantragt?</strong> Beim Depot auf den Namen des Kindes verhindert sie unnötige Steuereinbehalte.<br><br><strong>4. Investieren Sie in einen kostengünstigen, breit gestreuten ETF?</strong> Kein aktiv gemanagter Fonds, keine teuren Fondspolicen – ein schlichter Welt-ETF mit niedrigen Kosten ist die beste Grundlage.<br><br><strong>5. Beziehen Sie das Kind ein, sobald es alt genug ist?</strong> Finanzbildung ist das zweite Geschenk – und das wirkungsvollere.</p></div></div>
+<p>Wer für ein Kind spart, gibt ihm einen Vorsprung. Wer früh anfängt, macht diesen Vorsprung zu einem erheblichen. Und wer das Kind dabei mitnimmt, gibt ihm etwas, das bleibt – auch wenn das Depot irgendwann aufgelöst ist.</p>`
+  },
+  { id: "17", title: "Gold & Kryptowährungen – Anker oder Abenteuer?", readTime: "ca. 4 Minuten", focus: "Einordnung & richtige Dosierung", category: "Vermögen", catStyle: "", seriesLabel: null, tags: ["Gold", "Bitcoin", "Kryptowährungen", "Vermögen", "Diversifikation", "Spekulation", "Sachwerte"],
+    preview: "Gold und Bitcoin werden oft in einem Atemzug genannt – dabei sind sie grundverschieden. Was Gold im Portfolio leistet, warum Kryptowährungen eine andere Kategorie sind, und wie viel davon sinnvoll ist.",
+    toc: [{ id: "verwechslung", label: "Die häufige Verwechslung" }, { id: "gold", label: "Gold: Stabilitätsanker, nicht Renditemaschine" }, { id: "gold-praxis", label: "Gold praktisch: physisch oder Papier?" }, { id: "krypto", label: "Kryptowährungen: Spekulation mit Profil" }, { id: "dosierung", label: "Die richtige Dosierung" }, { id: "checkliste", label: "Ihre Checkliste zu alternativen Investments" }],
+    html: `<h2 id="verwechslung">Die häufige Verwechslung</h2>
+<p>Gold und Bitcoin werden in Gesprächen über alternatives Investieren oft in einem Atemzug genannt. Beide gelten als Gegenentwurf zum klassischen Finanzsystem, beide werden als Absicherung gegen Inflation diskutiert, und beide haben in bestimmten Phasen spektakuläre Kursgewinne erzielt.</p>
+<p>Tatsächlich sind sie grundverschieden – in ihrer Natur, ihrer Funktion und in dem, was sie im Portfolio leisten. Wer das nicht unterscheidet, trifft schlechtere Entscheidungen in beide Richtungen.</p>
+<h2 id="gold">Gold: Stabilitätsanker, nicht Renditemaschine</h2>
+<p>Gold ist kein produktiver Vermögenswert. Es zahlt keine Dividende, erwirtschaftet keine Mieteinnahmen, produziert nichts und wächst nicht. Sein Wert ergibt sich nicht aus zukünftigen Erträgen, sondern aus Knappheit, historischer Akzeptanz und der kollektiven Überzeugung, dass Gold wertvoll ist – eine Überzeugung, die seit Jahrtausenden stabil geblieben ist.</p>
+<p>Was Gold im Portfolio leistet, ist kein Wachstum – es ist Stabilität. In Krisenzeiten, bei hoher Inflation, bei politischer Unsicherheit oder bei Währungskrisen zeigt Gold historisch eine stabilisierende Wirkung: Es verliert weniger oder gewinnt, wenn andere Anlagen fallen. Das macht es zu einem Puffer, nicht zu einem Motor.</p>
+<div class="info-box"><div class="info-box-label">Gold in Zahlen</div><p>Wer 1970 in Gold investiert hat, hat bis heute eine beeindruckende nominelle Rendite erzielt. Wer 1980 am Höhepunkt des Goldpreisbooms kaufte, wartete bis 2008 – also 28 Jahre –, um wieder in der Gewinnzone zu sein. Gold schützt Kaufkraft über sehr lange Zeiträume, aber es baut kein Vermögen auf.</p></div>
+<p>Als Beimischung empfehlen viele Finanzexperten fünf bis zehn Prozent des Gesamtvermögens in Gold. Das ist kein Dogma – aber es spiegelt die Funktion wider: Gold ist Puffer, nicht Portfolio. Wer Gold als Hauptanlage betrachtet, missversteht seine Rolle.</p>
+<h2 id="gold-praxis">Gold praktisch: physisch oder Papier?</h2>
+<p>Wer in Gold investieren möchte, hat grundsätzlich zwei Wege:</p>
+<p><strong>Physisches Gold</strong> – Münzen oder Barren – bietet den Vorteil der direkten Verfügbarkeit ohne Gegenparteirisiko. Niemand kann Ihre Goldmünze durch eine Insolvenz wertlos machen. Der Nachteil: Lagerung kostet Geld und erfordert Sorgfalt. Ein Bankschließfach kostet 50 bis 200 Euro pro Jahr; ein Heimsafe ist günstiger, aber mit eigenem Risiko behaftet. Beim Kauf physischen Golds sollten Sie auf anerkannte Prägestätten achten – PAMP, Perth Mint, Münze Deutschland – und auf den Spread zwischen An- und Verkaufspreis, der bei kleinen Mengen erheblich sein kann.</p>
+<p><strong>Gold-ETCs oder Goldfonds</strong> ermöglichen eine Beteiligung am Goldpreis ohne physischen Besitz. Die jährlichen Verwaltungskosten liegen bei guten Produkten unter 0,2 Prozent. Der Nachteil: Sie halten ein Wertpapier, kein Gold. Im Extremfall – wenn das Finanzprodukt selbst ins Straucheln gerät – könnte das ein Problem sein. Für die meisten Anleger ist das ein theoretisches Risiko, kein praktisches.</p>
+<table class="compare-table"><thead><tr><th>Merkmal</th><th>Physisches Gold</th><th>Gold-ETC / Fonds</th></tr></thead><tbody>
+<tr><td>Gegenparteirisiko</td><td class="ct-yes">Keines</td><td>Gering, aber vorhanden</td></tr>
+<tr><td>Lagerkosten</td><td class="ct-no">Ja (Schließfach, Safe)</td><td class="ct-yes">Niedrig (0,1–0,2 % p.a.)</td></tr>
+<tr><td>Liquidität</td><td>Mittel (Händler nötig)</td><td class="ct-yes">Hoch (börsentäglich)</td></tr>
+<tr><td>Steuern beim Verkauf</td><td class="ct-yes">Steuerfrei nach 1 Jahr Haltefrist</td><td class="ct-no">Abgeltungsteuer fällig</td></tr>
+<tr><td>Geeignet für</td><td>Langfristige Krisensicherung, größere Beträge</td><td class="ct-yes">Beimischung, kleinere Beträge</td></tr>
+</tbody></table>
+<h2 id="krypto">Kryptowährungen: Spekulation mit klarem Profil</h2>
+<p>Bitcoin und andere Kryptowährungen sind eine grundlegend andere Anlageklasse als Gold – auch wenn sie oft in dieselbe Kategorie gesteckt werden. Der entscheidende Unterschied: Gold hat eine jahrtausendelange Geschichte als Wertaufbewahrungsmittel. Kryptowährungen existieren seit weniger als zwei Jahrzehnten und haben in dieser Zeit eine Volatilität gezeigt, die in keiner anderen Anlageklasse so ausgeprägt ist.</p>
+<p>Konkrete Zahlen zur Einordnung: Bitcoin hat zwischen 2017 und 2018 über 80 Prozent seines Werts verloren. Zwischen 2020 und 2021 hat er sich verzehnfacht. Zwischen 2021 und 2022 hat er erneut rund 75 Prozent verloren. Wer 2021 am Höhepunkt kaufte, wartete Jahre, um wieder in der Gewinnzone zu sein – falls er überhaupt dorthin zurückkehrte.</p>
+<p>Das ist keine Kritik an der Technologie hinter Bitcoin oder Blockchain. Es ist eine nüchterne Beschreibung der Anlageklasse: hochvolatil, ohne fundamentale Bewertungsgrundlage wie Unternehmensgewinne oder Mietrenditen, und stark abhängig von Sentiment, Regulierung und Netzwerkeffekten.</p>
+<div class="warn-box"><p><strong>Grundregel für Kryptowährungen:</strong> Investieren Sie ausschließlich Geld, dessen vollständigen Verlust Sie ohne Konsequenzen für Ihre finanzielle Situation verkraften können. Wer Kryptowährungen als Teil der Altersvorsorge betrachtet, geht ein Risiko ein, das strukturell nicht zur Altersvorsorge passt.</p></div>
+<h2 id="dosierung">Die richtige Dosierung</h2>
+<p>Alternative Investments sind wie Gewürze in der Küche: Eine kleine Menge kann das Gericht interessanter machen. Aber Gewürze ersetzen keine Grundzutaten – und alternative Investments ersetzen keine Kernanlagen.</p>
+<p>Die Grundzutaten eines soliden Portfolios sind produktive Sachwerte: Aktien – also Unternehmensanteile, die Gewinne erwirtschaften – und Immobilien, die Miete generieren. Diese bilden das Fundament. Alles andere ist Beimischung.</p>
+<p>Als grobe Orientierung hat sich folgendes Rahmenmodell bewährt:</p>
+<ul><li><strong>Kern (70–90 %):</strong> Breit gestreute Aktien-ETFs, ggf. Immobilien</li><li><strong>Beimischung Gold (5–10 %):</strong> Als Stabilitätsanker und Krisenpuffer</li><li><strong>Beimischung Krypto (0–2 %):</strong> Nur wenn Sie das Risiko vollständig verstehen und tragen können</li><li><strong>Liquiditätsreserve (3–6 Monatsgehälter):</strong> Tagesgeld, nicht investiert</li></ul>
+<p>Diese Gewichtung ist kein Dogma – sie ist ein Ausgangspunkt. Wer kein Interesse an Kryptowährungen hat, braucht sie nicht. Wer Gold als überbewertet betrachtet, kann darauf verzichten. Das Portfolio muss zu Ihnen passen – nicht zu einer Theorie.</p>
+<h2 id="checkliste">Ihre Checkliste zu alternativen Investments</h2>
+<div class="key-takeaway"><div class="kt-icon">⚖️</div><div class="kt-body"><div class="kt-label">Fünf Fragen vor jedem Investment in Gold oder Krypto</div><p class="kt-text"><strong>1. Ist Ihr Kern-Portfolio bereits aufgebaut?</strong> Gold und Krypto sind Beimischungen – kein Ersatz für ein solides Fundament aus Aktien-ETFs.<br><br><strong>2. Verstehen Sie den Unterschied zwischen Gold und Kryptowährungen?</strong> Beide sind alternativ – aber in Funktion, Risiko und Volatilität grundverschieden.<br><br><strong>3. Können Sie einen vollständigen Verlust Ihrer Krypto-Position verkraften?</strong> Wenn die Antwort „nein" lautet, ist die Position zu groß.<br><br><strong>4. Halten Gold-ETCs oder physisches Gold – und haben Sie die steuerlichen Unterschiede verstanden?</strong> Physisches Gold ist nach einem Jahr steuerfrei; ETCs unterliegen der Abgeltungsteuer.<br><br><strong>5. Übersteigt Ihre Gesamtposition in alternativen Investments 15 % des Portfolios?</strong> Wenn ja, prüfen Sie, ob das noch zur Risikostrategie passt.</p></div></div>
+<p>Gold ist ein Anker. Kryptowährungen sind ein Abenteuer. Beides kann einen Platz im Portfolio haben – wenn man weiß, was man tut, und wie viel davon sinnvoll ist.</p>`
+  },
+  { id: "18", title: "Selbstständig machen – Das finanzielle Sicherheitsnetz", readTime: "ca. 4 Minuten", focus: "Absicherung & Planung für Gründer", category: "Neustart", catStyle: "", seriesLabel: 'Serie „Neustart" · 1/2', tags: ["Selbstständigkeit", "Gründung", "Absicherung", "Krankenversicherung", "Haftpflicht", "Altersvorsorge", "Neustart"],
+    preview: "Der Schritt in die Selbstständigkeit ist aufregend – und finanziell einer der riskantesten Momente im Leben. Das Sicherheitsnetz des Angestelltenverhältnisses entfällt komplett. Was Gründer zuerst absichern sollten und wo die häufigsten Lücken entstehen.",
+    toc: [{ id: "netz", label: "Das entfallende Sicherheitsnetz" }, { id: "kranken", label: "Krankenversicherung: erste Entscheidung" }, { id: "tagegeld", label: "Krankentagegeld: Pflicht, nicht Kür" }, { id: "haftung", label: "Berufliche Haftung: oft unterschätzt" }, { id: "rente", label: "Altersvorsorge ohne Autopilot" }, { id: "checkliste", label: "Ihre Checkliste für den Start" }],
+    html: `<h2 id="netz">Das entfallende Sicherheitsnetz</h2>
+<p>Der Schritt in die Selbstständigkeit gehört für viele zu den aufregendsten Momenten ihres Berufslebens. Mehr Freiheit, mehr Selbstbestimmung, mehr direkte Verbindung zwischen Einsatz und Ergebnis. Was bei dieser Aufregung leicht übersehen wird: Das soziale Sicherheitsnetz, das im Angestelltenverhältnis still und automatisch funktioniert hat, hört mit der Gewerbeanmeldung auf zu existieren.</p>
+<p>Lohnfortzahlung im Krankheitsfall? Entfällt. Arbeitgeberanteil zur Rentenversicherung? Entfällt. Gesetzlicher Kündigungsschutz? Entfällt. Unfallversicherung durch die Berufsgenossenschaft? Nur in bestimmten Berufsgruppen automatisch, sonst freiwillig. Wer das Netz nicht selbst knüpft, hat keines.</p>
+<div class="info-box"><div class="info-box-label">Kurzfassung</div><p>Selbstständige müssen <strong>vier Absicherungsbereiche</strong> aktiv aufbauen, die im Angestelltenverhältnis automatisch existieren: Krankenversicherung mit Krankentagegeld, berufliche Haftpflicht, Berufsunfähigkeit und Altersvorsorge. Wer einen davon vergisst, hat eine existenzbedrohende Lücke.</p></div>
+<h2 id="kranken">Krankenversicherung: die erste Entscheidung</h2>
+<p>Die Krankenversicherungsfrage ist die dringlichste – sie muss vor dem ersten Tag der Selbstständigkeit geklärt sein. Zwei Wege stehen offen:</p>
+<p><strong>Freiwillig in der GKV bleiben:</strong> Wer bislang gesetzlich versichert war, kann als Selbstständiger freiwilliges Mitglied der GKV bleiben. Der Beitrag bemisst sich nicht mehr am Arbeitgebergehalt, sondern am gesamten Einkommen – inklusive Kapitalerträge, Mieteinnahmen und andere Einkunftsarten. Der Mindestbeitrag für Selbstständige in der GKV liegt 2025 bei rund 200 Euro monatlich, auch wenn das Einkommen geringer ist. Der Vorteil: Familienversicherung für Kinder und nicht berufstätigen Partner bleibt beitragsfrei.</p>
+<p><strong>In die PKV wechseln:</strong> Selbstständige können ohne Einkommensgrenze in die PKV wechseln. Der Beitrag richtet sich nach Alter, Gesundheit und Tarif – nicht nach dem Einkommen. In jungen Jahren kann das erheblich günstiger sein als die GKV. Die Risiken des PKV-Wechsels – steigende Beiträge im Alter, keine Familienversicherung, schwierige Rückkehr in die GKV – gelten für Selbstständige in besonderem Maße, weil das Einkommen im Alter oft schwerer planbar ist.</p>
+<h2 id="tagegeld">Krankentagegeld: Pflicht, nicht Kür</h2>
+<p>Für Selbstständige ist Krankentagegeld keine optionale Ergänzung – es ist Grundabsicherung. Der Grund ist simpel: Es gibt keinen Arbeitgeber, der die ersten sechs Wochen Lohnfortzahlung leistet. Wer erkrankt, hat vom ersten Tag an ein Einkommensproblem.</p>
+<p>GKV-versicherte Selbstständige haben nur dann Anspruch auf gesetzliches Krankengeld, wenn sie einen Tarif mit Krankengeldanspruch gewählt haben – und selbst dann erst ab der siebten Woche. PKV-versicherte Selbstständige haben gar keinen gesetzlichen Krankengeldanspruch.</p>
+<p>Je nach Liquiditätssituation ist die richtige Karenztag-Wahl entscheidend:</p>
+<ul><li><strong>Keine Rücklagen:</strong> Krankentagegeld ab Tag 1 oder Tag 3 – teuer, aber notwendig</li><li><strong>Bis zu vier Wochen Rücklagen:</strong> Krankentagegeld ab Tag 22 oder Tag 29</li><li><strong>Sechs Wochen Rücklagen vorhanden:</strong> Krankentagegeld ab Tag 43 – günstigste Option mit vollem Schutz gegen lange Ausfälle</li></ul>
+<p>Die Höhe des Tagegeldes sollte dem täglichen Nettoeinkommen entsprechen – also dem Monatsdurchschnitt der letzten zwölf Monate geteilt durch 30. Bei einem schwankenden Einkommen empfiehlt sich der Durchschnitt der letzten drei Jahre als Berechnungsgrundlage.</p>
+<h2 id="haftung">Berufliche Haftung: oft unterschätzt</h2>
+<p>Im Angestelltenverhältnis haftet in den meisten Fällen der Arbeitgeber für berufliche Fehler. Als Selbstständiger haften Sie persönlich – im schlimmsten Fall unbegrenzt mit dem gesamten Privatvermögen, auch mit zukünftigem Einkommen.</p>
+<p>Welche Versicherung die richtige ist, hängt von der Tätigkeit ab:</p>
+<ul><li><strong>Betriebshaftpflicht:</strong> Deckt Schäden ab, die im Rahmen der betrieblichen Tätigkeit an Dritten entstehen – ein Kunde stolpert in Ihrer Werkstatt, ein Mitarbeiter beschädigt beim Kundenbesuch fremdes Eigentum. Für nahezu alle Selbstständigen relevant.</li><li><strong>Berufshaftpflicht:</strong> Deckt Vermögensschäden durch fehlerhafte Beratung oder Dienstleistung ab – ein falscher Rat, ein fehlerhaftes Gutachten, ein Programmierfehler, der beim Kunden einen finanziellen Schaden verursacht. Besonders relevant für Berater, Freiberufler, IT-Dienstleister, Architekten, Steuerberater.</li><li><strong>Produkthaftpflicht:</strong> Für Unternehmen, die Produkte herstellen oder vertreiben, die Schäden verursachen können.</li></ul>
+<div class="warn-box"><p><strong>Wichtig:</strong> In einigen Berufen – Steuerberater, Rechtsanwälte, Architekten, Ärzte – ist eine Berufshaftpflicht gesetzlich vorgeschrieben. In anderen ist sie freiwillig, aber existenziell wichtig. Eine Klage wegen eines Beratungsfehlers kann ein kleines Unternehmen ruinieren, selbst wenn die eigentliche Schuldfrage ungeklärt ist.</p></div>
+<h2 id="rente">Altersvorsorge ohne Autopilot</h2>
+<p>Im Angestelltenverhältnis läuft die Altersvorsorge zum Teil automatisch: Der Arbeitgeber zahlt die Hälfte des Rentenversicherungsbeitrags, Beiträge zur betrieblichen Altersvorsorge werden gefördert. Als Selbstständiger gibt es – außer in bestimmten Berufsgruppen wie Handwerker, Künstler oder Lehrer – keine Pflicht zur Rentenversicherung. Das bedeutet Freiheit und Verantwortung zugleich.</p>
+<p>Wer nicht aktiv vorsorgt, bekommt am Ende keine oder kaum Rente. Die gute Nachricht: Selbstständige haben besonders flexible Möglichkeiten der Altersvorsorge mit steuerlichen Vorteilen:</p>
+<ul><li><strong>Rürup-Rente (Basisrente):</strong> Beiträge bis zu 27.566 Euro pro Jahr (2025) sind zu 100 % als Sonderausgaben absetzbar. Besonders attraktiv für Selbstständige mit hohem Einkommen und entsprechend hohem Steuersatz.</li><li><strong>ETF-Depot:</strong> Flexibel, transparent, kostengünstig. Keine steuerliche Förderung in der Einzahlphase, dafür volle Flexibilität bei der Entnahme und keine Rentenversicherungspflicht auf die Auszahlung.</li><li><strong>Immobilien:</strong> Für Selbstständige mit stabilen Einnahmen eine Option – aber wenig liquide und mit eigenem Managementaufwand.</li></ul>
+<table class="compare-table"><thead><tr><th>Absicherungsbereich</th><th>Im Angestelltenverhältnis</th><th>Als Selbstständiger</th></tr></thead><tbody>
+<tr><td>Krankenversicherung</td><td class="ct-yes">Automatisch, Arbeitgeber zahlt 50 %</td><td class="ct-no">Selbst wählen und vollständig selbst zahlen</td></tr>
+<tr><td>Krankengeld</td><td class="ct-yes">6 Wochen Lohnfortzahlung, dann GKV</td><td class="ct-no">Kein automatischer Anspruch</td></tr>
+<tr><td>Berufliche Haftung</td><td class="ct-yes">Arbeitgeber haftet in der Regel</td><td class="ct-no">Persönliche unbegrenzte Haftung</td></tr>
+<tr><td>Rentenversicherung</td><td class="ct-yes">Pflicht, Arbeitgeber zahlt 50 %</td><td class="ct-no">In den meisten Branchen freiwillig</td></tr>
+<tr><td>Berufsunfähigkeit</td><td>Privat absicherbar</td><td class="ct-no">Noch wichtiger – kein Arbeitgeber als Puffer</td></tr>
+</tbody></table>
+<h2 id="checkliste">Ihre Checkliste für den Start</h2>
+<div class="key-takeaway"><div class="kt-icon">🚀</div><div class="kt-body"><div class="kt-label">Fünf Absicherungen, die vor dem ersten Arbeitstag stehen sollten</div><p class="kt-text"><strong>1. Krankenversicherung geklärt?</strong> GKV freiwillig oder PKV – die Entscheidung muss vor Tag 1 der Selbstständigkeit getroffen sein. Lücken sind nicht rückwirkend schließbar.<br><br><strong>2. Krankentagegeld abgeschlossen?</strong> Ab welchem Tag? In welcher Höhe? An Ihr monatliches Durchschnittsnettoeinkommen angepasst.<br><br><strong>3. Betriebs- oder Berufshaftpflicht vorhanden?</strong> Vor dem ersten Kundenkontakt – nicht danach. Ein einziger Schadensfall ohne Versicherung kann das Ende bedeuten.<br><br><strong>4. Berufsunfähigkeit abgesichert?</strong> Als Selbstständiger ohne Arbeitgeber-Puffer ist BU noch wichtiger als im Angestelltenverhältnis.<br><br><strong>5. Altersvorsorge geplant?</strong> Rürup, ETF-Depot oder Kombination – und ein konkreter monatlicher Betrag, der regelmäßig fließt. Nicht „irgendwann", sondern jetzt.</p></div></div>
+<p>Die Freiheit der Selbstständigkeit ist real – aber sie hat einen Preis: die Verantwortung für das eigene Sicherheitsnetz. Wer diesen Preis kennt und bewusst zahlt, kann die Freiheit genießen. Wer ihn ignoriert, bezahlt ihn irgendwann trotzdem – nur unter ungünstigeren Umständen.</p>`
+  },
+  { id: "19", title: "Betriebliche Altersvorsorge (bAV) – Geschenktes Geld?", readTime: "ca. 4 Minuten", focus: "Nüchterne Vorteilsrechnung", category: "Neustart", catStyle: "", seriesLabel: 'Serie „Neustart" · 2/2', tags: ["bAV", "Betriebliche Altersvorsorge", "Altersvorsorge", "Arbeitgeberzuschuss", "Entgeltumwandlung", "Jobwechsel"],
+    preview: "Der Arbeitgeber beteiligt sich, Beiträge kommen aus dem Bruttogehalt und sparen Steuern – die bAV klingt nach einem einfachen Gewinn. Stimmt aber nur, wenn der Zuschuss stimmt und die Steuern im Alter eingerechnet sind. Was Sie vor der Unterschrift wissen müssen.",
+    toc: [{ id: "versprechen", label: "Das Versprechen der bAV" }, { id: "mechanik", label: "Wie die Entgeltumwandlung funktioniert" }, { id: "zuschuss", label: "Warum der Arbeitgeberzuschuss alles entscheidet" }, { id: "steuern", label: "Die Steuern kommen später" }, { id: "jobwechsel", label: "Jobwechsel: der unterschätzte Knackpunkt" }, { id: "checkliste", label: "Ihre Checkliste zur bAV-Entscheidung" }],
+    html: `<h2 id="versprechen">Das Versprechen der bAV</h2>
+<p>Die betriebliche Altersvorsorge gilt als eine der attraktivsten Möglichkeiten zur Altersabsicherung – und das zu Recht, wenn man sie richtig versteht. Der Arbeitgeber beteiligt sich, Beiträge werden aus dem Bruttogehalt geleistet und senken damit Steuern und Sozialabgaben, und das System ist staatlich gefördert. Klingt nach einem einfachen Gewinn.</p>
+<p>Ist es manchmal auch. Aber nicht immer. Und der Unterschied liegt im Detail.</p>
+<h2 id="mechanik">Wie die Entgeltumwandlung funktioniert</h2>
+<p>Das Prinzip der bAV durch Entgeltumwandlung ist einfach: Sie verzichten auf einen Teil Ihres Bruttogehalts – dieser Betrag fließt direkt in einen Vorsorgevertrag, ohne dass Lohnsteuer oder Sozialabgaben anfallen. Der Staat fördert damit die Altersvorsorge durch einen Steuerstundungseffekt.</p>
+<p>Ein Beispiel: Sie verdienen 4.000 Euro brutto. Sie wandeln 200 Euro monatlich um. Diese 200 Euro werden steuer- und sozialabgabenfrei in den Vorsorgevertrag eingezahlt. Ihr zu versteuerndes Gehalt sinkt auf 3.800 Euro. Je nach Steuerklasse und Sozialabgaben bedeutet das, dass Sie real nur 100 bis 130 Euro weniger netto haben – aber 200 Euro in die Altersvorsorge fließen. Der Hebel klingt attraktiv.</p>
+<div class="info-box"><div class="info-box-label">Die Mechanik auf einen Blick</div><p>Entgeltumwandlung von 200 € brutto:<br>→ Ihr Netto sinkt um ca. <strong>100–130 €</strong> (je nach Steuerklasse und Sozialabgaben)<br>→ In den Vertrag fließen <strong>200 €</strong> plus ggf. Arbeitgeberzuschuss<br>→ Im Alter werden die Auszahlungen vollständig als Einkommen versteuert und verbeitragt<br><br>Der Vorteil ist real – aber er hängt von drei Faktoren ab: Zuschuss, Produktkosten und dem Steuersatz im Alter.</p></div>
+<h2 id="zuschuss">Warum der Arbeitgeberzuschuss alles entscheidet</h2>
+<p>Der mit Abstand wichtigste Faktor bei der bAV ist nicht das Produkt – es ist die Höhe des Arbeitgeberzuschusses. Seit 2022 sind Arbeitgeber bei neu abgeschlossenen Verträgen verpflichtet, mindestens 15 Prozent des umgewandelten Betrags als Zuschuss hinzuzugeben. Hintergrund: Der Arbeitgeber spart durch die Entgeltumwandlung selbst Sozialabgaben – diese Ersparnis muss er weitergeben.</p>
+<p>15 Prozent Pflichtanteil bedeutet: Bei 200 Euro Entgeltumwandlung fließen mindestens 30 Euro extra vom Arbeitgeber. Viele Unternehmen zahlen freiwillig mehr – 20, 25 oder sogar 50 Prozent auf den umgewandelten Betrag. Das verändert die Rechnung erheblich.</p>
+<table class="compare-table"><thead><tr><th>Arbeitgeberzuschuss</th><th>Effekt auf 200 € Umwandlung</th><th>Bewertung</th></tr></thead><tbody>
+<tr><td>15 % (Pflichtminimum)</td><td>+ 30 € vom Arbeitgeber = 230 € in den Vertrag</td><td>Ausreichend – wenn Produktkosten niedrig sind</td></tr>
+<tr><td>25 %</td><td>+ 50 € vom Arbeitgeber = 250 € in den Vertrag</td><td class="ct-yes">Attraktiv – klarer Vorteil gegenüber privater Vorsorge</td></tr>
+<tr><td>50 %</td><td>+ 100 € vom Arbeitgeber = 300 € in den Vertrag</td><td class="ct-yes">Sehr attraktiv – kaum ein privates Produkt schlägt das</td></tr>
+<tr><td>0 % (Altverträge vor 2019)</td><td>Kein Zuschuss</td><td class="ct-no">Kritisch prüfen – möglicherweise lohnt sich die bAV nicht</td></tr>
+</tbody></table>
+<p>Als Faustregel gilt: Ab einem Arbeitgeberzuschuss von 20 bis 25 Prozent lohnt sich die bAV für die meisten Arbeitnehmer – selbst wenn das dahinterliegende Versicherungsprodukt nicht perfekt ist. Wer dagegen nur den gesetzlichen Mindestanteil von 15 Prozent bekommt und dazu ein teures Produkt mit hohen Abschlusskosten hat, sollte die Gesamtrechnung genau prüfen.</p>
+<h2 id="steuern">Die Steuern kommen später</h2>
+<p>Was bei der Einzahlung spart, kostet bei der Auszahlung. Das ist das zentrale Prinzip der bAV – und der am häufigsten übersehene Punkt. Betriebsrenten werden im Alter vollständig als Einkommen versteuert. Das gilt für den gesamten Auszahlungsbetrag, nicht nur für den Gewinnanteil. Zusätzlich werden auf Betriebsrenten Kranken- und Pflegeversicherungsbeiträge fällig – in voller Höhe, ohne Arbeitgeberbeteiligung.</p>
+<p>Das bedeutet konkret: Wer im Alter eine Betriebsrente von 500 Euro monatlich erhält, zahlt darauf Kranken- und Pflegeversicherung (aktuell rund 18 Prozent) sowie Einkommensteuer, je nach Gesamteinkommen im Rentenalter.</p>
+<p>Wann lohnt sich die bAV trotzdem?</p>
+<ul><li>Wenn der Steuersatz im Berufsleben hoch ist – und im Alter voraussichtlich deutlich niedriger sein wird. Die Steuerstundung erzeugt dann einen echten Vorteil.</li><li>Wenn der Arbeitgeberzuschuss hoch genug ist, um die späteren Abgaben zu überkompensieren.</li><li>Wenn das Produkt kostengünstig ist und keine überhöhten Abschluss- oder Verwaltungskosten hat.</li></ul>
+<div class="warn-box"><p><strong>Wichtig:</strong> Lassen Sie sich vor der Unterschrift eine konkrete Netto-Vorteilsrechnung zeigen: Was zahlen Sie real weniger netto heute – und was erhalten Sie real netto im Alter? Wer das nicht ausrechnen kann oder will, sollte die Entscheidung vertagen.</p></div>
+<h2 id="jobwechsel">Jobwechsel: der unterschätzte Knackpunkt</h2>
+<p>Die bAV ist an den Arbeitgeber gebunden – und das ist ihr strukturelles Hauptproblem für alle, die häufiger den Job wechseln. Was passiert beim Arbeitgeberwechsel?</p>
+<p><strong>Portabilität in der Theorie:</strong> Seit 2005 haben Arbeitnehmer das Recht, den Wert ihrer bAV beim Jobwechsel mitzunehmen – als übertragenen Betrag zum neuen Arbeitgeber oder in eine private Rentenversicherung. Das klingt einfach.</p>
+<p><strong>Portabilität in der Praxis:</strong> Der neue Arbeitgeber ist nicht verpflichtet, den alten Vertrag fortzuführen. Er kann ein anderes Produkt, einen anderen Anbieter oder einen anderen Durchführungsweg haben. In vielen Fällen bedeutet das: Der alte Vertrag wird beitragsfrei gestellt – er läuft weiter, wächst aber nicht mehr. Der neue Vertrag beginnt von vorne, oft mit neuen Abschlusskosten.</p>
+<p>Wer in seinem Berufsleben fünf Arbeitgeber hat, könnte am Ende fünf kleine bAV-Töpfe haben – jeden mit seinen eigenen Konditionen, Kosten und Auszahlungsmodalitäten. Das ist administrativ aufwendig und in der Gesamtrendite oft suboptimal.</p>
+<h2 id="checkliste">Ihre Checkliste zur bAV-Entscheidung</h2>
+<div class="key-takeaway"><div class="kt-icon">🏢</div><div class="kt-body"><div class="kt-label">Fünf Fragen, bevor Sie die bAV unterschreiben</div><p class="kt-text"><strong>1. Wie hoch ist der Arbeitgeberzuschuss?</strong> 15 % Pflichtminimum ist der Boden – alles darüber verbessert die Rechnung erheblich. Fragen Sie aktiv nach.<br><br><strong>2. Wie hoch sind die Produktkosten?</strong> Lassen Sie sich die Effektivkostenquote des Versicherungsprodukts zeigen. Alles über 1,5 % jährlich kostet Sie langfristig Rendite.<br><br><strong>3. Was erhalten Sie im Alter real netto?</strong> Nach Einkommensteuer und Kranken-/Pflegeversicherungsbeitrag – nicht die Bruttozahl im Hochglanzprospekt.<br><br><strong>4. Was passiert beim nächsten Jobwechsel?</strong> Ist der Vertrag übertragbar? Unter welchen Bedingungen? Gibt es Verfallsfristen für den Arbeitgeberanteil?<br><br><strong>5. Haben Sie die bAV mit einer alternativen privaten Anlage verglichen?</strong> Ein ETF-Sparplan ohne Steuerförderung kann bei niedrigem Arbeitgeberzuschuss langfristig besser abschneiden.</p></div></div>
+<p>Die bAV ist ein sinnvoller Baustein der Altersvorsorge – aber sie ist kein automatischer Gewinn und keine Komplettlösung. Wer die Rechnung versteht und die richtigen Fragen stellt, kann sie gezielt nutzen. Wer unterschreibt, weil es sich gut anhört, verschenkt möglicherweise Chancen an anderer Stelle.</p>`
+  },
+  { id: "20", title: "Die Psychologie des Geldes – Warum wir oft falsch entscheiden", readTime: "ca. 4 Minuten", focus: "Selbsterkenntnis & bessere Entscheidungen", category: "Beratungsmodelle", catStyle: "", seriesLabel: 'Serie „Die Spielregeln" · 4/4', tags: ["Behavioral Finance", "Psychologie", "Geldentscheidungen", "Verlustaversion", "Herdentrieb", "Anlegerverhalten"],
+    preview: "Wir treffen finanzielle Entscheidungen nicht mit kühlem Verstand – sondern als Menschen, mit Emotionen und Denkfehlern. Welche psychologischen Muster uns am häufigsten teuer zu stehen kommen und was ein guter Berater dagegen tun kann.",
+    toc: [{ id: "menschlich", label: "Wir sind keine rationalen Akteure" }, { id: "verlustaversion", label: "Verlustaversion: Verlieren schmerzt doppelt" }, { id: "herdentrieb", label: "Herdentrieb: kaufen wenn alle kaufen" }, { id: "anker", label: "Der Anker-Effekt" }, { id: "weitere", label: "Weitere Denkfehler im Überblick" }, { id: "berater", label: "Was ein guter Berater dagegen tun kann" }, { id: "checkliste", label: "Ihre Checkliste gegen Denkfehler" }],
+    html: `<h2 id="menschlich">Wir sind keine rationalen Akteure</h2>
+<p>In der klassischen Wirtschaftstheorie treffen Menschen rationale Entscheidungen: Sie kennen ihre Präferenzen, sie wägen Optionen ab, sie handeln in ihrem besten Interesse. Das ist ein elegantes Modell – und eine weitgehend falsche Beschreibung der Realität.</p>
+<p>Wir treffen finanzielle Entscheidungen als Menschen: mit Emotionen, Erfahrungen, blinden Flecken und Denkmustern, die sich über Jahrzehnte oder Jahrtausende entwickelt haben und die nicht für moderne Finanzmärkte optimiert sind. Die Behavioral Finance – die Verhaltensökonomie – hat das in den letzten Jahrzehnten systematisch untersucht. Das Ergebnis ist ernüchternd und befreiend zugleich: Wir sind alle anfällig. Und wer das weiß, kann gegensteuern.</p>
+<h2 id="verlustaversion">Verlustaversion: Verlieren schmerzt doppelt</h2>
+<p>Der Nobelpreisträger Daniel Kahneman hat gemeinsam mit Amos Tversky gezeigt: Verluste werden psychologisch etwa doppelt so schwer empfunden wie Gewinne in gleicher Höhe. 500 Euro zu verlieren schmerzt stärker, als 500 Euro zu gewinnen erfreut. Das ist keine Schwäche – es ist ein evolutionär eingebautes Muster, das in der Savanne sinnvoll war. An der Börse kostet es Geld.</p>
+<p>Die konkrete Konsequenz: Wer sein Depot täglich beobachtet und bei Kursrückgängen den Drang verspürt zu verkaufen, handelt aus diesem Mechanismus heraus. Wer dann tatsächlich verkauft, realisiert den Verlust und verpasst die Erholung. Studien zeigen immer wieder: Privatanleger, die häufig handeln und auf Kursbewegungen reagieren, erzielen systematisch schlechtere Renditen als solche, die investiert bleiben und nichts tun.</p>
+<p>Das Paradoxe: Die beste Rendite haben oft Anleger, die vergessen haben, dass sie ein Depot haben – oder verstorben sind. Untätigkeit schlägt Aktivismus, wenn das Fundament stimmt.</p>
+<div class="info-box"><div class="info-box-label">Verlustaversion in Zahlen</div><p>Eine Studie der Dalbar Inc. hat über viele Jahre gemessen: Der durchschnittliche US-Privatanleger in Aktienfonds hat über 20 Jahre rund <strong>4–5 % Jahresrendite</strong> erzielt. Der Markt selbst hat in derselben Zeit rund <strong>9–10 % Jahresrendite</strong> gebracht. Der Unterschied: Das Verhalten der Anleger – Kaufen bei Euphorie, Verkaufen bei Angst.</p></div>
+<h2 id="herdentrieb">Herdentrieb: kaufen wenn alle kaufen, verkaufen wenn alle verkaufen</h2>
+<p>Der Mensch ist ein soziales Tier. Was die Gruppe tut, fühlt sich sicher an. Was die Gruppe nicht tut, fühlt sich riskant an. An der Börse führt das systematisch zu einer der teuersten Verhaltensweisen: prozyklisches Investieren.</p>
+<p>In der Euphorie der Jahre 2020 und 2021 kauften Millionen Menschen zum ersten Mal Aktien und Kryptowährungen – zu Hochkursen, getrieben von der Angst, etwas zu verpassen (englisch: FOMO, Fear of Missing Out). In der Korrektur 2022 verkauften viele von ihnen wieder – zu Tiefkursen, getrieben von Panik. Das Ergebnis: teuer gekauft, günstig verkauft. Das genaue Gegenteil von dem, was langfristig funktioniert.</p>
+<p>Das Problem ist, dass sich das Verhalten im Moment richtig anfühlt. Wenn alle kaufen, gibt es gute Nachrichten, die Stimmung ist positiv, und nicht zu kaufen fühlt sich töricht an. Wenn alle verkaufen, gibt es schlechte Nachrichten, Experten warnen, und nicht zu verkaufen fühlt sich leichtsinnig an. Die Emotion und die vernünftige Entscheidung zeigen in entgegengesetzte Richtungen.</p>
+<h2 id="anker">Der Anker-Effekt: wir kleben an Vergangenheitswerten</h2>
+<p>Wer eine Aktie für 100 Euro gekauft hat und sieht, dass sie jetzt 60 Euro wert ist, empfindet den ursprünglichen Kaufkurs als natürlichen Referenzpunkt – als „Anker". Der Gedanke lautet: „Ich verkaufe erst, wenn sie wieder auf 100 ist." Dieser Gedanke hat ökonomisch keinen Sinn.</p>
+<p>Die Aktie weiß nicht, was Sie bezahlt haben. Der Markt interessiert sich nicht für Ihren Einstandskurs. Die einzige relevante Frage ist: Würden Sie die Aktie heute, zum aktuellen Preis von 60 Euro, noch einmal kaufen? Wenn ja – halten. Die fundamentale Einschätzung ist unverändert, und der günstigere Preis ist ein Vorteil. Wenn nein – verkaufen. Dann war die ursprüngliche Entscheidung möglicherweise ein Fehler, und das Festhalten verlängert ihn nur.</p>
+<p>Der Einstiegskurs ist für diese Entscheidung irrelevant. Er beeinflusst sie trotzdem – weil der Schmerz des Verlustes so schwer wiegt, dass man lieber wartet, als ihn zu realisieren.</p>
+<h2 id="weitere">Weitere Denkfehler im Überblick</h2>
+<p>Verlustaversion, Herdentrieb und Anker-Effekt sind die drei bekanntesten – aber nicht die einzigen Muster, die uns bei Finanzentscheidungen im Weg stehen:</p>
+<ul><li><strong>Overconfidence (Selbstüberschätzung):</strong> Die meisten Menschen glauben, über dem Durchschnitt zu liegen – als Autofahrer, als Anleger, als Entscheidungsträger. An der Börse führt das zu zu häufigem Handeln, zu konzentrierten Wetten und zu unterschätzten Risiken.</li><li><strong>Recency Bias (Aktualitätsverzerrung):</strong> Was zuletzt passiert ist, wird als besonders repräsentativ für die Zukunft gesehen. Nach zehn Jahren Börsenwachstum erwartet man weiteres Wachstum. Nach einem Crash erwartet man weiteren Absturz. Beides ist falsch – aber beide Erwartungen steuern das Verhalten.</li><li><strong>Status quo Bias:</strong> Der Mensch tendiert dazu, den aktuellen Zustand beizubehalten – auch wenn eine Änderung rational besser wäre. Das erklärt, warum so viele Menschen veraltete Versicherungsverträge behalten, suboptimale Sparprodukte nicht kündigen und bekannte schlechte Entscheidungen nicht revidieren.</li><li><strong>Mental Accounting (mentale Buchführung):</strong> Geld wird je nach Herkunft oder Verwendungszweck unterschiedlich bewertet. Eine Steuerrückerstattung wird als „Geschenk" empfunden und schneller ausgegeben als dasselbe Geld aus dem laufenden Gehalt – obwohl es wirtschaftlich identisch ist.</li></ul>
+<table class="compare-table"><thead><tr><th>Denkfehler</th><th>Was er auslöst</th><th>Gegenmittel</th></tr></thead><tbody>
+<tr><td>Verlustaversion</td><td class="ct-no">Zu frühes Verkaufen bei Kursrückgang</td><td class="ct-yes">Automatisierte Sparpläne, keine tägliche Depotbeobachtung</td></tr>
+<tr><td>Herdentrieb</td><td class="ct-no">Teuer kaufen, günstig verkaufen</td><td class="ct-yes">Schriftlicher Investmentplan mit klaren Regeln</td></tr>
+<tr><td>Anker-Effekt</td><td class="ct-no">Festhalten an schlechten Positionen</td><td class="ct-yes">Entscheidungen auf Basis des heutigen Preises, nicht des Einstiegs</td></tr>
+<tr><td>Overconfidence</td><td class="ct-no">Zu häufiges Handeln, zu hohe Konzentration</td><td class="ct-yes">Breite Diversifikation, weniger Einzelwetten</td></tr>
+<tr><td>Status quo Bias</td><td class="ct-no">Suboptimale Verträge und Strukturen behalten</td><td class="ct-yes">Jährlicher Vertragscheck mit externem Blick</td></tr>
+</tbody></table>
+<h2 id="berater">Was ein guter Berater dagegen tun kann</h2>
+<p>Informationen sind heute kein knappes Gut mehr. Das Internet liefert in Sekunden mehr Finanzdaten, Analysen und Meinungen, als ein Mensch verarbeiten kann. Was knapp ist, ist die Fähigkeit, diese Informationen unter emotionalem Druck richtig einzuordnen – und trotzdem diszipliniert zu handeln.</p>
+<p>Ein guter Berater ist in diesem Zusammenhang kein Informationslieferant. Er ist ein emotionales Gegengewicht. Er stellt die richtigen Fragen, wenn man selbst keine stellen möchte. Er erinnert an den ursprünglichen Plan, wenn der aktuelle Moment dazu verleitet, ihn aufzugeben. Und er verhindert Entscheidungen, die im Moment der Panik oder der Euphorie getroffen werden – und die man wenige Monate später bereut.</p>
+<p>Das setzt voraus, dass der Berater kein Eigeninteresse daran hat, bestimmte Entscheidungen zu fördern. Ein Honorarberater, der nicht von Abschlüssen lebt, kann in einem Crash sachlich sagen: „Bleiben Sie investiert." Ein Provisionsberater, der von Umschichtungen profitiert, hat einen anderen Anreiz – auch wenn er es nicht bewusst wahrnimmt.</p>
+<div class="info-box"><div class="info-box-label">Der Wert von Disziplin</div><p>Vanguard – einer der größten Fondsanbieter der Welt – hat in einer Studie beziffert, dass ein guter Finanzberater für seinen Kunden langfristig einen Mehrwert von etwa <strong>3 % Jahresrendite</strong> erzeugen kann. Nicht durch bessere Produktauswahl – sondern durch verhaltensbedingte Beratung: Anleger davon abhalten, in Krisen zu verkaufen, und in Euphoriephasen zur Disziplin anzuhalten.</p></div>
+<h2 id="checkliste">Ihre Checkliste gegen Denkfehler</h2>
+<div class="key-takeaway"><div class="kt-icon">🧠</div><div class="kt-body"><div class="kt-label">Fünf Fragen, die Sie sich in jeder Marktphase stellen sollten</div><p class="kt-text"><strong>1. Handle ich gerade aus einem Plan heraus – oder aus einer Emotion?</strong> Wenn Sie sich nicht sicher sind, warten Sie 48 Stunden. Die meisten schlechten Finanzentscheidungen sind eilig.<br><br><strong>2. Würde ich diese Anlage heute, zum aktuellen Preis, noch einmal kaufen?</strong> Wenn ja, halten. Wenn nein, warum noch halten? Der Einstiegskurs ist kein Argument.<br><br><strong>3. Tue ich dasselbe wie alle anderen gerade?</strong> Wenn ja, ist das ein Warnsignal – nicht zwingend falsch, aber es lohnt sich, innezuhalten.<br><br><strong>4. Habe ich einen schriftlichen Investmentplan – und weiche ich gerade davon ab?</strong> Ein Plan, den man nicht aufschreibt, ist kein Plan. Er ist eine Absicht.<br><br><strong>5. Würde ich diese Entscheidung in drei Jahren für richtig halten?</strong> Der Drei-Jahres-Test ist eines der wirksamsten Mittel gegen impulsives Handeln.</p></div></div>
+<p>Disziplin über Zeit ist wichtiger als Intelligenz im Moment. Wer das versteht – und einen Partner hat, der dabei hilft, es auch in schwierigen Marktphasen umzusetzen –, hat einen echten, messbaren Vorteil gegenüber dem durchschnittlichen Privatanleger.</p>`
+  }
+];
+
+window.toggleMenu=function(){document.getElementById('burger')?.classList.toggle('open');document.getElementById('nav-mobile')?.classList.toggle('open')};
+window.closeMenu=function(){document.getElementById('burger')?.classList.remove('open');document.getElementById('nav-mobile')?.classList.remove('open')};
+
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('nav');if(nav)nav.classList.toggle('scrolled',scrollY>40);
+  const doc=document.documentElement;pct=(scrollY/Math.max(1,doc.scrollHeight-doc.clientHeight))*100;
+  const progress=document.getElementById('progress');if(progress)progress.style.width=Math.min(pct,100)+'%';
+  const headings=document.querySelectorAll('.prose h2');let activeId=null;
+  headings.forEach(h=>{if(h.offsetTop-120<=scrollY)activeId=h.id});
+  document.querySelectorAll('.toc-item').forEach(i=>{const a=i.querySelector('a');i.classList.toggle('active',a&&a.getAttribute('href')==='#'+activeId)});
+},{passive:true});
+
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.06});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+(function(){
+  const ARTICLES=window.ARTICLES||[];
+  if(!ARTICLES.length)return;
+  const params=new URLSearchParams(location.search);const id=(params.get('id')||'01').padStart(2,'0');
+  const article=ARTICLES.find(a=>a.id===id)||ARTICLES[0];const idx=ARTICLES.findIndex(a=>a.id===id);
+  const nextArt=idx>=0&&idx<ARTICLES.length-1?ARTICLES[idx+1]:null;
+  let related=ARTICLES.filter(a=>a.category===article.category&&a.id!==article.id);
+  if(related.length===0)related=ARTICLES.filter(a=>a.id!==article.id);
+  related=related.slice(0,3);
+  const [main,sub]=(article.title||'').split(' – ');
+  document.title=(article.title||'Artikel')+' – Beraterwahl';
+  document.querySelector('.art-header h1').innerHTML=main?`${main} –<br><em>${sub||''}</em>`:article.title;
+  const introEl=document.querySelector('.art-intro');
+  const m=(article.html||'').match(/<p>([^<]+)/);introEl.textContent=m?m[1].replace(/<[^>]+>/g,''):(article.preview||'');
+  document.querySelector('.breadcrumb-cur')?.setAttribute('data-cat',article.category);
+  document.querySelector('.art-cat').textContent=article.category||'';
+  document.querySelector('.art-series').textContent=`Artikel ${parseInt(article.id,10)} von ${ARTICLES.length}`;
+  const metaEls=document.querySelectorAll('.art-meta-item');
+  if(metaEls.length>=3){metaEls[0].textContent=`⏱ Lesezeit: ${(article.readTime||'').replace('ca. ','').replace(' Minuten',' Min')}`;metaEls[1].textContent='Zuletzt aktualisiert: März 2025';metaEls[2].textContent='Ohne Werbung'}
+  document.querySelector('.prose').innerHTML=article.html;
+  const toc=article.toc||[];document.querySelector('.toc-list').innerHTML=toc.map(t=>`<li class="toc-item"><a href="#${t.id}">${t.label}</a></li>`).join('');
+  const aicVals=document.querySelectorAll('.aic-val');if(aicVals.length>=4){aicVals[0].textContent=article.category||'';aicVals[1].textContent=(article.readTime||'').replace('ca. ','ca. ');aicVals[2].textContent=article.focus||'Alle Interessierten';aicVals[3].textContent='Neutral, ohne Produktplatzierung'}
+  const tags=article.tags||[];const tagsEl=document.getElementById('art-tags');
+  function esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  tagsEl.innerHTML=tags.map(t=>`<span class="art-tag">${esc(t)}</span>`).join('');
+  const relGrid=document.getElementById('related-grid');relGrid.innerHTML=related.map(a=>`<a href="article.html?id=${a.id}" class="related-card"><div class="rc-cat">${esc(a.category)}</div><div class="rc-title">${esc(a.title)}</div><div class="rc-time">${(a.readTime||'').replace('ca. ','').replace(' Minuten',' Min')}</div><span class="rc-read">Weiterlesen</span></a>`).join('');
+  const nextLink=document.getElementById('next-art-link');if(nextLink){if(nextArt){nextLink.href=`article.html?id=${nextArt.id}`;nextLink.textContent=`Nächster Artikel: ${nextArt.title.split(' – ')[0]}`;nextLink.style.display=''}else nextLink.style.display='none'}
+})();
+</script>
+</body>
+</html>

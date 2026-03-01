@@ -268,7 +268,7 @@
       listEl.innerHTML = pageAdvisors.map((a, i) => renderAdvisorCard(a, start + i)).join('');
     }
 
-    if (countEl) countEl.textContent = `${total} Berater · Seite ${currentPage} von ${totalPages}`;
+    if (countEl) countEl.textContent = totalPages > 1 ? `${total} geprüfte Berater · Seite ${currentPage} von ${totalPages}` : `${total} geprüfte Berater in Deutschland`;
 
     if (pagEl) {
       let html = `<button class="pg-btn ${currentPage <= 1 ? 'disabled' : ''}" onclick="changePage(-1)">← Zurück</button>`;

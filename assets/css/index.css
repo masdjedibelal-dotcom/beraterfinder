@@ -491,6 +491,7 @@ button { font-family: var(--sans); cursor: pointer; }
   gap: 12px;
   flex-wrap: nowrap;
 }
+.know-head-p { margin-top: 10px; font-size: .95rem; color: var(--text-2); line-height: 1.6; max-width: 480px; }
 .know-head-l h2 {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);

@@ -15,10 +15,10 @@ const ARTS = {
 };
 
 const MODELS = {
-  'Honorar': { ico:'compass', name:'Vertreter einer Versicherung', desc:'Arbeitet im Auftrag einer Versicherungsgesellschaft und erhält bei Abschluss eine Vermittlungsprovision von der Versicherung.' },
-  'Makler':  { ico:'telescope', name:'Unabhängiger Makler', desc:'Arbeitet im Auftrag des Versicherungsnehmers, kann aus vielen Anbietern wählen und erhält bei Abschluss eine Provision.' },
-  'Spezialist': { ico:'target', name:'Honorarberater', desc:'Wird direkt von dir nach Stundensatz bezahlt. Keine Vermittlungsprovision, keine Produktbindung.' },
-  'Egal':    { ico:'compass', name:'Noch unsicher', desc:'Die Auswertung hilft dir bei der Einordnung.' },
+  'Honorar': { ico:'compass', name:'Honorar-Berater', desc:'Sie zahlen direkt – dafür arbeitet der Berater ausschließlich für Sie, ohne Provisionen.' },
+  'Makler':  { ico:'telescope', name:'Freier Makler', desc:'Zugang zu hunderten Anbietern, vergütet über Provision – für Sie oft ohne Extrakosten.' },
+  'Spezialist': { ico:'target', name:'Spezialist', desc:'Tiefe Expertise in einem Thema – z. B. ausschließlich BU, PKV oder Immobilienfinanzierung.' },
+  'Egal':    { ico:'compass', name:'Noch unsicher', desc:'Die Auswertung hilft Ihnen bei der Einordnung.' },
 };
 
 function pick(btn, key, tag, label) {
@@ -88,11 +88,11 @@ function showResult() {
     if (ls && i <= TOTAL) ls.classList.add('done');
   }
   document.getElementById('fpf').style.width = '100%';
-  document.getElementById('nav-step').textContent = 'Auswertung';
+  document.getElementById('nav-step').textContent = 'Ihre Empfehlung';
 
   // Build summary
   const city = document.getElementById('fn-plz')?.value;
-  const locStr = S.logistik === 'vor_ort' ? ` In der Nähe von <strong>${city || 'deinem Ort'}</strong>.`
+  const locStr = S.logistik === 'vor_ort' ? ` In der Nähe von <strong>${city || 'Ihrem Ort'}</strong>.`
     : S.logistik === 'digital' ? ' Digital per Video-Call.'
     : ' Örtliche Nähe ist nicht entscheidend.';
 

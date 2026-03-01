@@ -198,6 +198,7 @@
     });
     updateFilterBadge();
   }
+  window.applyFiltersFromUI = applyFiltersFromUI;
 
   function renderAdvisorCard(adv, index) {
     const rating = (adv.rating || '').toString().replace('.', ',');
